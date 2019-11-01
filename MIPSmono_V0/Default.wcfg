@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSmono_V0/MIPS_monocycle_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="mips_monocycle_tb" />
+            <top_module name="mips_package" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="textio" />
+            <top_module name="util_package" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="10" />
+   <wvobject fp_name="/mips_monocycle_tb/clock" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/memwrite" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">memwrite</obj_property>
+      <obj_property name="ObjectShortName">memwrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/instructionaddress" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instructionaddress[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instructionaddress[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/dataaddress" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dataaddress[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dataaddress[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/instruction" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instruction[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instruction[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/data_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/data_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_o[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/uins" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">uins</obj_property>
+      <obj_property name="ObjectShortName">uins</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/memoryarray" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">memoryarray[0:10]</obj_property>
+      <obj_property name="ObjectShortName">memoryarray[0:10]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/memoryarray[0]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[0]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[0]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/memoryarray[1]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[1]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[1]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/memoryarray[2]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[2]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[2]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/memoryarray[3]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[3]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[3]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/memoryarray[4]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[4]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[4]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/memoryarray[5]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[5]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[5]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/memoryarray[6]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[6]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/memoryarray[7]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[7]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/memoryarray[8]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[8]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[8]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/memoryarray[9]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[9]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[9]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/memoryarray[10]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[10]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[10]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

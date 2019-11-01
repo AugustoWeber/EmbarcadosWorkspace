@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_V2/MIPS_monocycle_tb_isim_beh.exe" -prj "/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_V2/MIPS_monocycle_tb_beh.prj" "work.MIPS_monocycle_tb" 

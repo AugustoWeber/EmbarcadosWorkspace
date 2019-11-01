@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/augusto/Desktop/Embarcados/ISE_Workspace/Arke_V0/NoC_tb_isim_beh.exe" -prj "/home/augusto/Desktop/Embarcados/ISE_Workspace/Arke_V0/NoC_tb_beh.prj" "work.NoC_tb" 

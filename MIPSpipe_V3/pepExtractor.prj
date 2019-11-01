@@ -1,0 +1,3 @@
+work	"MIPS_package.vhd"
+work	"branchPrediction.vhd"
+work	"preditor_desvio.vhd"

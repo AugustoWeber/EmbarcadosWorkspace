@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/padilha/Programas/14.7/ISE_DS/pipeV2/MIPS_monocycle_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="mips_monocycle_tb" />
+            <top_module name="mips_package" />
+            <top_module name="numeric_std" />
+            <top_module name="std_logic_1164" />
+            <top_module name="textio" />
+            <top_module name="util_package" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="42" />
+   <wvobject fp_name="group56" type="group">
+      <obj_property name="label">Memoria</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/clock" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clock</obj_property>
+         <obj_property name="ObjectShortName">clock</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/memwrite" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">memwrite</obj_property>
+         <obj_property name="ObjectShortName">memwrite</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/address" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">address[31:0]</obj_property>
+         <obj_property name="ObjectShortName">address[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/data_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">data_i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">data_i[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/data_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">data_o[31:0]</obj_property>
+         <obj_property name="ObjectShortName">data_o[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe2.uins.instruction" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.instruction</obj_property>
+         <obj_property name="ObjectShortName">pipe2.uins.instruction</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe3.uins.instruction" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.instruction</obj_property>
+         <obj_property name="ObjectShortName">pipe3.uins.instruction</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe4.uins.instruction" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.instruction</obj_property>
+         <obj_property name="ObjectShortName">pipe4.uins.instruction</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/memoryarray" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">memoryarray[0:105]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[0:105]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/wordaddress" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">wordaddress[31:0]</obj_property>
+         <obj_property name="ObjectShortName">wordaddress[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/mappedaddress" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">mappedaddress[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mappedaddress[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/size" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">size</obj_property>
+         <obj_property name="ObjectShortName">size</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/start_address" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">start_address[31:0]</obj_property>
+         <obj_property name="ObjectShortName">start_address[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/DATA_MEMORY/imagefilename" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">imagefilename[1:13]</obj_property>
+         <obj_property name="ObjectShortName">imagefilename[1:13]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group68" type="group">
+      <obj_property name="label">InstructionMem</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/mips_monocycle_tb/INSTRUCTION_MEMORY/clock" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clock</obj_property>
+         <obj_property name="ObjectShortName">clock</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/INSTRUCTION_MEMORY/memwrite" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">memwrite</obj_property>
+         <obj_property name="ObjectShortName">memwrite</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/INSTRUCTION_MEMORY/address" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">address[31:0]</obj_property>
+         <obj_property name="ObjectShortName">address[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/INSTRUCTION_MEMORY/data_i" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">data_i[31:0]</obj_property>
+         <obj_property name="ObjectShortName">data_i[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/INSTRUCTION_MEMORY/data_o" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">data_o[31:0]</obj_property>
+         <obj_property name="ObjectShortName">data_o[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/INSTRUCTION_MEMORY/memoryarray" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">memoryarray[0:200]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[0:200]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/INSTRUCTION_MEMORY/wordaddress" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">wordaddress[31:0]</obj_property>
+         <obj_property name="ObjectShortName">wordaddress[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/INSTRUCTION_MEMORY/mappedaddress" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">mappedaddress[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mappedaddress[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/INSTRUCTION_MEMORY/size" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">size</obj_property>
+         <obj_property name="ObjectShortName">size</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/INSTRUCTION_MEMORY/start_address" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">start_address[31:0]</obj_property>
+         <obj_property name="ObjectShortName">start_address[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/INSTRUCTION_MEMORY/imagefilename" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">imagefilename[1:26]</obj_property>
+         <obj_property name="ObjectShortName">imagefilename[1:26]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group214" type="group">
+      <obj_property name="label">Banco Registradores</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/REGISTER_FILE/clock" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clock</obj_property>
+         <obj_property name="ObjectShortName">clock</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/clk" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clk</obj_property>
+         <obj_property name="ObjectShortName">clk</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/clock" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">clock</obj_property>
+         <obj_property name="ObjectShortName">clock</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/REGISTER_FILE/reset" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">reset</obj_property>
+         <obj_property name="ObjectShortName">reset</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/REGISTER_FILE/write" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">write</obj_property>
+         <obj_property name="ObjectShortName">write</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/REGISTER_FILE/readregister1" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">readregister1[4:0]</obj_property>
+         <obj_property name="ObjectShortName">readregister1[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/REGISTER_FILE/readregister2" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">readregister2[4:0]</obj_property>
+         <obj_property name="ObjectShortName">readregister2[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/REGISTER_FILE/writeregister" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">writeregister[4:0]</obj_property>
+         <obj_property name="ObjectShortName">writeregister[4:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/REGISTER_FILE/writedata" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">writedata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">writedata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/REGISTER_FILE/readdata1" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">readdata1[31:0]</obj_property>
+         <obj_property name="ObjectShortName">readdata1[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/REGISTER_FILE/readdata2" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">readdata2[31:0]</obj_property>
+         <obj_property name="ObjectShortName">readdata2[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/REGISTER_FILE/reg" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">reg[0:31]</obj_property>
+         <obj_property name="ObjectShortName">reg[0:31]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/REGISTER_FILE/writeenable" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">writeenable[31:0]</obj_property>
+         <obj_property name="ObjectShortName">writeenable[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe2.uins.instruction" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.instruction</obj_property>
+         <obj_property name="ObjectShortName">pipe2.uins.instruction</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe3.uins.instruction" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.instruction</obj_property>
+         <obj_property name="ObjectShortName">pipe3.uins.instruction</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe4.uins.instruction" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">.instruction</obj_property>
+         <obj_property name="ObjectShortName">pipe4.uins.instruction</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group223" type="group">
+      <obj_property name="label">ULA</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/ALU/operand1" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">operand1[31:0]</obj_property>
+         <obj_property name="ObjectShortName">operand1[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/ALU/operand2" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">operand2[31:0]</obj_property>
+         <obj_property name="ObjectShortName">operand2[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/ALU/result" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">result[31:0]</obj_property>
+         <obj_property name="ObjectShortName">result[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/ALU/zero" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">zero</obj_property>
+         <obj_property name="ObjectShortName">zero</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/ALU/operation" type="other" db_ref_id="1">
+         <obj_property name="ElementShortName">operation</obj_property>
+         <obj_property name="ObjectShortName">operation</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/ALU/temp" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">temp[31:0]</obj_property>
+         <obj_property name="ObjectShortName">temp[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/ALU/op1" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">op1[31:0]</obj_property>
+         <obj_property name="ObjectShortName">op1[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/ALU/op2" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">op2[31:0]</obj_property>
+         <obj_property name="ObjectShortName">op2[31:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/reset" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/instructionaddress" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instructionaddress[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instructionaddress[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/instruction" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instruction[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instruction[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/dataaddress" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">dataaddress[31:0]</obj_property>
+      <obj_property name="ObjectShortName">dataaddress[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/data_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/data_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_o[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/uins" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">uins</obj_property>
+      <obj_property name="ObjectShortName">uins</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/instr_contrl" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instr_contrl[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instr_contrl[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/memwrite" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">memwrite</obj_property>
+      <obj_property name="ObjectShortName">memwrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/incrementedpc" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">incrementedpc[31:0]</obj_property>
+      <obj_property name="ObjectShortName">incrementedpc[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/result" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">result[31:0]</obj_property>
+      <obj_property name="ObjectShortName">result[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/readdata1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">readdata1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">readdata1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/readdata2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">readdata2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">readdata2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/aluoperand1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">aluoperand1[31:0]</obj_property>
+      <obj_property name="ObjectShortName">aluoperand1[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/aluoperand2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">aluoperand2[31:0]</obj_property>
+      <obj_property name="ObjectShortName">aluoperand2[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/signextended" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">signextended[31:0]</obj_property>
+      <obj_property name="ObjectShortName">signextended[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/zeroextended" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">zeroextended[31:0]</obj_property>
+      <obj_property name="ObjectShortName">zeroextended[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/writedata" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">writedata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">writedata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/branchoffset" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">branchoffset[31:0]</obj_property>
+      <obj_property name="ObjectShortName">branchoffset[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/branchtarget" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">branchtarget[31:0]</obj_property>
+      <obj_property name="ObjectShortName">branchtarget[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pc_q" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pc_q[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_q[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pc_d" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pc_d[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_d[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/jumptarget" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">jumptarget[31:0]</obj_property>
+      <obj_property name="ObjectShortName">jumptarget[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/writeregister" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">writeregister[4:0]</obj_property>
+      <obj_property name="ObjectShortName">writeregister[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/rs" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rs[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rs[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/rt" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rt[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rt[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/rd" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">rd[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rd[4:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/zero" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">zero</obj_property>
+      <obj_property name="ObjectShortName">zero</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/clock" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clock</obj_property>
+      <obj_property name="ObjectShortName">clock</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/regwrite" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">regwrite</obj_property>
+      <obj_property name="ObjectShortName">regwrite</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/bouble" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">bouble</obj_property>
+      <obj_property name="ObjectShortName">bouble</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipeclean" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">pipeclean</obj_property>
+      <obj_property name="ObjectShortName">pipeclean</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe1" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pipe1</obj_property>
+      <obj_property name="ObjectShortName">pipe1</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe2" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pipe2</obj_property>
+      <obj_property name="ObjectShortName">pipe2</obj_property>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe2.uins" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.uins</obj_property>
+         <obj_property name="ObjectShortName">pipe2.uins</obj_property>
+         <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe2.uins.regwrite" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">.regwrite</obj_property>
+            <obj_property name="ObjectShortName">pipe2.uins.regwrite</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe2.uins.alusrc" type="array" db_ref_id="1">
+            <obj_property name="ElementShortName">.alusrc</obj_property>
+            <obj_property name="ObjectShortName">pipe2.uins.alusrc</obj_property>
+            <obj_property name="Radix">BINARYRADIX</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe2.uins.regdst" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">.regdst</obj_property>
+            <obj_property name="ObjectShortName">pipe2.uins.regdst</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe2.uins.memtoreg" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">.memtoreg</obj_property>
+            <obj_property name="ObjectShortName">pipe2.uins.memtoreg</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe2.uins.memwrite" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">.memwrite</obj_property>
+            <obj_property name="ObjectShortName">pipe2.uins.memwrite</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe2.uins.branch" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">.branch</obj_property>
+            <obj_property name="ObjectShortName">pipe2.uins.branch</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe2.uins.jump" type="logic" db_ref_id="1">
+            <obj_property name="ElementShortName">.jump</obj_property>
+            <obj_property name="ObjectShortName">pipe2.uins.jump</obj_property>
+         </wvobject>
+         <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe2.uins.instruction" type="other" db_ref_id="1">
+            <obj_property name="ElementShortName">.instruction</obj_property>
+            <obj_property name="ObjectShortName">pipe2.uins.instruction</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe2.pc" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.pc</obj_property>
+         <obj_property name="ObjectShortName">pipe2.pc</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe2.rb" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.rb</obj_property>
+         <obj_property name="ObjectShortName">pipe2.rb</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe2.ra" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.ra</obj_property>
+         <obj_property name="ObjectShortName">pipe2.ra</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe2.imm" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.imm</obj_property>
+         <obj_property name="ObjectShortName">pipe2.imm</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe2.rt" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.rt</obj_property>
+         <obj_property name="ObjectShortName">pipe2.rt</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe2.rd" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.rd</obj_property>
+         <obj_property name="ObjectShortName">pipe2.rd</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe2.rs" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.rs</obj_property>
+         <obj_property name="ObjectShortName">pipe2.rs</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe2.jumptarget" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.jumptarget</obj_property>
+         <obj_property name="ObjectShortName">pipe2.jumptarget</obj_property>
+      </wvobject>
+      <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe2.zeroextended" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">.zeroextended</obj_property>
+         <obj_property name="ObjectShortName">pipe2.zeroextended</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe3" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pipe3</obj_property>
+      <obj_property name="ObjectShortName">pipe3</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pipe4" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pipe4</obj_property>
+      <obj_property name="ObjectShortName">pipe4</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mips_monocycle_tb/MIPS_MONOCYCLE/DATA_PATH/pc_start_address" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">pc_start_address</obj_property>
+      <obj_property name="ObjectShortName">pc_start_address</obj_property>
+   </wvobject>
+</wave_config>

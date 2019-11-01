@@ -1,0 +1,48 @@
+ Address    Code        Basic                     Source
+
+0x00400000  0x00000000  nop                   4    	nop
+0x00400004  0x00000000  nop                   5    	nop 
+0x00400008  0x00000000  nop                   6    	nop 
+0x0040000c  0x3c011001  lui $1,0x00001001     8    	lui $at, 0x00001001
+0x00400010  0x34280000  ori $8,$1,0x00000000  10   	ori $t0, $at,0x0000000
+0x00400014  0x8d190000  lw $25,0x00000000($8) 11   	lw $t9,0($t0)
+0x00400018  0x24090000  addiu $9,$0,0x0000000013   	addiu $t1,$zero,0
+0x0040001c  0x03204021  addu $8,$25,$0        14   	addu $t0,$t9,$zero
+0x00400020  0x11000003  beq $8,$0,0x00000003  16   	beq   $t0,$zero, multi_end 
+0x00400024  0x25290004  addiu $9,$9,0x0000000417   	addiu $t1,$t1,4
+0x00400028  0x2508ffff  addiu $8,$8,0xffffffff18   	addiu $t0,$t0,-1
+0x0040002c  0x08100008  j 0x00400020          20   	j multi
+0x00400030  0x0120c821  addu $25,$9,$0        23   	addu $t9,$t1,$zero   #size
+0x00400034  0x240d0000  addiu $13,$0,0x000000024   	addiu $t5,$zero,0 #i=0
+0x00400038  0x2728fffc  addiu $8,$25,0xfffffff27   	addiu $t0,$t9,-4    #size-1
+0x0040003c  0x11a8001a  beq $13,$8,0x0000001a 28   	beq $t5,$t0,for_end
+0x00400040  0x01a0c021  addu $24,$13,$0       29   	addu $t8,$t5,$zero     # min = i
+0x00400044  0x25ac0004  addiu $12,$13,0x00000030   	addiu $t4,$t5,4    #j = i+1
+0x00400048  0x1199000b  beq $12,$25,0x0000000b32   		beq $t4,$t9,forj_end
+0x0040004c  0x3c011001  lui $1,0x00001001     34   		lui $at, 0x00001001
+0x00400050  0x34290004  ori $9,$1,0x00000004  35   		ori $t1,$at,0x00000004
+0x00400054  0x012c4021  addu $8,$9,$12        36   		addu $t0,$t1,$t4 
+0x00400058  0x8d0b0000  lw $11,0x00000000($8) 37   		lw $t3,0($t0)  #array[j]
+0x0040005c  0x01384021  addu $8,$9,$24        39   		addu $t0,$t1,$t8
+0x00400060  0x8d0e0000  lw $14,0x00000000($8) 40   		lw  $t6,0($t0) #array[min]
+0x00400064  0x016e402a  slt $8,$11,$14        41   		slt $t0,$t3,$t6		#se array[j] < array[min] t0 <= 1
+0x00400068  0x11000001  beq $8,$0,0x00000001  42   		beq $t0,$zero,end_if1
+0x0040006c  0x0180c021  addu $24,$12,$0       43   		addu $t8,$t4,$zero
+0x00400070  0x258c0004  addiu $12,$12,0x00000047   		addiu $t4,$t4,4    #j++
+0x00400074  0x08100012  j 0x00400048          49   		j for_loopj
+0x00400078  0x11b80009  beq $13,$24,0x0000000951   		beq $t5,$t8, end_if
+0x0040007c  0x012d4021  addu $8,$9,$13        52   		addu $t0,$t1,$t5
+0x00400080  0x8d0f0000  lw $15,0x00000000($8) 54   		lw $t7,0($t0) #aux
+0x00400084  0x01385021  addu $10,$9,$24       57   		addu $t2,$t1,$t8 
+0x00400088  0x8d4e0000  lw $14,0x00000000($10)59   		lw  $t6,0($t2) #array[min]
+0x0040008c  0x00000000  nop                   60   		nop
+0x00400090  0x00000000  nop                   61   		nop
+0x00400094  0x00000000  nop                   62   		nop
+0x00400098  0xad4f0000  sw $15,0x00000000($10)63   		sw $t7,0($t2)
+0x0040009c  0xad0e0000  sw $14,0x00000000($8) 64   		sw $t6,0($t0)			
+0x004000a0  0x25ad0004  addiu $13,$13,0x00000066   		addiu $t5,$t5,4	
+0x004000a4  0x0810000e  j 0x00400038          68   	j for_loop1
+0x004000a8  0x0810002a  j 0x004000a8          72   	j end 
+0x004000ac  0x00000000  nop                   73   	nop
+0x004000b0  0x00000000  nop                   74   	nop
+0x004000b4  0x00000000  nop                   75   	nop

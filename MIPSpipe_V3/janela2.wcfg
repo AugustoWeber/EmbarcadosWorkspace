@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="/home/padilha/Programas/14.7/ISE_DS/pipeV2/branch_table_tb_isim_beh.wdb" id="1" type="auto">
+         <top_modules>
+            <top_module name="branch_table_tb" />
+            <top_module name="std_logic_1164" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <WVObjectSize size="25" />
+   <wvobject fp_name="/branch_table_tb/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/endereco_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">endereco_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">endereco_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/pc_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pc_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/incluir" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">incluir</obj_property>
+      <obj_property name="ObjectShortName">incluir</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/pc_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pc_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/endereco_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">endereco_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">endereco_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/achou_out" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">achou_out</obj_property>
+      <obj_property name="ObjectShortName">achou_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/clk_period" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">clk_period</obj_property>
+      <obj_property name="ObjectShortName">clk_period</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/uut/clk" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/uut/rst" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/uut/pc_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pc_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/uut/pc_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pc_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/uut/endereco_in" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">endereco_in[31:0]</obj_property>
+      <obj_property name="ObjectShortName">endereco_in[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/uut/endereco_out" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">endereco_out[31:0]</obj_property>
+      <obj_property name="ObjectShortName">endereco_out[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/uut/achou_out" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">achou_out</obj_property>
+      <obj_property name="ObjectShortName">achou_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/uut/incluir" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">incluir</obj_property>
+      <obj_property name="ObjectShortName">incluir</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/uut/pc" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pc[0:7]</obj_property>
+      <obj_property name="ObjectShortName">pc[0:7]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/uut/pc_save" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pc_save[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_save[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/uut/endereco" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">endereco[0:7]</obj_property>
+      <obj_property name="ObjectShortName">endereco[0:7]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/uut/include_index" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">include_index</obj_property>
+      <obj_property name="ObjectShortName">include_index</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/uut/out_index" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">out_index</obj_property>
+      <obj_property name="ObjectShortName">out_index</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/uut/achou" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">achou</obj_property>
+      <obj_property name="ObjectShortName">achou</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/uut/i" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">i</obj_property>
+      <obj_property name="ObjectShortName">i</obj_property>
+   </wvobject>
+   <wvobject fp_name="/branch_table_tb/uut/size" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">size</obj_property>
+      <obj_property name="ObjectShortName">size</obj_property>
+   </wvobject>
+</wave_config>

@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_V3/preditor_branch_isim_beh.exe" -prj "/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_V3/preditor_branch_beh.prj" "work.preditor_branch" 

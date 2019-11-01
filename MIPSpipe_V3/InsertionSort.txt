@@ -1,0 +1,33 @@
+ Address    Code        Basic                     Source
+
+0x00400000  0x00000000  nop                   33       nop
+0x00400004  0x00000000  nop                   34       nop
+0x00400008  0x3c011001  lui $1,0x00001001     35       lui $at, 0x1001
+0x0040000c  0x8c290000  lw $9,0x00000000($1)  36       lw $t1,0($at)   # $t1 <= size
+0x00400010  0x34280004  ori $8,$1,0x00000004  37       ori $t0, $at, 4 # & ARRAY
+0x00400014  0x01294821  addu $9,$9,$9         38       addu $t1, $t1, $t1 # SIZE * 2
+0x00400018  0x240b0004  addiu $11,$0,0x000000039       addiu $t3, $zero, 4 # I = 1 *4
+0x0040001c  0x01294821  addu $9,$9,$9         40       addu $t1, $t1, $t1 # SIZE * 4
+0x00400020  0x11690012  beq $11,$9,0x00000012 43       beq $t3,$t1,fim # I == SIZE fim do FOR
+0x00400024  0x010b7021  addu $14,$8,$11       44       addu $t6, $t0, $t3# aux = &ARRAY + I*4
+0x00400028  0x8dca0000  lw $10,0x00000000($14)45       lw $t2, 0($t6)  # ELEITO <- array[I]
+0x0040002c  0x256cfffc  addiu $12,$11,0xffffff46       addiu $t4, $t3, -4  # J = I - 1
+0x00400030  0x258e0004  addiu $14,$12,0x00000050       addiu $t6, $t4, 4  # aux = j+1
+0x00400034  0x000e702a  slt $14,$0,$14        51       slt $t6, $zero, $t6 # Se j-1 > 0 ou j >= 0, $t6 = 1 
+0x00400038  0x11c00008  beq $14,$0,0x00000008 52       beq $t6, $zero, while_exit  # J < 0
+0x0040003c  0x010c7021  addu $14,$8,$12       53       addu $t6, $t0, $t4# aux = &ARRAY + J*4
+0x00400040  0x8dcd0000  lw $13,0x00000000($14)54       lw $t5,0($t6)  # array[j]
+0x00400044  0x014d702a  slt $14,$10,$13       55       slt $t6, $t2, $t5  #$t6 <= eleito < array[j]
+0x00400048  0x11c00004  beq $14,$0,0x00000004 56       beq $t6, $zero, while_exit # ELEITO < ARRAY[J] => exit
+0x0040004c  0x010c7021  addu $14,$8,$12       59       addu $t6, $t0, $t4  # aux <= &array[j]
+0x00400050  0xadcd0004  sw $13,0x00000004($14)60       sw $t5,4($t6)       # array[j+1] = array[j]
+0x00400054  0x258cfffc  addiu $12,$12,0xffffff61       addiu $t4, $t4, -4   # j --
+0x00400058  0x0810000c  j 0x00400030          62       j while # fim do while
+0x0040005c  0x010c7021  addu $14,$8,$12       66       addu $t6, $t0, $t4  # aux <= &array[j]
+0x00400060  0xadca0004  sw $10,0x00000004($14)67       sw $t2,4($t6)       # array[j+1] = ELEITO
+0x00400064  0x256b0004  addiu $11,$11,0x00000068       addiu $t3, $t3, 4   # i++  
+0x00400068  0x08100008  j 0x00400020          69       j for    # Fim do for
+0x0040006c  0x0810001b  j 0x0040006c          72      j fim
+0x00400070  0x00000000  nop                   73      nop
+0x00400074  0x00000000  nop                   74      nop
+0x00400078  0x00000000  nop                   75      nop
