@@ -1,6 +1,9 @@
 --------------------------------------------------------------------------------------
 -- DESIGN UNIT  : DMA                                                               --
--- DESCRIPTION  :                                                                   --
+-- DESCRIPTION  : The PKG int the memory have:                                      --
+--                  1st Addr: Size (don't count in pkg size; Start count in 0)      --
+--                  2nd Addr: Target IP                                             --
+--                  ...     : Flits                                                 --
 -- AUTHOR       : Augusto Weber, Guilherme Carvalho, Wilim Padilha                  --
 -- CREATED      : Nov 1st, 2019                                                     --
 -- VERSION      : v1.0                                                              --
@@ -17,7 +20,8 @@ entity DMA is
     generic(
         reg_status  : std_logic_vector(31 downto 0) := x"08000000";     -- Addr STATUS
         reg_TX_mem  : std_logic_vector(31 downto 0) := x"08000004";     -- Addr TX mem addr
-        reg_RX_mem  : std_logic_vector(31 downto 0) := x"08000008"      -- Addr RX mem addr
+        reg_RX_mem  : std_logic_vector(31 downto 0) := x"08000008";     -- Addr RX mem addr
+        IP_Addr     : std_logic_vector(12 downto 0) := x"000"
     )
     port(
         clk         : in std_logic;
@@ -67,31 +71,35 @@ architecture behavioral of DMA is
     alias STALL_TX  : std_logic is control_in(STALL_GO);
 
 
-    type States is (Idle, Size, Tx/Rx, EndPkg);
-    -- Idel - Start_TX/RX = '0' and Sending/Reciving = '0'
-    -- Size - Read/Write the pkg size
-    -- TX/RX - Start become '1' Sending/Reciving = '1'
-    -- EndPkg - Tx send EOP signal = '1'
-    signal TXstate: States;
-    signal RXstate: States;
+    type States is (S0, S1, S2);
+    -- S0 - Idle - Start_TX/RX = '0' and Sending/Reciving = '0'
+    -- S1 - Size - Read/Write the pkg size
+    -- S2 - TX/RX - Start become '1' Sending/Reciving = '1'
+    signal TX_FSM: States;
+    signal RX_FSM: States;
 
     signal RX_pkg_size  : std_logic_vector (31 downto 0);
     signal RX_pkg_write : std_logic_vector (31 downto 0);
+    signal recived      : std_logic_vector (31 downto 0);   -- Total of flits recived
+
+    signal TX_pkg_size  : std_logic_vector (31 downto 0);
+    signal transmited   : std_logic_vector (31 downto 0);   -- Total of flits transmited
 
 begin
 
 
     MEM_data_o <= MIPS_data when halt = '0' else
-                  XXXXXXXXXXXXXX;
+                  data_in when Reciving = '1' and RX = '1';
 
-    MEM_write <= MemWrite when halt = '0'
+    MEM_write_o <=  MemWrite when halt = '0' else
+                    '1' when Reciving = '1' and RX = '1' else
+                    '0';
 
     MEM_addr_o <= MEM_addr;
     MEM_addr <= MIPS_addr_i when Sending = '0' and Reciving = '0' else
                 reg_TX_mem when Sending = '1' else
                 RX_pkg_write;-- when Reciving = '0';
 
-    RX_pkg_write <= reg_RX_mem + RX_pkg_size(29 downto 0) & "00"; -- Base(reg_RX_mem) + RX_pkg_size*4
 
     control_out(EOP) <= EOP_TX;
     control_out(1) <= TX;
@@ -102,77 +110,90 @@ begin
 --                          SENDING                                     --
 --                                                                      --
 --------------------------------------------------------------------------
-    process(clk, rst) --Status register
+-- Sending FSM
+    process(clk, rst)
     begin
         if rst = '1' then
-            Reciving = '0';
-            Sending  = '0';
-            Start_RX = '0';
-            Start_TX = '0';
+            TX_FSM <= S0;
+            TX <= '0';
         elsif rising_edge(clk) then
-            if Reciving = '1' then
-                Start_RX = '0';
-            end if;
-            if Sending = '1' then
-                Start_TX = '0';
-            end if;
+            case TX_FSM is
+                when S0 =>      -- Wait for the Start_TX in the STATUS register
+                        if Start_TX = '1' then
+                            Sending <= '1';
+                            TX_FSM <= S1;
+                            MEM_addr_o <= reg_TX_mem;
+                            TX_pkg_size <= MEM_data_i;  -- Recive the first data from the memory (size of pkg)
+                            transmited <= x"00000000";
+                        else
+                            Sending <= '0';
+                        end if;
+                when S1 =>      -- Start transmiting the PKG
+                        Start_TX <= '0';
+                        if STALL_TX = '1' then
+                            MEM_addr_o <= reg_TX_mem + transmited(29 downto 0) & "00";
+                            data_out <= MEM_data_i;
+                            TX <= '1';
+                            if transmited = TX_pkg_size then    -- Send the last flit and the EOP signal.
+                                EOP_TX <= '1';
+                                TX_FSM <= S2;
+                            else
+                                EOP_TX <= '0';
+                            end if;
+                            transmited <= transmited + x"00000001";
+                        end if;
+                when S2 =>      -- Restart the FSM
+                            EOP_TX <= '0';
+                            Sending <= '0';
+                            TX_FSM <= S0;
+            end case;
         end if;
     end process;
-
 --------------------------------------------------------------------------
 --                                                                      --
 --                          RECIVING                                    --
 --                                                                      --
 --------------------------------------------------------------------------
+
+
     -- Reciving FSM
     process(clk, rst)
     begin
         if rst = '1' then
-            START_RX <= '0';
-            RXState <= Idle;
+            RX_FSM <= S0;
         elsif rising_edge(clk) then
-            case RXstate is
-                when Idle =>
-                        Reciving <= '0';
-                        if Start_RX = '1' then
-                            RXstate <= TX/RX;
+            case RX_FSM is
+                when S0 =>      -- Wait for the Start_RX in the STATUS register
+                        if Start_TX = '1' then
+                            Reciving <= '1';
+                            RX_FSM <= S1;
+                            recived <= x"00000001";
+                        else
+                            Reciving <= '0';
                         end if;
-                when TX/RX =>
+                when S1 =>      -- Start Reciving the flits
                         Reciving <= '1';
-                        if EOP_RX = '1' then
-                            RXstate <= Size;
+                        STALL_RX <= '1';
+                        if RX = '1' then
+                            RX_pkg_write <= reg_RX_mem + RX_pkg_size(29 downto 0) & "00"; -- Base(reg_RX_mem) + RX_pkg_size*4
+                            if EOP_RX = '1' then
+                                RXstate <= S2;
+                            end if;
+                            recived <= recived + x"00000001";
                         end if;
-                when Size =>
-                        RXstate <= Idle
-                        -- Write in the first addr the size of the pkg
-                others =>
-                    RXstate <= Idle;
+                when S2 =>
+                        RXstate <= S0
+                        RX_pkg_write <= recived - x"00000001";    -- Write in the first addr the size of the pkg
             end case;
         end if;
     end process;
 
-    -- Process to get the flits from the NoC
-    process(clk,rst)
-    begin
-    if rst = '1' then
-        STALL_RX <= '0';
-    elsif rising_edge(clk) then
-        if reciving = '1'
-            when S0 => --Wait for flit
-                if RX = '1' then --Reciving flit
-                    flit_in <= data_in;
-                    RXState <= S1;
-                else
-                    STALL_RX <= '1';
-                    RXState <= S0;
-                end if;
-            when S1 =>
-                if dataAddress = NoC_addr_data_in and write = '0' then
-                    STALL_RX <= '1'; --Register was read;
-                    RXState <= S0;
-                end if;
-        end if;
-    end if;
-end process;
+--------------------------------------------------------------------------
+--                                                                      --
+--                             HALT                                     --
+--                                                                      --
+--------------------------------------------------------------------------
+
+halt <= '1' when Sending = '1' or Reciving = '1' else '0';
 
 end behavioral;
