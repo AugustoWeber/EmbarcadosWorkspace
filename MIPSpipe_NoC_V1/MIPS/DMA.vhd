@@ -194,6 +194,6 @@ begin
 --                                                                      --
 --------------------------------------------------------------------------
 
-halt <= '1' when Sending = '1' or Reciving = '1' else '0';
+halt_o <= '1' when Sending = '1' or Reciving = '1' else '0';
 
 end behavioral;
