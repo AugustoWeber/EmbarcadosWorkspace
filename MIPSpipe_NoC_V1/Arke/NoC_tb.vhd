@@ -40,7 +40,8 @@ begin
             MemDataSize         => 110,
             MemDataFile         => "./MIPS/MemData100.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/MIPS_IP_TX.txt"
+            MemInstFile         => "./MIPS/MIPS_IP_TX.txt",
+				IP_addr				  => x"006"
         )
         port map(
             clk         => clk,
@@ -61,7 +62,8 @@ begin
             MemDataSize         => 105,
             MemDataFile         => "./MIPS/MemData102.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/MIPS_IP_RX.txt"
+            MemInstFile         => "./MIPS/MIPS_IP_RX.txt",
+				IP_Addr				  => x"005"
         )
         port map(
             clk         => clk,

@@ -13,7 +13,7 @@ entity MIPS_monocycle is
         PC_START_ADDRESS    : integer := 0 
     );
     port ( 
-        clock, reset        : in std_logic;
+        clock, reset, halt_in: in std_logic;
         
         -- Instruction memory interface
         instructionAddress  : out std_logic_vector(31 downto 0);
@@ -49,6 +49,7 @@ begin
          port map (
             clock               => clock,
             reset               => reset,
+            halt                => halt_in,
             
             uins                => uins,
              

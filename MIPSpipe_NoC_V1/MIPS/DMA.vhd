@@ -12,6 +12,7 @@
 
 library ieee;
 use IEEE.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
 use IEEE.numeric_std.all;
 use work.MIPS_package.all;
 use work.Arke_pkg.all;
@@ -22,7 +23,7 @@ entity DMA is
         reg_TX_mem  : std_logic_vector(31 downto 0) := x"08000004";     -- Addr TX mem addr
         reg_RX_mem  : std_logic_vector(31 downto 0) := x"08000008";     -- Addr RX mem addr
         IP_Addr     : std_logic_vector(12 downto 0) := x"000"
-    )
+    );
     port(
         clk         : in std_logic;
         rst         : in std_logic;
@@ -61,6 +62,9 @@ architecture behavioral of DMA is
     alias RX_IP     : std_logic_vector(12 downto 0) is STATUS(30 downto 18); -- MIPS WRITE
     alias halt      : std_logic is STATUS(31);  -- DMA WRITE
 
+    signal MEM_addr : std_logic_vector(31 downto 0);
+    signal reg_TX   : std_logic_vector(31 downto 0);
+
     -- NoC signals
     signal EOP_TX   : std_logic;
     signal TX       : std_logic;
@@ -88,16 +92,16 @@ architecture behavioral of DMA is
 begin
 
 
-    MEM_data_o <= MIPS_data when halt = '0' else
+    MEM_data_o <= MIPS_data_i when halt = '0' else
                   data_in when Reciving = '1' and RX = '1';
 
-    MEM_write_o <=  MemWrite when halt = '0' else
+    MEM_write_o <=  MemWrite_i when halt = '0' and MIPS_addr_i(27) = '0' else
                     '1' when Reciving = '1' and RX = '1' else
                     '0';
 
     MEM_addr_o <= MEM_addr;
     MEM_addr <= MIPS_addr_i when Sending = '0' and Reciving = '0' else
-                reg_TX_mem when Sending = '1' else
+                reg_TX when Sending = '1' else
                 RX_pkg_write;-- when Reciving = '0';
 
 
@@ -122,7 +126,7 @@ begin
                         if Start_TX = '1' then
                             Sending <= '1';
                             TX_FSM <= S1;
-                            MEM_addr_o <= reg_TX_mem;
+                            -- MEM_addr_o <= reg_TX_mem;
                             TX_pkg_size <= MEM_data_i;  -- Recive the first data from the memory (size of pkg)
                             transmited <= x"00000000";
                         else
@@ -131,7 +135,7 @@ begin
                 when S1 =>      -- Start transmiting the PKG
                         Start_TX <= '0';
                         if STALL_TX = '1' then
-                            MEM_addr_o <= reg_TX_mem + transmited(29 downto 0) & "00";
+                            reg_TX <= reg_TX_mem + (transmited(29 downto 0) & "00");
                             data_out <= MEM_data_i;
                             TX <= '1';
                             if transmited = TX_pkg_size then    -- Send the last flit and the EOP signal.
@@ -140,7 +144,7 @@ begin
                             else
                                 EOP_TX <= '0';
                             end if;
-                            transmited <= transmited + x"00000001";
+                            transmited <= STD_LOGIC_VECTOR(unsigned(transmited) + 1);
                         end if;
                 when S2 =>      -- Restart the FSM
                             EOP_TX <= '0';
@@ -177,12 +181,12 @@ begin
                         if RX = '1' then
                             RX_pkg_write <= reg_RX_mem + RX_pkg_size(29 downto 0) & "00"; -- Base(reg_RX_mem) + RX_pkg_size*4
                             if EOP_RX = '1' then
-                                RXstate <= S2;
+                                RX_FSM <= S2;
                             end if;
                             recived <= recived + x"00000001";
                         end if;
                 when S2 =>
-                        RXstate <= S0
+                        RX_FSM <= S0;
                         RX_pkg_write <= recived - x"00000001";    -- Write in the first addr the size of the pkg
             end case;
         end if;

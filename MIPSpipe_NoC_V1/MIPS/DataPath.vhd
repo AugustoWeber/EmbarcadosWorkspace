@@ -17,6 +17,7 @@ entity DataPath is
     port (  
         clock               : in  std_logic;
         reset               : in  std_logic;
+        halt                : in  std_logic;
         instructionAddress  : out std_logic_vector(31 downto 0);  -- Instruction memory address bus
         instruction         : in  std_logic_vector(31 downto 0);  -- Data bus from instruction memory
         dataAddress         : out std_logic_vector(31 downto 0);  -- Data memory address bus
@@ -92,9 +93,10 @@ begin
     jumpTarget <= incrementedPC(31 downto 28) & instruction(25 downto 0) & "00";
     
     -- MUX which selects the PC value
-    MUX_PC: pc_d <= branchTarget when (uins.Branch and zero) = '1' else 
-            jumpTarget when uins.Jump = '1' else
-            incrementedPC;
+    MUX_PC: pc_d <= pc_q when halt = '1' else
+                    branchTarget when (uins.Branch and zero) = '1' else 
+                    jumpTarget when uins.Jump = '1' else
+                    incrementedPC;
       
     -- Selects the second ALU operand
     -- MUX at the ALU input
