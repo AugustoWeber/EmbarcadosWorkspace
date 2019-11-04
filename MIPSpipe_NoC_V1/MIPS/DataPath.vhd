@@ -121,7 +121,7 @@ begin
         port map (
             clock            => clock,
             reset            => reset,            
-            write            => uins.RegWrite,            
+            wwrite            => uins.RegWrite,            
             readRegister1    => rs,    
             readRegister2    => rt,
             writeRegister    => writeRegister,

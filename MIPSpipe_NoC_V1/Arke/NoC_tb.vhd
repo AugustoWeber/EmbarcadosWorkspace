@@ -30,40 +30,18 @@ begin
     clk <= not clk after 5 ns;
     
     rst <= '1', '0' after 3 ns;
-    
-    -- Router address format: router(x,y,z). For 2D-Mesh z = 0.
-    -- IP connected at router(1,2,0)
-    IP_13_MIPS: entity work.MIPS_IP(structural) 
-        generic map(
-            PC_START_ADDRESS    => x"00400000",
-            MEM_START_ADDRESS   => x"10010000",
-            MemDataSize         => 110,
-            MemDataFile         => "./MIPS/MemData100.txt",
-            MemInstSize         => 100,
-            MemInstFile         => "./MIPS/MIPS_IP_TX.txt",
-				IP_addr				  => x"006"
-        )
-        port map(
-            clk         => clk,
-            rst         => rst,
-            data_in     => data_out(1,2,0),
-            control_in  => control_out(1,2,0),
-            data_out    => data_in(1,2,0),
-            control_out => control_in(1,2,0)
-        );
-
 
     -- Router address format: router(x,y,z). For 2D-Mesh z = 0.
-    -- IP connected at router(1,2,0)
+    -- IP connected at router(1,1,0)
     IP_11_MIPS: entity work.MIPS_IP(structural) 
         generic map(
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
-            MemDataSize         => 105,
-            MemDataFile         => "./MIPS/MemData102.txt",
+            MemDataSize         => 30,
+            MemDataFile         => "./MIPS/MemData20-11.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/MIPS_IP_RX.txt",
-				IP_Addr				  => x"005"
+            MemInstFile         => "./MIPS/MIPS_IP2_TX.txt",
+            IP_Addr             => x"005"
         )
         port map(
             clk         => clk,
@@ -72,6 +50,27 @@ begin
             control_in  => control_out(1,1,0),
             data_out    => data_in(1,1,0),
             control_out => control_in(1,1,0)
+        );
+    
+    -- Router address format: router(x,y,z). For 2D-Mesh z = 0.
+    -- IP connected at router(1,2,0)
+    IP_12_MIPS: entity work.MIPS_IP(structural) 
+        generic map(
+            PC_START_ADDRESS    => x"00400000",
+            MEM_START_ADDRESS   => x"10010000",
+            MemDataSize         => 30,
+            MemDataFile         => "./MIPS/MemData20-12.txt",
+            MemInstSize         => 100,
+            MemInstFile         => "./MIPS/MIPS_IP2_RX.txt",
+            IP_addr             => x"006"
+        )
+        port map(
+            clk         => clk,
+            rst         => rst,
+            data_in     => data_out(1,2,0),
+            control_in  => control_out(1,2,0),
+            data_out    => data_in(1,2,0),
+            control_out => control_in(1,2,0)
         );
 
     

@@ -13,7 +13,7 @@ entity RegisterFile is
     port ( 
         clock           : in std_logic;
         reset           : in std_logic; 
-        write           : in std_logic;
+        wwrite           : in std_logic;
         readRegister1   : in std_logic_vector(4 downto 0);
         readRegister2   : in std_logic_vector(4 downto 0);
         writeRegister   : in std_logic_vector(4 downto 0);
@@ -35,7 +35,7 @@ begin
 
         -- Register $0 is the constant 0, not a register.
         -- This is implemented by never enabling writes to register $0.
-        writeEnable(i) <= '1' when i > 0 and UNSIGNED(writeRegister) = i and Write = '1' else '0';
+        writeEnable(i) <= '1' when i > 0 and UNSIGNED(writeRegister) = i and wWrite = '1' else '0';
 
         -- Generate the remaining registers
         Regs: entity work.RegisterNbits 
@@ -82,7 +82,7 @@ begin
         
         elsif rising_edge(clock) then
             
-            if write = '1' and UNSIGNED(writeRegister) > 0 then    -- Register $0 is the constant 0, not a register.
+            if wwrite = '1' and UNSIGNED(writeRegister) > 0 then    -- Register $0 is the constant 0, not a register.
                 reg(TO_INTEGER(UNSIGNED(writeRegister))) <= writeData;
             end if;
         

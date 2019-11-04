@@ -1,0 +1,8 @@
+ Address    Code        Basic                     Source
+
+0x00400000  0x3c080800  lui $8,0x00000800     5    	lui $t0, 0x0800
+0x00400004  0x3c091001  lui $9,0x00001001     7    	lui $t1,0x1001
+0x00400008  0xad090008  sw $9,0x00000008($8)  14   	sw $t1,8($t0)     # grava no registrador RX o endereço da memoria que contem as informações
+0x0040000c  0x240a0008  addiu $10,$0,0x000000015   	addiu $t2,$zero,8
+0x00400010  0xad0a0000  sw $10,0x00000000($8) 16   	sw $t2,0($t0)       # grava 8 no registrador STATUS indicando para iniciar a transmissão... té +
+0x00400014  0x08100005  j 0x00400014          18   	j END

@@ -22,7 +22,7 @@ entity DMA is
         reg_status  : std_logic_vector(31 downto 0) := x"08000000";     -- Addr STATUS
         reg_TX_mem  : std_logic_vector(31 downto 0) := x"08000004";     -- Addr TX mem addr
         reg_RX_mem  : std_logic_vector(31 downto 0) := x"08000008";     -- Addr RX mem addr
-        IP_Addr     : std_logic_vector(12 downto 0) := x"000"
+        IP_Addr     : std_logic_vector(11 downto 0) := x"000"
     );
     port(
         clk         : in std_logic;
