@@ -53,7 +53,6 @@ architecture structural of MIPS_IP is
     signal MIPS_data_o          : std_logic_vector(31 downto 0);
     signal MIPS_addr            : std_logic_vector(31 downto 0);
 
-    signal MEM_write            : std_logic;
     signal data_o               : std_logic_vector(31 downto 0);
     signal MIPS_dataAddress     : std_logic_vector(31 downto 0);
     signal halt                 : std_logic;
@@ -135,7 +134,7 @@ begin
             MEM_addr_o  => MEM_addr,
             MEM_data_i  => MEM_data_o,
             MEM_data_o  => MEM_data_i,
-            MEM_write_o => MEM_write,
+            MEM_write_o => MEM_MemWrite,
 
             -- Arke Interface
             data_in     => data_in,         -- NoC_data_i

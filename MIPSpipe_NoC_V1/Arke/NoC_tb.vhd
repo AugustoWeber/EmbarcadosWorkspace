@@ -54,7 +54,7 @@ begin
     
     -- Router address format: router(x,y,z). For 2D-Mesh z = 0.
     -- IP connected at router(2,1,0)
-    IP_12_MIPS: entity work.MIPS_IP(structural) 
+    IP_22_MIPS: entity work.MIPS_IP(structural) 
         generic map(
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
