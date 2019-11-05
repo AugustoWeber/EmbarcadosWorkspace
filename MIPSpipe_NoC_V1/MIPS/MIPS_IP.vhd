@@ -39,7 +39,7 @@ end MIPS_IP;
 architecture structural of MIPS_IP is
 
     signal MIPS_MemWrite        : std_logic;
-    signal MEM_MemWrite        : std_logic;
+    signal MEM_MemWrite         : std_logic;
     -- Instruction Memory
     signal instructionAddress   : std_logic_vector(31 downto 0);
     signal dataAddress          : std_logic_vector(31 downto 0);
@@ -52,11 +52,11 @@ architecture structural of MIPS_IP is
     signal MIPS_data_i          : std_logic_vector(31 downto 0);
     signal MIPS_data_o          : std_logic_vector(31 downto 0);
     signal MIPS_addr            : std_logic_vector(31 downto 0);
-	 
-	 signal MEM_write				  : std_logic;
-	 signal data_o					  : std_logic_vector(31 downto 0);
-	 signal MIPS_dataAddress     : std_logic_vector(31 downto 0);
-	 signal halt					  : std_logic;
+
+    signal MEM_write            : std_logic;
+    signal data_o               : std_logic_vector(31 downto 0);
+    signal MIPS_dataAddress     : std_logic_vector(31 downto 0);
+    signal halt                 : std_logic;
 begin
 
     MIPS_MONOCYCLE: entity work.MIPS_monocycle(structural) 
@@ -83,7 +83,7 @@ begin
     INSTRUCTION_MEMORY: entity work.Memory(behavioral)
         generic map (
             SIZE            => MemInstSize,                 -- Memory depth
-            START_ADDRESS   => PC_START_ADDRESS,    -- MARS initial address (mapped to memory address 0x00000000)
+            START_ADDRESS   => PC_START_ADDRESS,            -- MARS initial address (mapped to memory address 0x00000000)
             -- imageFileName   => "bubbleSort.txt"
             -- imageFileName   => "InsertionSort.txt"
             -- imageFileName   => "selectionSort.txt"
@@ -101,7 +101,7 @@ begin
     DATA_MEMORY: entity work.Memory(behavioral)
         generic map (
             SIZE            => MemDataSize,             -- Memory depth
-            START_ADDRESS   => MEM_START_ADDRESS,     -- MARS initial address (mapped to memory address 0x00000000)
+            START_ADDRESS   => MEM_START_ADDRESS,       -- MARS initial address (mapped to memory address 0x00000000)
             imageFileName   => MemDataFile
             -- imageFileName   => "selectionSort_data.txt"
             -- imageFileName   => "./MIPS/MemData100.txt"
@@ -117,8 +117,8 @@ begin
     DMA: entity work.DMA(behavioral)
         generic map(
             reg_status  => x"08000000",     -- Addr STATUS
-            reg_TX_mem  => x"08000004",     -- Addr TX mem addr
-            reg_RX_mem  => x"08000008",     -- Addr RX mem addr
+            reg_TX_addr => x"08000004",     -- Addr TX mem addr
+            reg_RX_addr => x"08000008",     -- Addr RX mem addr
             IP_Addr     => IP_Addr
         )
         port map(

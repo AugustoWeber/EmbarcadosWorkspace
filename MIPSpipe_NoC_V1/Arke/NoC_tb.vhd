@@ -53,58 +53,58 @@ begin
         );
     
     -- Router address format: router(x,y,z). For 2D-Mesh z = 0.
-    -- IP connected at router(1,2,0)
+    -- IP connected at router(2,1,0)
     IP_12_MIPS: entity work.MIPS_IP(structural) 
         generic map(
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
             MemDataSize         => 30,
-            MemDataFile         => "./MIPS/MemData20-12.txt",
+            MemDataFile         => "./MIPS/MemData20-22.txt",
             MemInstSize         => 100,
             MemInstFile         => "./MIPS/MIPS_IP2_RX.txt",
-            IP_addr             => x"006"
+            IP_addr             => x"00A"
         )
         port map(
             clk         => clk,
             rst         => rst,
-            data_in     => data_out(1,2,0),
-            control_in  => control_out(1,2,0),
-            data_out    => data_in(1,2,0),
-            control_out => control_in(1,2,0)
-        );
-
-    
-    -- Router address format: router(x,y,z). For 2D-Mesh z = 0.
-    -- IP connected at router(3,3,0)
-    IP_33: entity work.DataManager
-        generic map(
-            fileNameIn => "./Arke/fileIn.txt",
-            fileNameOut => "./Arke/fileOut_33.txt"
-        )
-        port map(
-            clk         => clk,
-            rst         => rst,
-            data_in     => data_out(2,2,0),     -- (x,y,z)
-            control_in  => control_out(2,2,0),  
+            data_in     => data_out(2,2,0),
+            control_in  => control_out(2,2,0),
             data_out    => data_in(2,2,0),
             control_out => control_in(2,2,0)
         );
+
     
-    -- Router address format: router(x,y,z). For 2D-Mesh z = 0.
-    -- IP connected at router(2,1,0)
-    IP_21: entity work.DataManager
-        generic map(
-            fileNameIn => "./Arke/fileIn_21.txt",
-            fileNameOut => "./Arke/fileOut_21.txt"
-        )
-        port map(
-            clk         => clk,
-            rst         => rst,
-            data_in     => data_out(2,1,0),     -- (x,y,z)
-            control_in  => control_out(2,1,0),  
-            data_out    => data_in(2,1,0),
-            control_out => control_in(2,1,0)
-        );
+    -- -- Router address format: router(x,y,z). For 2D-Mesh z = 0.
+    -- -- IP connected at router(3,3,0)
+    -- IP_33: entity work.DataManager
+    --     generic map(
+    --         fileNameIn => "./Arke/fileIn.txt",
+    --         fileNameOut => "./Arke/fileOut_33.txt"
+    --     )
+    --     port map(
+    --         clk         => clk,
+    --         rst         => rst,
+    --         data_in     => data_out(2,2,0),     -- (x,y,z)
+    --         control_in  => control_out(2,2,0),  
+    --         data_out    => data_in(2,2,0),
+    --         control_out => control_in(2,2,0)
+    --     );
+    
+    -- -- Router address format: router(x,y,z). For 2D-Mesh z = 0.
+    -- -- IP connected at router(2,1,0)
+    -- IP_21: entity work.DataManager
+    --     generic map(
+    --         fileNameIn => "./Arke/fileIn_21.txt",
+    --         fileNameOut => "./Arke/fileOut_21.txt"
+    --     )
+    --     port map(
+    --         clk         => clk,
+    --         rst         => rst,
+    --         data_in     => data_out(2,1,0),     -- (x,y,z)
+    --         control_in  => control_out(2,1,0),  
+    --         data_out    => data_in(2,1,0),
+    --         control_out => control_in(2,1,0)
+    --     );
     
     
     ARKE: entity work.NoC
