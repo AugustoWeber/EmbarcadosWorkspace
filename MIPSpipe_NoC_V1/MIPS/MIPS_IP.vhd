@@ -56,6 +56,7 @@ architecture structural of MIPS_IP is
     signal data_o               : std_logic_vector(31 downto 0);
     signal MIPS_dataAddress     : std_logic_vector(31 downto 0);
     signal halt                 : std_logic;
+    signal MIPS_instruction     : std_logic_vector(31 downto 0);
 begin
 
     MIPS_MONOCYCLE: entity work.MIPS_monocycle(structural) 
@@ -69,7 +70,7 @@ begin
             
             -- Instruction memory interface
             instructionAddress  => instructionAddress,
-            instruction         => instruction,
+            instruction         => MIPS_instruction,
                  
              -- Data memory interface
             dataAddress         => MIPS_dataAddress,
@@ -79,6 +80,10 @@ begin
         );
      
     
+        MIPS_instruction <= x"00000000" when halt = '1' else
+                           instruction;
+
+
     INSTRUCTION_MEMORY: entity work.Memory(behavioral)
         generic map (
             SIZE            => MemInstSize,                 -- Memory depth

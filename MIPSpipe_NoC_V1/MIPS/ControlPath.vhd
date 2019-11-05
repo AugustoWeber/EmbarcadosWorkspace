@@ -14,6 +14,7 @@ entity ControlPath is
         clock           : in std_logic;
         reset           : in std_logic;
         instruction     : in std_logic_vector(31 downto 0);
+        halt            : in std_logic;
         uins            : out microinstruction
     );
 end ControlPath;
@@ -35,7 +36,8 @@ begin
     uins.instruction <= decodedInstruction;     -- Used to set the ALU operation
     
     -- Instruction decode
-    decodedInstruction <=   ADDU    when opcode = "000000" and funct = "100001" else
+    decodedInstruction <=   NOP     when opcode = "000000" and funct = "000000" else
+                            ADDU    when opcode = "000000" and funct = "100001" else
                             SUBU    when opcode = "000000" and funct = "100011" else
                             AAND    when opcode = "000000" and funct = "100100" else
                             OOR     when opcode = "000000" and funct = "100101" else
@@ -55,7 +57,7 @@ begin
 
 
     -- R-type instructions, ADDIU, ORI, LUI and LW store the result in the register file
-    uins.RegWrite <= '1' when opcode = "000000" or decodedInstruction = LW or decodedInstruction = ADDIU or decodedInstruction = ORI or decodedInstruction = LUI else '0';
+    uins.RegWrite <= '1' when (opcode = "000000" or decodedInstruction = LW or decodedInstruction = ADDIU or decodedInstruction = ORI or decodedInstruction = LUI) else '0';
     
     -- In R-type instructions, LUI or BEQ, the second ALU operand comes from the register file
     -- In ORI instruction the second ALU operand is zeroExtended

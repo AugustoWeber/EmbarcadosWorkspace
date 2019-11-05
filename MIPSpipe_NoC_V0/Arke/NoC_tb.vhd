@@ -38,17 +38,17 @@ begin
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
             MemDataSize         => 110,
-            MemDataFile         => "./MIPS/MemData100.txt",
+            MemDataFile         => "./MIPS/MemData100-11.txt",
             MemInstSize         => 100,
             MemInstFile         => "./MIPS/MIPS_IP_TX.txt"
         )
         port map(
             clk         => clk,
             rst         => rst,
-            data_in     => data_out(1,2,0),
-            control_in  => control_out(1,2,0),
-            data_out    => data_in(1,2,0),
-            control_out => control_in(1,2,0)
+            data_in     => data_out(1,1,0),
+            control_in  => control_out(1,1,0),
+            data_out    => data_in(1,1,0),
+            control_out => control_in(1,1,0)
         );
 
 
@@ -59,17 +59,17 @@ begin
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
             MemDataSize         => 105,
-            MemDataFile         => "./MIPS/MemData102.txt",
+            MemDataFile         => "./MIPS/MemData100-22.txt",
             MemInstSize         => 100,
             MemInstFile         => "./MIPS/MIPS_IP_RX.txt"
         )
         port map(
             clk         => clk,
             rst         => rst,
-            data_in     => data_out(1,1,0),
-            control_in  => control_out(1,1,0),
-            data_out    => data_in(1,1,0),
-            control_out => control_in(1,1,0)
+            data_in     => data_out(2,2,0),
+            control_in  => control_out(2,2,0),
+            data_out    => data_in(2,2,0),
+            control_out => control_in(2,2,0)
         );
 
     

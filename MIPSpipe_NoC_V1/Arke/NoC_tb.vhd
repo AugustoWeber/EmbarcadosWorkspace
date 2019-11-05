@@ -37,10 +37,10 @@ begin
         generic map(
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
-            MemDataSize         => 30,
+            MemDataSize         => 110,
             MemDataFile         => "./MIPS/MemData20-11.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/MIPS_IP2_TX.txt",
+            MemInstFile         => "./MIPS/MIPS_IP2_TX_V2.txt",
             IP_Addr             => x"005"
         )
         port map(
@@ -58,7 +58,7 @@ begin
         generic map(
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
-            MemDataSize         => 30,
+            MemDataSize         => 110,
             MemDataFile         => "./MIPS/MemData20-22.txt",
             MemInstSize         => 100,
             MemInstFile         => "./MIPS/MIPS_IP2_RX.txt",

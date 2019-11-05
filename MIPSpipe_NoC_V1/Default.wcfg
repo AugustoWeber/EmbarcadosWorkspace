@@ -3,7 +3,7 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="/home/ise/ISEworkspace/EmbarcadosWorkspace/MIPSpipe_NoC_V1/NoC_tb_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V1/NoC_tb_isim_beh.wdb" id="1" type="auto">
          <top_modules>
             <top_module name="arke_pkg" />
             <top_module name="mips_package" />
@@ -18,7 +18,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="28" />
+   <WVObjectSize size="35" />
    <wvobject fp_name="/noc_tb/clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -32,6 +32,33 @@
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="BkColor">128 128 255</obj_property>
       <obj_property name="TextColor">230 230 230</obj_property>
+   </wvobject>
+   <wvobject fp_name="/noc_tb/IP_11_MIPS/MIPS_MONOCYCLE/DATA_PATH/pc_q" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">pc_q[31:0]</obj_property>
+      <obj_property name="ObjectShortName">pc_q[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/noc_tb/IP_11_MIPS/MIPS_MONOCYCLE/DATA_PATH/uins" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">uins</obj_property>
+      <obj_property name="ObjectShortName">uins</obj_property>
+   </wvobject>
+   <wvobject fp_name="/noc_tb/IP_11_MIPS/MIPS_MONOCYCLE/data_o" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">data_o[31:0]</obj_property>
+      <obj_property name="ObjectShortName">data_o[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/noc_tb/IP_11_MIPS/DMA/mips_data_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mips_data_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mips_data_i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/noc_tb/IP_11_MIPS/DMA/mips_addr_i" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">mips_addr_i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mips_addr_i[31:0]</obj_property>
+      <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/noc_tb/IP_11_MIPS/MIPS_MONOCYCLE/DATA_PATH/REGISTER_FILE/reg[12]" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">[12]</obj_property>
+      <obj_property name="ObjectShortName">reg[12]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="group130" type="group">
       <obj_property name="label">MEM</obj_property>
@@ -122,164 +149,9 @@
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">memoryarray[0:30]</obj_property>
-      <obj_property name="ObjectShortName">memoryarray[0:30]</obj_property>
+      <obj_property name="ElementShortName">memoryarray[0:110]</obj_property>
+      <obj_property name="ObjectShortName">memoryarray[0:110]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[0]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[0]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[0]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[1]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[1]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[1]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[2]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[2]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[2]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[3]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[3]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[3]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[4]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[4]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[4]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[5]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[5]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[5]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[6]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[6]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[6]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[7]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[7]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[7]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[8]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[8]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[8]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[9]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[9]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[9]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[10]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[10]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[10]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[11]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[11]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[11]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[12]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[12]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[12]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[13]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[13]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[13]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[14]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[14]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[14]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[15]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[15]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[15]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[16]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[16]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[16]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[17]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[17]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[17]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[18]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[18]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[18]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[19]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[19]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[19]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[20]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[20]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[20]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[21]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[21]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[21]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[22]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[22]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[22]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[23]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[23]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[23]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[24]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[24]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[24]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[25]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[25]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[25]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[26]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[26]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[26]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[27]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[27]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[27]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[28]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[28]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[28]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[29]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[29]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[29]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
-      <wvobject fp_name="/noc_tb/IP_11_MIPS/DATA_MEMORY/memoryarray[30]" type="array" db_ref_id="1">
-         <obj_property name="ElementShortName">[30]</obj_property>
-         <obj_property name="ObjectShortName">memoryarray[30]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
-      </wvobject>
    </wvobject>
    <wvobject fp_name="/noc_tb/IP_11_MIPS/halt" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">halt</obj_property>
@@ -356,6 +228,10 @@
       <obj_property name="ElementShortName">halt</obj_property>
       <obj_property name="ObjectShortName">halt</obj_property>
    </wvobject>
+   <wvobject fp_name="/noc_tb/IP_22_MIPS/MIPS_MONOCYCLE/CONTROL_PATH/uins" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">uins</obj_property>
+      <obj_property name="ObjectShortName">uins</obj_property>
+   </wvobject>
    <wvobject fp_name="/noc_tb/IP_22_MIPS/DMA/reg_rx" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">reg_rx[31:0]</obj_property>
       <obj_property name="ObjectShortName">reg_rx[31:0]</obj_property>
@@ -372,8 +248,8 @@
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray" type="array" db_ref_id="1">
-      <obj_property name="ElementShortName">memoryarray[0:30]</obj_property>
-      <obj_property name="ObjectShortName">memoryarray[0:30]</obj_property>
+      <obj_property name="ElementShortName">memoryarray[0:110]</obj_property>
+      <obj_property name="ObjectShortName">memoryarray[0:110]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[0]" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">[0]</obj_property>
@@ -528,6 +404,406 @@
       <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[30]" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">[30]</obj_property>
          <obj_property name="ObjectShortName">memoryarray[30]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[31]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[31]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[31]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[32]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[32]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[32]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[33]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[33]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[33]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[34]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[34]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[34]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[35]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[35]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[35]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[36]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[36]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[36]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[37]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[37]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[37]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[38]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[38]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[38]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[39]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[39]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[39]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[40]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[40]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[40]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[41]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[41]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[41]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[42]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[42]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[42]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[43]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[43]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[43]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[44]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[44]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[44]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[45]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[45]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[45]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[46]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[46]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[46]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[47]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[47]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[47]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[48]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[48]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[48]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[49]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[49]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[49]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[50]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[50]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[50]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[51]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[51]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[51]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[52]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[52]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[52]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[53]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[53]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[53]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[54]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[54]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[54]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[55]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[55]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[55]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[56]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[56]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[56]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[57]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[57]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[57]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[58]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[58]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[58]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[59]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[59]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[59]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[60]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[60]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[60]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[61]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[61]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[61]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[62]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[62]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[62]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[63]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[63]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[63]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[64]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[64]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[64]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[65]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[65]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[65]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[66]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[66]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[66]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[67]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[67]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[67]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[68]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[68]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[68]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[69]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[69]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[69]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[70]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[70]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[70]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[71]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[71]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[71]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[72]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[72]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[72]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[73]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[73]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[73]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[74]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[74]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[74]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[75]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[75]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[75]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[76]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[76]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[76]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[77]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[77]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[77]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[78]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[78]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[78]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[79]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[79]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[79]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[80]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[80]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[80]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[81]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[81]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[81]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[82]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[82]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[82]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[83]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[83]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[83]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[84]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[84]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[84]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[85]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[85]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[85]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[86]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[86]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[86]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[87]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[87]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[87]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[88]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[88]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[88]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[89]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[89]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[89]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[90]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[90]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[90]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[91]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[91]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[91]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[92]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[92]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[92]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[93]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[93]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[93]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[94]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[94]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[94]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[95]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[95]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[95]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[96]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[96]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[96]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[97]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[97]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[97]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[98]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[98]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[98]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[99]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[99]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[99]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[100]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[100]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[100]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[101]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[101]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[101]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[102]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[102]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[102]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[103]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[103]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[103]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[104]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[104]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[104]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[105]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[105]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[105]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[106]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[106]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[106]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[107]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[107]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[107]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[108]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[108]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[108]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[109]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[109]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[109]</obj_property>
+         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_22_MIPS/DATA_MEMORY/memoryarray[110]" type="array" db_ref_id="1">
+         <obj_property name="ElementShortName">[110]</obj_property>
+         <obj_property name="ObjectShortName">memoryarray[110]</obj_property>
          <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       </wvobject>
    </wvobject>

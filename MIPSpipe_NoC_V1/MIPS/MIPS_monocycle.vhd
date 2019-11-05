@@ -38,6 +38,7 @@ begin
              clock          => clock,
              reset          => reset,
              instruction    => instruction,
+             halt           => halt_in,
              uins           => uins
          );
          

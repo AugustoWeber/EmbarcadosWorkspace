@@ -224,6 +224,7 @@ begin
                         else
                             Reciving <= '0';
                             reg_RX <= x"00000000";
+                            STALL_RX <= '0';
                         end if;
                 when S1 =>      -- Start Reciving the flits
                         if RX0 = '1' then
@@ -251,6 +252,8 @@ begin
 --------------------------------------------------------------------------
 
     halt_o <= halt;
-    halt <= '1' when Sending = '1' or Reciving = '1' else '0';
+    halt <= '1' when Sending = '1' or Reciving = '1' or Start_TX = '1' or Start_RX = '1' else '0';
 
+
+    --halt <= '1' when (MIPS_addr_i = reg_STATUS and (MIPS_data_i(1) = '1' or MIPS_data_i(3) = '1'))  or Reciving = '1' or Sending = '1' else '0';
 end behavioral;
