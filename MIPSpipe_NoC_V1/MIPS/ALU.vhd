@@ -30,12 +30,14 @@ begin
     
     result <= STD_LOGIC_VECTOR(temp);
         
-    temp <= op1 - op2               when operation = SUBU or operation = BEQ else
-            op1 and op2             when operation = AAND else 
-            op1 or  op2             when operation = OOR or operation = ORI else 
-            (0=>'1', others=>'0')   when operation = SLT and op1 < op2 else
-            (others=>'0')           when operation = SLT and not (op1 < op2) else
-            op2(15 downto 0) & x"0000"           when operation = LUI else
+    temp <= op1 - op2                                       when operation = SUBU or operation = BEQ else
+            op1 and op2                                     when operation = AAND else 
+            op1 or  op2                                     when operation = OOR or operation = ORI else 
+            (0=>'1', others=>'0')                           when operation = SLT and op1 < op2 else
+            (others=>'0')                                   when operation = SLT and not (op1 < op2) else
+            op2(15 downto 0) & x"0000"                      when operation = LUI else
+            op1 sll to_integer(unsigned(op2(10 downto 6)))  when operation = SSLL else
+            op1 srl to_integer(unsigned(op2(10 downto 6)))  when operation = SSRL else
             op1 + op2;    -- default for ADDU, ADDIU, SW, LW   
 
     -- Generates the zero flag

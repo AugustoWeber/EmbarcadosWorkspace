@@ -110,7 +110,6 @@ begin
                 MIPS_addr_i; -- when Sending = '0' and Reciving = '0' else
 
 
-
     control_out(EOP) <= EOP_TX;
     control_out(TX) <= T0X;
     control_out(STALL_GO) <= STALL_RX;
@@ -129,21 +128,19 @@ begin
             RX_waiting <= '0';
             TX_pkg_size <= x"00000000";
         elsif rising_edge(clk) then
-            if MIPS_addr_i = reg_TX_addr and MemWrite_i = '1' then
-                reg_TX_mem <= MIPS_data_i;
-            end if;
-            if MIPS_addr_i = reg_RX_addr and MemWrite_i = '1' then
-                reg_RX_mem <= MIPS_data_i;
-            end if;
-            if MIPS_addr_i = reg_STATUS and MemWrite_i = '1' then
-                Start_RX <= MIPS_data_i(3);
-                Start_TX <= MIPS_data_i(1);
+            if MemWrite_i = '1' then
+                if MIPS_addr_i = reg_TX_addr then
+                    reg_TX_mem <= MIPS_data_i;
+                    TX_pkg_size <= MEM_data_i;  -- Recive the first data from the memory (size of pkg)
+                elsif MIPS_addr_i = reg_RX_addr then
+                    reg_RX_mem <= MIPS_data_i;
+                elsif MIPS_addr_i = reg_STATUS then
+                    Start_RX <= MIPS_data_i(3);
+                    Start_TX <= MIPS_data_i(1);
+                end if;
             end if;
             if TX_FSM = S0 and Start_TX = '1' then
                 Start_TX <= '0';
-            end if;
-            if MIPS_addr_i = reg_TX_addr then
-                TX_pkg_size <= MEM_data_i;  -- Recive the first data from the memory (size of pkg)
             end if;
             if RX_FSM = S0 and Start_RX = '1' then
                 Start_RX <= '0';
@@ -158,7 +155,7 @@ begin
 --                                                                      --
 --------------------------------------------------------------------------
 -- Sending FSM
-    data_out <= MEM_data_i;
+    data_out <= MEM_data_i when Sending = '1';
     
     process(clk, rst) begin
         if rst = '1' then
@@ -218,21 +215,22 @@ begin
                 when S0 =>      -- Wait for the Start_RX in the STATUS register
                         if Start_RX = '1' then
                             RX_FSM <= S1;
-                            recived <= x"00000001";
-                            STALL_RX <= '1';
+                            recived <= x"00000002";
+                            -- STALL_RX <= '1';
                             Reciving <= '1';
                         else
                             Reciving <= '0';
-                            reg_RX <= x"00000000";
+                            reg_RX <= STD_LOGIC_VECTOR(unsigned(reg_RX_mem) + 4);
                             STALL_RX <= '0';
                         end if;
                 when S1 =>      -- Start Reciving the flits
+                        STALL_RX <= '1';
                         if RX0 = '1' then
                             reg_RX <= reg_RX_mem + (recived(29 downto 0) & "00"); -- Base(reg_RX_mem) + RX_pkg_size*4
                             if EOP_RX = '1' then
                                 RX_FSM <= S2;
                                 reg_RX <= reg_RX_mem;
-                                --recived <= STD_LOGIC_VECTOR(unsigned(recived) - 1);
+                                recived <= STD_LOGIC_VECTOR(unsigned(recived) - 1);
                             else
                                 recived <= STD_LOGIC_VECTOR(unsigned(recived) + 1);       -- Increment the total amount of recived flits
                             end if;
@@ -253,7 +251,4 @@ begin
 
     halt_o <= halt;
     halt <= '1' when Sending = '1' or Reciving = '1' or Start_TX = '1' or Start_RX = '1' else '0';
-
-
-    --halt <= '1' when (MIPS_addr_i = reg_STATUS and (MIPS_data_i(1) = '1' or MIPS_data_i(3) = '1'))  or Reciving = '1' or Sending = '1' else '0';
 end behavioral;

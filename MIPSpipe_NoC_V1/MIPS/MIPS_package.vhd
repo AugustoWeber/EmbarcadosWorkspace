@@ -9,7 +9,7 @@ use IEEE.std_logic_1164.all;
 package MIPS_package is  
         
     -- inst_type defines the instructions decodable by the control unit
-    type Instruction_type is (NOP,ADDU, SUBU, AAND, OOR, SW, LW, ADDIU, ORI, SLT, BEQ, J, LUI, INVALID_INSTRUCTION);
+    type Instruction_type is (NOP, ADDU, SUBU, AAND, OOR, SW, LW, ADDIU, ORI, SLT, BEQ, J, LUI, SSLL, SSRL,  INVALID_INSTRUCTION);
  
     type Microinstruction is record
         RegWrite    : std_logic;        -- Register file write control

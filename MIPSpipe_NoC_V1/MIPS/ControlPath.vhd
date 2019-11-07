@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------
 -- Design unit: Control path
 -- Description: MIPS control path supporting ADDU, SUBU, AND, OR, LW, SW, 
---              ADDIU, ORI, SLT, BEQ, J, LUI instructions.
+--              ADDIU, ORI, SLT, BEQ, J, LUI, SSLL, SSRL instructions.
 -------------------------------------------------------------------------
 
 library IEEE;
@@ -23,8 +23,9 @@ end ControlPath;
 architecture behavioral of ControlPath is
 
     -- Alias to identify the instructions based on the 'opcode' and 'funct' fields
-    alias  opcode: std_logic_vector(5 downto 0) is instruction(31 downto 26);
-    alias  funct: std_logic_vector(5 downto 0) is instruction(5 downto 0);
+    alias  opcode   : std_logic_vector(5 downto 0) is instruction(31 downto 26);
+    alias  funct    : std_logic_vector(5 downto 0) is instruction(5 downto 0);
+    alias  shamt    : std_logic_vector(4 downto 0) is instruction (10 downto 6);
     
     -- Retrieves the rs field from the instruction
     alias rs: std_logic_vector(4 downto 0) is instruction(25 downto 21);
@@ -36,12 +37,14 @@ begin
     uins.instruction <= decodedInstruction;     -- Used to set the ALU operation
     
     -- Instruction decode
-    decodedInstruction <=   NOP     when opcode = "000000" and funct = "000000" else
+    decodedInstruction <=   NOP     when opcode = "000000" and funct = "000000" and shamt = "00000" else
+                            SSLL    when opcode = "000000" and funct = "000000" else
                             ADDU    when opcode = "000000" and funct = "100001" else
                             SUBU    when opcode = "000000" and funct = "100011" else
                             AAND    when opcode = "000000" and funct = "100100" else
                             OOR     when opcode = "000000" and funct = "100101" else
                             SLT     when opcode = "000000" and funct = "101010" else
+                            SSRL    when opcode = "000010" and funct = "000000" else
                             SW      when opcode = "101011" else
                             LW      when opcode = "100011" else
                             ADDIU   when opcode = "001001" else
@@ -51,7 +54,7 @@ begin
                             LUI     when opcode = "001111" and rs = "00000" else
                             INVALID_INSTRUCTION ;    -- Invalid or not implemented instruction
             
-    assert not (decodedInstruction = INVALID_INSTRUCTION and reset = '0')    
+    assert not (decodedInstruction = INVALID_INSTRUCTION and reset = '0')
     report "******************* INVALID INSTRUCTION *************"
     severity error;    
 
@@ -61,8 +64,8 @@ begin
     
     -- In R-type instructions, LUI or BEQ, the second ALU operand comes from the register file
     -- In ORI instruction the second ALU operand is zeroExtended
-    uins.ALUSrc <=  "00" when opcode = "000000" or decodedInstruction = BEQ else 
-                    "01" when decodedInstruction = ORI else 
+    uins.ALUSrc <=  "01" when decodedInstruction = ORI or decodedInstruction = SSLL or decodedInstruction = SSRL else
+                    "00" when opcode = "000000" or decodedInstruction = BEQ else 
                     "10"; -- signExtended
     
     uins.MemWrite <= '1' when decodedInstruction = SW else '0';
