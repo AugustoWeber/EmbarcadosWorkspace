@@ -1,0 +1,23 @@
+ Address    Code        Basic                     Source
+
+0x00400000  0x3c080800  lui $8,0x00000800     5    	lui $t0, 0x0800
+0x00400004  0x3c091001  lui $9,0x00001001     7    	lui $t1, 0x1001
+0x00400008  0x8d390000  lw $25,0x00000000($9) 10   	lw $t9,0($t1)   #carrega SIZE
+0x0040000c  0x25290004  addiu $9,$9,0x0000000414   	addiu $t1,$t1,4  #primeiro elemento do vetor SIZE
+0x00400010  0x240a0000  addiu $10,$0,0x000000017   	addiu $t2,$zero,0 #t2 = i; i vai de 0 ate size
+0x00400014  0x1159000c  beq $10,$25,0x0000000c20   	beq $t2,$t9,ENVIAR_ULTIMO
+0x00400018  0x8d380000  lw $24,0x00000000($9) 21   	lw $t8,0($t1)   #carrega dado a ser enviado
+0x0040001c  0x0810000b  j 0x0040002c          22   	j SEND_t8       #envia dado carregado
+0x00400020  0x254a0001  addiu $10,$10,0x00000024   	addiu $t2,$t2,1   # i++
+0x00400024  0x25290004  addiu $9,$9,0x0000000425   	addiu $t1,$t1,4   #endereco = endereco + 4
+0x00400028  0x08100005  j 0x00400014          26   	j LOOP
+0x0040002c  0x8d0e0008  lw $14,0x00000008($8) 30   	lw $t6,8($t0) # carrega o status
+0x00400030  0x240f0040  addiu $15,$0,0x000000431   	addiu $t7,$zero,0x40 #ve se pode transmitir	
+0x00400034  0x01cf7024  and $14,$14,$15       32   	and $t6,$t6,$t7
+0x00400038  0x11cf0001  beq $14,$15,0x0000000133   	beq $t6,$t7, ENVIAR_T8
+0x0040003c  0x0810000b  J 0x0040002c          34   	J SEND_t8    #caso não consiga enviar retorna para SEND_t8
+0x00400040  0xad180000  sw $24,0x00000000($8) 37   	sw $t8,0($t0)
+0x00400044  0x08100008  j 0x00400020          38   	j NEXT_NUM
+0x00400048  0xad180004  sw $24,0x00000004($8) 41   	sw $t8,4($t0)
+0x0040004c  0x08100014  j 0x00400050          42   	j END_LOOP
+0x00400050  0x08100014  j 0x00400050          46   	j END_LOOP  #FIM PROGRAMA

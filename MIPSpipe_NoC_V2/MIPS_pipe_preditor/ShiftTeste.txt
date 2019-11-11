@@ -1,0 +1,38 @@
+ Address    Code        Basic                     Source
+
+0x00400000  0x24100005  addiu $16,$0,0x00000004        la 	    $s0, 5
+0x00400004  0x24130001  addiu $19,$0,0x00000005        la 	    $s3, 1
+0x00400008  0x24140001  addiu $20,$0,0x00000006        la      $s4, 1
+0x0040000c  0x3c010000  lui $1,0x00000000     8        addu    $s1, $s0, 4 		# s1 = s0 + 4
+0x00400010  0x34210004  ori $1,$1,0x00000004       
+0x00400014  0x02018821  addu $17,$16,$1            
+0x00400018  0x3c010000  lui $1,0x00000000     9        subu    $s2, $s0, 1 		# s2 = s0 - 1
+0x0040001c  0x34210001  ori $1,$1,0x00000001       
+0x00400020  0x02019023  subu $18,$16,$1            
+0x00400024  0x0274a824  and $21,$19,$20       10       and     $s5, $s3, $s4 		# s5 = s3 and s4	
+0x00400028  0x0274b025  or $22,$19,$20        11       or      $s6, $s3, $s4 		# s6 = s3 or s4 
+0x0040002c  0x02d16804  sllv $13,$17,$22      12       sllv    $t5, $s1, $s6		# t5 = x12
+0x00400030  0x20110002  addi $17,$0,0x0000000213       addi    $s1, $zero, 2		
+0x00400034  0x022d6006  srlv $12,$13,$17      14       srlv    $t4, $t5, $s1		# T4 = x4
+0x00400038  0x240d0001  addiu $13,$0,0x000000017       addiu   $t5, $zero, 1           # t5 = constant 1
+0x0040003c  0x24180001  addiu $24,$0,0x000000018       addiu   $t8, $zero, 1           # t8 = 1: swap performed
+0x00400040  0x13000012  beq $24,$0,0x00000012 21       beq     $t8, $zero, end         # Verifies if a swap has ocurred
+0x00400044  0x3c011001  lui $1,0x00001001     22       la      $t0, array              # t0 points the first array element
+0x00400048  0x34280000  ori $8,$1,0x00000000       
+0x0040004c  0x3c011001  lui $1,0x00001001     23       la      $t6, size               # 
+0x00400050  0x342e001c  ori $14,$1,0x0000001c      
+0x00400054  0x8dce0000  lw $14,0x00000000($14)24       lw      $t6, 0($t6)             # t6 <- size    
+0x00400058  0x24180000  addiu $24,$0,0x000000025       addiu   $t8, $zero, 0           # swap <- 0
+0x0040005c  0x8d090000  lw $9,0x00000000($8)  28       lw      $t1, 0($t0)             # t1 <- array[i]
+0x00400060  0x8d0a0004  lw $10,0x00000004($8) 29       lw      $t2, 4($t0)             # t2 <- array[i+1]
+0x00400064  0x0149782a  slt $15,$10,$9        30       slt     $t7, $t2, $t1           # array[i+1] < array[i] ?
+0x00400068  0x11ed0004  beq $15,$13,0x0000000431       beq     $t7, $t5, swap          # Branch if array[i+1] < array[i]
+0x0040006c  0x25080004  addiu $8,$8,0x0000000434       addiu   $t0, $t0, 4             # t0 points the next element
+0x00400070  0x25ceffff  addiu $14,$14,0xffffff35       addiu   $t6, $t6, -1            # size--
+0x00400074  0x11cdfff2  beq $14,$13,0xfffffff236       beq     $t6, $t5, while         # Verifies if all elements were compared
+0x00400078  0x08100017  j 0x0040005c          37       j       loop    
+0x0040007c  0xad090004  sw $9,0x00000004($8)  41       sw      $t1, 4($t0)
+0x00400080  0xad0a0000  sw $10,0x00000000($8) 42       sw      $t2, 0($t0)
+0x00400084  0x24180001  addiu $24,$0,0x000000043       addiu   $t8, $zero, 1           # Indicates a swap
+0x00400088  0x0810001b  j 0x0040006c          44       j       continue
+0x0040008c  0x08100023  j 0x0040008c          47       j       end 

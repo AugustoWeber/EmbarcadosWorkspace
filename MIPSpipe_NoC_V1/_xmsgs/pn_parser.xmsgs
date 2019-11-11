@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IMPORTANT: This is an internal file that has been generated   -->
+<!--     by the Xilinx ISE software.  Any direct editing or        -->
+<!--     changes made to this file may result in unpredictable     -->
+<!--     behavior or data corruption.  It is strongly advised that -->
+<!--     users do not edit the contents of this file.              -->
+<!--                                                               -->
+<!-- Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.    -->
+
+<messages>
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V1/Arke/Arke_pkg.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V1/Arke/Crossbar.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V1/Arke/DataManager.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V1/Arke/InputBuffer.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V1/Arke/NoC.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V1/Arke/ProgramablePriorityEncoder.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V1/Arke/Router.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V1/Arke/SwitchControl.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V1/Arke/Text_Package.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V1/MIPS/ALU.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V1/MIPS/ControlPath.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V1/MIPS/DMA.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V1/MIPS/DataPath.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V1/MIPS/MIPS_IP.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V1/MIPS/MIPS_monocycle.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V1/MIPS/MIPS_package.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V1/MIPS/Memory.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V1/MIPS/RegisterBit.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V1/MIPS/RegisterFile.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V1/MIPS/RegisterNbits.vhd&quot; into library work</arg>
+</msg>
+
+<msg type="info" file="ProjectMgmt" num="1061" ><arg fmt="%s" index="1">Parsing VHDL file &quot;/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V1/MIPS/Util_package.vhd&quot; into library work</arg>
+</msg>
+
+</messages>
+
