@@ -1,0 +1,69 @@
+ Address    Code        Basic                     Source
+
+0x00400000  0x3c011001  lui $1,0x00001001     8    	la $t9, ARRAY_1500
+0x00400004  0x343901a4  ori $25,$1,0x000001a4      
+0x00400008  0x27390004  addiu $25,$25,0x0000009    	addiu $t9, $t9, 4	# ARRAY_1500 +1 word mem position 0x100101A8
+0x0040000c  0x3c011001  lui $1,0x00001001     10   	la $t0, NUM_PROC
+0x00400010  0x342801a0  ori $8,$1,0x000001a0       
+0x00400014  0x8d0f0000  lw $15,0x00000000($8) 11   	lw $t7, 0($t0)
+0x00400018  0x25ef0001  addiu $15,$15,0x00000012   	addiu $t7, $t7, 1
+0x0040001c  0x240e0001  addiu $14,$0,0x000000017   	addiu $t6, $zero, 1
+0x00400020  0x11cf0008  beq $14,$15,0x0000000820   	beq $t6, $t7, end_loop1	# Caso tenha enviado a todos os processadores disponiveis, sai do loop
+0x00400024  0xaf2e0004  sw $14,0x00000004($25)22   	sw $t6, 4($t9)			# Grava o num do IP para enviar o array
+0x00400028  0x3c080800  lui $8,0x00000800     25   	lui $t0, 0x0800			# Endereco do TX
+0x0040002c  0xad190004  sw $25,0x00000004($8) 27   	sw $t9, 4($t0)			# Grava no registrador TX o endereço da memoria que contem as informações
+0x00400030  0x240a0002  addiu $10,$0,0x000000028   	addiu $t2, $zero, 2
+0x00400034  0xad0a0000  sw $10,0x00000000($8) 29   	sw $t2, 0($t0)			# Grava 2 no registrador STATUS indicando para iniciar a transmissão... té +
+0x00400038  0x2739019c  addiu $25,$25,0x00000132   	addiu $t9, $t9, 412
+0x0040003c  0x25ce0001  addiu $14,$14,0x00000033   	addiu $t6, $t6, 1		# t6++
+0x00400040  0x08100008  j 0x00400020          35   	j loop1
+0x00400044  0x25f80000  addiu $24,$15,0x00000038   	addiu $t8, $t7, 0		# Recebe o send_INDEX
+0x00400048  0x240d0000  addiu $13,$0,0x000000039   	addiu $t5, $zero, 0
+0x0040004c  0x3c011001  lui $1,0x00001001     40   	la $t4, RX_BUFF
+0x00400050  0x342c0000  ori $12,$1,0x00000000      
+0x00400054  0x2408000f  addiu $8,$0,0x0000000f44   	addiu $t0, $zero, 15
+0x00400058  0x110d002b  beq $8,$13,0x0000002b 45   	beq $t0, $t5, END_LOOP2	# Se recebeu todos os arrays, pula para o fim
+0x0040005c  0x3c080800  lui $8,0x00000800     49   	lui $t0, 0x0800			# Endereco do TX
+0x00400060  0xad0c0008  sw $12,0x00000008($8) 51   	sw $t4, 8($t0)			# Grava no registrador RX o endereço da memoria que contem as informações
+0x00400064  0x240a0008  addiu $10,$0,0x000000052   	addiu $t2, $zero, 8
+0x00400068  0xad0a0000  sw $10,0x00000000($8) 53   	sw $t2, 0($t0)			# Grava 8 no registrador STATUS indicando para iniciar a transmissão... té +
+0x0040006c  0x2409000f  addiu $9,$0,0x0000000f58   	addiu $t1, $zero, 15
+0x00400070  0x1309000c  beq $24,$9,0x0000000c 59   	beq $t8, $t1, loop2_continue	# Caso tenha enviado todos os arrays, pula para loop2_continue
+0x00400074  0x8d8e0004  lw $14,0x00000004($12)61   		lw  $t6, 4($t4)		# Pega o ip recebido no buffer para enviar proximo array	
+0x00400078  0x3c080000  lui $8,0x00000000     63   	lui $t0, 0x0000			# Pega os ultimos 2 bytes do header 
+0x0040007c  0x35081111  ori $8,$8,0x00001111  64   	ori $t0, 0x1111
+0x00400080  0x01c87024  and $14,$14,$8        65   	and $t6, $t6, $t0
+0x00400084  0xad8e0004  sw $14,0x00000004($12)67   	sw $t6, 4($t4)			# Grava de volta no header do buffer, sem o IP de destino
+0x00400088  0xaf2e0004  sw $14,0x00000004($25)68   	sw $t6, 4($t9)			# Grava o num do IP para enviar o array
+0x0040008c  0x3c080800  lui $8,0x00000800     73   	lui $t0, 0x0800			# Endereco do TX
+0x00400090  0xad190004  sw $25,0x00000004($8) 76   	sw $t9, 4($t0)			# Grava no registrador TX o endereço da memoria que contem as informações
+0x00400094  0x240a0002  addiu $10,$0,0x000000077   	addiu $t2, $zero, 2
+0x00400098  0xad0a0000  sw $10,0x00000000($8) 78   	sw $t2, 0($t0)			# Grava 2 no registrador STATUS indicando para iniciar a transmissão... té +
+0x0040009c  0x2739019c  addiu $25,$25,0x00000181   	addiu $t9,$t9, 412
+0x004000a0  0x27180001  addiu $24,$24,0x00000082   	addiu $t8,$t8,1			# SEND_INDEX++    t6++
+0x004000a4  0x3c011001  lui $1,0x00001001     91   	la $t7, ARRAY_1500
+0x004000a8  0x342f01a4  ori $15,$1,0x000001a4      
+0x004000ac  0x3c011001  lui $1,0x00001001     93   	la $t0, SEND_INDEX		# Guarda SEND_INDEX
+0x004000b0  0x3428019c  ori $8,$1,0x0000019c       
+0x004000b4  0xad180000  sw $24,0x00000000($8) 94   	sw $t8, 0($t0)
+0x004000b8  0x25ea1824  addiu $10,$15,0x00001895   	addiu $t2, $t7, 6180	# Caso percorreu todo o array, sai do loop
+0x004000bc  0x11ea0012  beq $15,$10,0x0000001299   	beq $t7, $t2, END		# Caso chegar no fim, deu erro
+0x004000c0  0x8de80008  lw $8,0x00000008($15) 100  	lw $t0, 8($t7)			# CARREGA NUM_ARRAY do array
+0x004000c4  0x8d890008  lw $9,0x00000008($12) 101  	lw $t1, 8($t4)			# CARREGA NUM_ARRAY do buffer
+0x004000c8  0x11090001  beq $8,$9,0x00000001  103  	beq $t0, $t1, TROCA		# Caso forem iguais vai pra troca
+0x004000cc  0x0810002f  j 0x004000bc          104  	j BUSCA
+0x004000d0  0x25ea019c  addiu $10,$15,0x000001107  	addiu $t2,$t7,412
+0x004000d4  0x25ef000c  addiu $15,$15,0x000000108  	addiu $t7,$t7,12 #endereco do primeiro elemento do array
+0x004000d8  0x258b000c  addiu $11,$12,0x000000109  	addiu $t3,$t4,12 #endereco do primeiro elemento do array no buffer
+0x004000dc  0x114f0005  beq $10,$15,0x00000005112  		beq $t2,$t7,TROCA_END
+0x004000e0  0x8d690000  lw $9,0x00000000($11) 113  		lw $t1,0($t3)
+0x004000e4  0xade90000  sw $9,0x00000000($15) 114  		sw $t1,0($t7)
+0x004000e8  0x25ef0004  addiu $15,$15,0x000000115  		addiu $t7,$t7,4 #array[i++]
+0x004000ec  0x256b0004  addiu $11,$11,0x000000116  		addiu $t3,$t3,4 #buffer[i++]
+0x004000f0  0x08100037  j 0x004000dc          119  		j TROCA_LOOP
+0x004000f4  0x25ad0001  addiu $13,$13,0x000000126  	addiu $t5,$t5,1  #arrays recebidos $t5++
+0x004000f8  0x3c011001  lui $1,0x00001001     127  	la $t0, SEND_INDEX
+0x004000fc  0x3428019c  ori $8,$1,0x0000019c       
+0x00400100  0x8d180000  lw $24,0x00000000($8) 128  	lw $t8,0($t0) #CARREGA SEND_INDEX
+0x00400104  0x08100015  j 0x00400054          131  	j LOOP2
+0x00400108  0x08100042  j 0x00400108          138  	j END

@@ -1,0 +1,1 @@
+-intstyle "ise" -incremental -lib "secureip" -o "/home/ise/ISEworkspace/EmbarcadosWorkspace/MIPSpipe_NoC_V2/NoC_tb_isim_beh.exe" -prj "/home/ise/ISEworkspace/EmbarcadosWorkspace/MIPSpipe_NoC_V2/NoC_tb_beh.prj" "work.NoC_tb" 

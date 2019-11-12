@@ -37,10 +37,10 @@ begin
         generic map(
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
-            MemDataSize         => 110,
-            MemDataFile         => "./MIPS/MemData20-00.txt",
+            MemDataSize         => 1700,
+            MemDataFile         => "./MIPS/MemData1500-00.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/MIPS_IP2_RX.txt",
+            MemInstFile         => "./MIPS/MIPS_Etapa3_TX.txt",
             IP_addr             => x"000"
         )
         port map(
@@ -59,9 +59,9 @@ begin
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
             MemDataSize         => 110,
-            MemDataFile         => "./MIPS/MemData20-01.txt",
+            MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/MIPS_IP2_RX.txt",
+            MemInstFile         => "./MIPS/MIPS_Etapa3_RX.txt",
             IP_addr             => x"001"
         )
         port map(
@@ -80,9 +80,9 @@ begin
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
             MemDataSize         => 110,
-            MemDataFile         => "./MIPS/MemData20-02.txt",
+            MemDataFile         => "./MIPS/MemData100-02.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/MIPS_IP2_RX.txt",
+            MemInstFile         => "./MIPS/MIPS_Etapa3_RX.txt",
             IP_addr             => x"002"
         )
         port map(
@@ -101,9 +101,9 @@ begin
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
             MemDataSize         => 110,
-            MemDataFile         => "./MIPS/MemData20-03.txt",
+            MemDataFile         => "./MIPS/MemData100-03.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/MIPS_IP2_RX.txt",
+            MemInstFile         => "./MIPS/MIPS_Etapa3_RX.txt",
             IP_addr             => x"003"
         )
         port map(
@@ -123,9 +123,9 @@ begin
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
             MemDataSize         => 110,
-            MemDataFile         => "./MIPS/MemData20-10.txt",
+            MemDataFile         => "./MIPS/MemData100-10.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/MIPS_IP2_RX.txt",
+            MemInstFile         => "./MIPS/MIPS_Etapa3_RX.txt",
             IP_addr             => x"004"
         )
         port map(
@@ -144,9 +144,9 @@ begin
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
             MemDataSize         => 110,
-            MemDataFile         => "./MIPS/MemData20-11.txt",
+            MemDataFile         => "./MIPS/MemData100-11.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/MIPS_IP2_TX_V2.txt",
+            MemInstFile         => "./MIPS/MIPS_Etapa3_RX.txt",
             IP_Addr             => x"005"
         )
         port map(
@@ -169,9 +169,9 @@ begin
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
             MemDataSize         => 110,
-            MemDataFile         => "./MIPS/MemData20-12.txt",
+            MemDataFile         => "./MIPS/MemData100-12.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/MIPS_IP2_RX.txt",
+            MemInstFile         => "./MIPS/MIPS_Etapa3_RX.txt",
             IP_addr             => x"006"
         )
         port map(
@@ -190,9 +190,9 @@ begin
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
             MemDataSize         => 110,
-            MemDataFile         => "./MIPS/MemData20-13.txt",
+            MemDataFile         => "./MIPS/MemData100-13.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/MIPS_IP2_RX.txt",
+            MemInstFile         => "./MIPS/MIPS_Etapa3_RX.txt",
             IP_addr             => x"007"
         )
         port map(
@@ -212,9 +212,9 @@ begin
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
             MemDataSize         => 110,
-            MemDataFile         => "./MIPS/MemData20-20.txt",
+            MemDataFile         => "./MIPS/MemData100-20.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/MIPS_IP2_RX.txt",
+            MemInstFile         => "./MIPS/MIPS_Etapa3_RX.txt",
             IP_addr             => x"008"
         )
         port map(
@@ -234,9 +234,9 @@ begin
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
             MemDataSize         => 110,
-            MemDataFile         => "./MIPS/MemData20-21.txt",
+            MemDataFile         => "./MIPS/MemData100-21.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/MIPS_IP2_RX.txt",
+            MemInstFile         => "./MIPS/MIPS_Etapa3_RX.txt",
             IP_addr             => x"009"
         )
         port map(
@@ -254,9 +254,9 @@ begin
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
             MemDataSize         => 110,
-            MemDataFile         => "./MIPS/MemData20-22.txt",
+            MemDataFile         => "./MIPS/MemData100-22.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/MIPS_IP2_RX.txt",
+            MemInstFile         => "./MIPS/MIPS_Etapa3_RX.txt",
             IP_addr             => x"00A"
         )
         port map(
@@ -275,9 +275,9 @@ begin
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
             MemDataSize         => 110,
-            MemDataFile         => "./MIPS/MemData20-23.txt",
+            MemDataFile         => "./MIPS/MemData100-23.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/MIPS_IP2_RX.txt",
+            MemInstFile         => "./MIPS/MIPS_Etapa3_RX.txt",
             IP_addr             => x"00B"
         )
         port map(
@@ -296,9 +296,9 @@ begin
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
             MemDataSize         => 110,
-            MemDataFile         => "./MIPS/MemData20-30.txt",
+            MemDataFile         => "./MIPS/MemData100-30.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/MIPS_IP2_RX.txt",
+            MemInstFile         => "./MIPS/MIPS_Etapa3_RX.txt",
             IP_addr             => x"00C"
         )
         port map(
@@ -317,9 +317,9 @@ begin
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
             MemDataSize         => 110,
-            MemDataFile         => "./MIPS/MemData20-31.txt",
+            MemDataFile         => "./MIPS/MemData100-31.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/MIPS_IP2_RX.txt",
+            MemInstFile         => "./MIPS/MIPS_Etapa3_RX.txt",
             IP_addr             => x"00D"
         )
         port map(
@@ -338,9 +338,9 @@ begin
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
             MemDataSize         => 110,
-            MemDataFile         => "./MIPS/MemData20-32.txt",
+            MemDataFile         => "./MIPS/MemData100-32.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/MIPS_IP2_RX.txt",
+            MemInstFile         => "./MIPS/MIPS_Etapa3_RX.txt",
             IP_addr             => x"00E"
         )
         port map(
@@ -359,9 +359,9 @@ begin
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
             MemDataSize         => 110,
-            MemDataFile         => "./MIPS/MemData20-33.txt",
+            MemDataFile         => "./MIPS/MemData100-33.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/MIPS_IP2_RX.txt",
+            MemInstFile         => "./MIPS/MIPS_Etapa3_RX.txt",
             IP_addr             => x"00F"
         )
         port map(
