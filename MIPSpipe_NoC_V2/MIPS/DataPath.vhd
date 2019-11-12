@@ -30,7 +30,7 @@ end DataPath;
 
 architecture structural of DataPath is
 
-    signal incrementedPC, pc_q, result, readData1, readData2, ALUoperand2, signExtended, zeroExtended, writeData: std_logic_vector(31 downto 0);
+    signal incrementedPC, pc_q, result, readData1, readData2, ALUoperand1, ALUoperand2, signExtended, zeroExtended, writeData: std_logic_vector(31 downto 0);
     signal branchOffset, branchTarget, pc_d: std_logic_vector(31 downto 0);
     signal jumpTarget: std_logic_vector(31 downto 0);
     signal writeRegister   : std_logic_vector(4 downto 0);
@@ -104,6 +104,9 @@ begin
                             zeroExtended when uins.ALUSrc = "01" else
                             signExtended;
     
+    MUX_ALU_OP1: ALUoperand1 <= readData1 when uins.ALUSrcOp1 = '0' else readData2;
+
+
     -- Selects the data to be written in the register file
     -- MUX at the data memory output
     MUX_DATA_MEM: writeData <= data_i when uins.memToReg = '1' else result;
@@ -134,7 +137,7 @@ begin
     -- Arithmetic/Logic Unit
     ALU: entity work.ALU(behavioral)
         port map (
-            operand1    => readData1,
+            operand1    => ALUoperand1,
             operand2    => ALUoperand2,
             result      => result,
             zero        => zero,

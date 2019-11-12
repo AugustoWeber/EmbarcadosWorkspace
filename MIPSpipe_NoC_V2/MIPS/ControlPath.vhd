@@ -68,7 +68,7 @@ begin
                     "00" when opcode = "000000" or decodedInstruction = BEQ else 
                     "10"; -- signExtended
 
-    
+    uins.ALUSrcOp1 <= '1' when decodedInstruction = SSLL or decodedInstruction = SSRL else '0';
     
     uins.MemWrite <= '1' when decodedInstruction = SW else '0';
     

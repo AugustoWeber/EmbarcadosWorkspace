@@ -3,7 +3,7 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="/home/ise/ISEworkspace/EmbarcadosWorkspace/MIPSpipe_NoC_V2/NoC_tb_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2/NoC_tb_isim_beh.wdb" id="1" type="auto">
          <top_modules>
             <top_module name="arke_pkg" />
             <top_module name="mips_package" />
@@ -18,7 +18,7 @@
          </top_modules>
       </db_ref>
    </db_ref_list>
-   <WVObjectSize size="15" />
+   <WVObjectSize size="20" />
    <wvobject fp_name="/noc_tb/clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
@@ -197,9 +197,27 @@
       <obj_property name="ObjectShortName">address[31:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
    </wvobject>
+   <wvobject fp_name="/noc_tb/IP_00_MIPS/MIPS_MONOCYCLE/DATA_PATH/instruction" type="array" db_ref_id="1">
+      <obj_property name="ElementShortName">instruction[31:0]</obj_property>
+      <obj_property name="ObjectShortName">instruction[31:0]</obj_property>
+   </wvobject>
    <wvobject fp_name="/noc_tb/IP_00_MIPS/MIPS_MONOCYCLE/uins.instruction" type="other" db_ref_id="1">
       <obj_property name="ElementShortName">.instruction</obj_property>
       <obj_property name="ObjectShortName">uins.instruction</obj_property>
+   </wvobject>
+   <wvobject fp_name="/noc_tb/IP_00_MIPS/MIPS_MONOCYCLE/DATA_PATH/REGISTER_FILE/readregister1" type="array" db_ref_id="1">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">readregister1[4:0]</obj_property>
+      <obj_property name="ObjectShortName">readregister1[4:0]</obj_property>
+      <obj_property name="label">RS</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/noc_tb/IP_00_MIPS/MIPS_MONOCYCLE/DATA_PATH/REGISTER_FILE/readregister2" type="array" db_ref_id="1">
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="ElementShortName">readregister2[4:0]</obj_property>
+      <obj_property name="ObjectShortName">readregister2[4:0]</obj_property>
+      <obj_property name="label">RT</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/noc_tb/IP_00_MIPS/MIPS_MONOCYCLE/DATA_PATH/ALU/operand1" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">operand1[31:0]</obj_property>
@@ -210,6 +228,35 @@
       <obj_property name="ElementShortName">operand2[31:0]</obj_property>
       <obj_property name="ObjectShortName">operand2[31:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="vbus95" type="vbus" db_ref_id="1">
+      <obj_property name="label">op2_Shamt</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+      <wvobject fp_name="/noc_tb/IP_00_MIPS/MIPS_MONOCYCLE/DATA_PATH/ALU/operand2[10]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[10]</obj_property>
+         <obj_property name="ObjectShortName">operand2[10]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_00_MIPS/MIPS_MONOCYCLE/DATA_PATH/ALU/operand2[9]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[9]</obj_property>
+         <obj_property name="ObjectShortName">operand2[9]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_00_MIPS/MIPS_MONOCYCLE/DATA_PATH/ALU/operand2[8]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[8]</obj_property>
+         <obj_property name="ObjectShortName">operand2[8]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_00_MIPS/MIPS_MONOCYCLE/DATA_PATH/ALU/operand2[7]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[7]</obj_property>
+         <obj_property name="ObjectShortName">operand2[7]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/noc_tb/IP_00_MIPS/MIPS_MONOCYCLE/DATA_PATH/ALU/operand2[6]" type="logic" db_ref_id="1">
+         <obj_property name="ElementShortName">[6]</obj_property>
+         <obj_property name="ObjectShortName">operand2[6]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/noc_tb/IP_00_MIPS/MIPS_MONOCYCLE/uins.alusrcop1" type="logic" db_ref_id="1">
+      <obj_property name="ElementShortName">.alusrcop1</obj_property>
+      <obj_property name="ObjectShortName">uins.alusrcop1</obj_property>
    </wvobject>
    <wvobject fp_name="/noc_tb/IP_00_MIPS/MIPS_MONOCYCLE/uins.alusrc" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">.alusrc</obj_property>
@@ -250,10 +297,6 @@
          <obj_property name="ObjectShortName">op2[6]</obj_property>
       </wvobject>
    </wvobject>
-   <wvobject fp_name="/noc_tb/IP_00_MIPS/MIPS_MONOCYCLE/DATA_PATH/ALU/shamt" type="other" db_ref_id="1">
-      <obj_property name="ElementShortName">shamt</obj_property>
-      <obj_property name="ObjectShortName">shamt</obj_property>
-   </wvobject>
    <wvobject fp_name="/noc_tb/IP_00_MIPS/MIPS_MONOCYCLE/DATA_PATH/ALU/temp" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">temp[31:0]</obj_property>
       <obj_property name="ObjectShortName">temp[31:0]</obj_property>
@@ -268,5 +311,9 @@
       <obj_property name="ElementShortName">readdata2[31:0]</obj_property>
       <obj_property name="ObjectShortName">readdata2[31:0]</obj_property>
       <obj_property name="Radix">HEXRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/noc_tb/IP_00_MIPS/MIPS_MONOCYCLE/DATA_PATH/ALU/shiftamount" type="other" db_ref_id="1">
+      <obj_property name="ElementShortName">shiftamount</obj_property>
+      <obj_property name="ObjectShortName">shiftamount</obj_property>
    </wvobject>
 </wave_config>

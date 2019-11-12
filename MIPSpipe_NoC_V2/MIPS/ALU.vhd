@@ -22,19 +22,20 @@ end ALU;
 architecture behavioral of ALU is
 
     signal temp, op1, op2: UNSIGNED(31 downto 0);
-    signal shamt    : integer range 0 to 32;
+    alias shamt    : std_logic_vector(4 downto 0) is operand2(10 downto 6);
+    signal shiftamount : integer range 0 to 32 := 1;
 
 begin
 
     op1 <= UNSIGNED(operand1);
     op2 <= UNSIGNED(operand2);
 
-    shamt <= to_integer(unsigned(operand2(10 downto 6)));
+    shiftamount <= to_integer(unsigned(shamt));
     
     result <= STD_LOGIC_VECTOR(temp);
         
-    temp <= op1 sll shamt               when operation = SSLL else
-            op1 srl shamt               when operation = SSRL else
+    temp <= shift_left(op1,shiftamount)  when operation = SSLL else
+            shift_right(op1,shiftamount) when operation = SSRL else
             op1 - op2                   when operation = SUBU or operation = BEQ else
             op1 and op2                 when operation = AAND else 
             op1 or  op2                 when operation = OOR or operation = ORI else 
@@ -47,4 +48,3 @@ begin
     zero <= '1' when temp = 0 else '0';
     
 end behavioral;
-
