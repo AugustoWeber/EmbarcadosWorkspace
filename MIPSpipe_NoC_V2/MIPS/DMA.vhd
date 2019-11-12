@@ -102,12 +102,12 @@ begin
                   data_in;-- when RX0 = '1' or RX_FSM = S2 else
 
     MEM_write_o <=  MemWrite_i when halt = '0' and MIPS_addr_i(27) = '0' else
-                    '1' when RX0 = '1' or RX_FSM = S2 else
+                    '1' when (RX0 = '1' and Reciving = '1') or RX_FSM = S2 else
                     '0';
 
     MEM_addr_o <= MEM_addr;
     MEM_addr <= MIPS_data_i when (Sending = '1' and T0X = '0') or MIPS_addr_i = reg_TX_addr else
-                reg_RX when RX0 = '1' or RX_FSM = S2 else  -- when Reciving = '1';
+                reg_RX when (RX0 = '1' and Reciving = '1') or RX_FSM = S2 else  -- when Reciving = '1';
                 reg_TX when Sending = '1' else
                 MIPS_addr_i; -- when Sending = '0' and Reciving = '0' else
 

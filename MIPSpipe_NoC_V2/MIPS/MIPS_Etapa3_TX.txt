@@ -21,7 +21,7 @@
 0x00400048  0x3c011001  lui $1,0x00001001     40   	la $t4, RX_BUFF
 0x0040004c  0x342c0000  ori $12,$1,0x00000000      
 0x00400050  0x2408000f  addiu $8,$0,0x0000000f44   	addiu $t0, $zero, 15
-0x00400054  0x110d0026  beq $8,$13,0x00000026 45   	beq $t0, $t5, END_LOOP2	# Se recebeu todos os arrays, pula para o fim
+0x00400054  0x110d0027  beq $8,$13,0x00000027 45   	beq $t0, $t5, END_LOOP2	# Se recebeu todos os arrays, pula para o fim
 0x00400058  0x3c080800  lui $8,0x00000800     49   	lui $t0, 0x0800			# Endereco do TX
 0x0040005c  0xad0c0008  sw $12,0x00000008($8) 51   	sw $t4, 8($t0)			# Grava no registrador RX o endereço da memoria que contem as informações
 0x00400060  0x240a0008  addiu $10,$0,0x000000052   	addiu $t2, $zero, 8
@@ -44,20 +44,21 @@
 0x004000a4  0x3c011001  lui $1,0x00001001     92   	la $t7, ARRAY_1500
 0x004000a8  0x342f01a4  ori $15,$1,0x000001a4      
 0x004000ac  0x25ea1824  addiu $10,$15,0x00001896   	addiu $t2, $t7, 6180	# Caso percorreu todo o array, sai do loop
-0x004000b0  0x11ea000f  beq $15,$10,0x0000000f100  	beq $t7, $t2, END		# Caso chegar no fim, deu erro
+0x004000b0  0x11ea0010  beq $15,$10,0x00000010100  	beq $t7, $t2, END		# Caso chegar no fim, deu erro
 0x004000b4  0x8de80008  lw $8,0x00000008($15) 101  	lw $t0, 8($t7)			# CARREGA NUM_ARRAY do array
 0x004000b8  0x8d890008  lw $9,0x00000008($12) 102  	lw $t1, 8($t4)			# CARREGA NUM_ARRAY do buffer
-0x004000bc  0x11090001  beq $8,$9,0x00000001  104  	beq $t0, $t1, TROCA		# Caso forem iguais vai pra troca
-0x004000c0  0x0810002c  j 0x004000b0          105  	j BUSCA
-0x004000c4  0x25ea019c  addiu $10,$15,0x000001108  	addiu $t2,$t7,412
-0x004000c8  0x25ef000c  addiu $15,$15,0x000000109  	addiu $t7,$t7,12 #endereco do primeiro elemento do array
-0x004000cc  0x258b000c  addiu $11,$12,0x000000110  	addiu $t3,$t4,12 #endereco do primeiro elemento do array no buffer
-0x004000d0  0x114f0005  beq $10,$15,0x00000005113  		beq $t2,$t7,TROCA_END
-0x004000d4  0x8d690000  lw $9,0x00000000($11) 114  		lw $t1,0($t3)
-0x004000d8  0xade90000  sw $9,0x00000000($15) 115  		sw $t1,0($t7)
-0x004000dc  0x25ef0004  addiu $15,$15,0x000000116  		addiu $t7,$t7,4 #array[i++]
-0x004000e0  0x256b0004  addiu $11,$11,0x000000117  		addiu $t3,$t3,4 #buffer[i++]
-0x004000e4  0x08100034  j 0x004000d0          120  		j TROCA_LOOP
-0x004000e8  0x25ad0001  addiu $13,$13,0x000000127  	addiu $t5,$t5,1  #arrays recebidos $t5++
-0x004000ec  0x08100014  j 0x00400050          132  	j LOOP2
-0x004000f0  0x0810003c  j 0x004000f0          139  	j END
+0x004000bc  0x11090002  beq $8,$9,0x00000002  104  	beq $t0, $t1, TROCA		# Caso forem iguais vai pra troca
+0x004000c0  0x25ef019c  addiu $15,$15,0x000001105  	addiu $t7,$t7, 412
+0x004000c4  0x0810002c  j 0x004000b0          106  	j BUSCA
+0x004000c8  0x25ea019c  addiu $10,$15,0x000001109  	addiu $t2,$t7,412
+0x004000cc  0x25ef000c  addiu $15,$15,0x000000110  	addiu $t7,$t7,12 #endereco do primeiro elemento do array
+0x004000d0  0x258b000c  addiu $11,$12,0x000000111  	addiu $t3,$t4,12 #endereco do primeiro elemento do array no buffer
+0x004000d4  0x114f0005  beq $10,$15,0x00000005114  		beq $t2,$t7,TROCA_END
+0x004000d8  0x8d690000  lw $9,0x00000000($11) 115  		lw $t1,0($t3)
+0x004000dc  0xade90000  sw $9,0x00000000($15) 116  		sw $t1,0($t7)
+0x004000e0  0x25ef0004  addiu $15,$15,0x000000117  		addiu $t7,$t7,4 #array[i++]
+0x004000e4  0x256b0004  addiu $11,$11,0x000000118  		addiu $t3,$t3,4 #buffer[i++]
+0x004000e8  0x08100035  j 0x004000d4          121  		j TROCA_LOOP
+0x004000ec  0x25ad0001  addiu $13,$13,0x000000128  	addiu $t5,$t5,1  #arrays recebidos $t5++
+0x004000f0  0x08100014  j 0x00400050          133  	j LOOP2
+0x004000f4  0x0810003d  j 0x004000f4          140  	j END

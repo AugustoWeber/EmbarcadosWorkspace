@@ -3,7 +3,7 @@
    <wave_state>
    </wave_state>
    <db_ref_list>
-      <db_ref path="/home/ise/ISEworkspace/EmbarcadosWorkspace/MIPSpipe_NoC_V2/NoC_tb_isim_beh.wdb" id="1" type="auto">
+      <db_ref path="/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2/NoC_tb_isim_beh.wdb" id="1" type="auto">
          <top_modules>
             <top_module name="arke_pkg" />
             <top_module name="mips_package" />
@@ -17045,7 +17045,7 @@
       <wvobject fp_name="/noc_tb/IP_00_MIPS/MIPS_MONOCYCLE/DATA_PATH/REGISTER_FILE/reg[15]" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">[15]</obj_property>
          <obj_property name="ObjectShortName">reg[15]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/noc_tb/IP_00_MIPS/MIPS_MONOCYCLE/DATA_PATH/REGISTER_FILE/reg[16]" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">[16]</obj_property>
