@@ -55,11 +55,11 @@ end_ordenar:
 
     lui $t1,0x1001
     
-    lw $t9,4($t1)
-    sll $t9,$t9,16
-    
-    ori $t9,$t9,0
-    sw $t9,4($t1)
+    #lw $t9,4($t1)
+    #sll $t9,$t9,4
+    sw $zero, 4($t1)
+    #ori $t9,$t9,1
+    #sw $t9,4($t1)
     
     sw $t1,4($t0)     # grava no registrador TX o endereço da memoria que contem as informações
     addiu $t2,$zero,2

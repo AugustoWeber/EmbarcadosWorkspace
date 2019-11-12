@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <!--This is an ISE project configuration file.-->
 <!--It holds project specific layout data for the projectmgr plugin.-->
 <!--Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.-->
@@ -12,13 +12,13 @@
          <ClosedNode>PROJECT</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>NoC - structural (/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2/Arke/NoC.vhd)</SelectedItem>
+         <SelectedItem>NoC - structural (/home/ise/ISEworkspace/EmbarcadosWorkspace/MIPSpipe_NoC_V2/Arke/NoC.vhd)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001a1000000020000000000000000000000000200000064ffffffff000000810000000300000002000001a10000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000028c000000020000000000000000000000000200000064ffffffff0000008100000003000000020000028c0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>NoC - structural (/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2/Arke/NoC.vhd)</CurrentItem>
+      <CurrentItem>NoC - structural (/home/ise/ISEworkspace/EmbarcadosWorkspace/MIPSpipe_NoC_V2/Arke/NoC.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -28,9 +28,9 @@
       <SelectedItems/>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" ></ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" />
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem/>
    </ItemView>
    <ItemView guiview="File" >
       <ClosedNodes>
@@ -39,9 +39,9 @@
       <SelectedItems/>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000074c000000040101000100000000000000000000000064ffffffff0000008100000000000000040000005100000001000000000000002900000001000000000000008400000001000000000000064e0000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000390000000040101000100000000000000000000000064ffffffff000000810000000000000004000000510000000100000000000000290000000100000000000000840000000100000000000002920000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem>ALU.vhd</CurrentItem>
    </ItemView>
    <ItemView guiview="Library" >
       <ClosedNodes>
@@ -51,7 +51,7 @@
       <SelectedItems/>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000126000000010001000100000000000000000000000064ffffffff000000810000000000000001000001260000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000039f000000010001000100000000000000000000000064ffffffff0000008100000000000000010000039f0000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>work</CurrentItem>
    </ItemView>
@@ -69,7 +69,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001c7000000010000000100000000000000000000000064ffffffff000000810000000000000001000001c70000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f4000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f40000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem>Synthesize - XST</CurrentItem>
    </ItemView>
@@ -77,6 +77,7 @@
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
          <ClosedNode>/MIPS_monocycle_tb - structural |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|MIPS|MIPS_monocycle_tb.vhd</ClosedNode>
+         <ClosedNode>/MIPS_monocycle_tb - structural |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|MIPS|MIPS_monocycle_tb.vhd</ClosedNode>
          <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/ARKE - NoC - structural</ClosedNode>
          <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_00_MIPS - MIPS_IP - structural</ClosedNode>
          <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_01_MIPS - MIPS_IP - structural</ClosedNode>
@@ -94,16 +95,33 @@
          <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_31_MIPS - MIPS_IP - structural</ClosedNode>
          <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_32_MIPS - MIPS_IP - structural</ClosedNode>
          <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_33_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/ARKE - NoC - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_00_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_01_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_02_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_03_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_10_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_11_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_12_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_13_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_20_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_21_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_22_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_23_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_30_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_31_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_32_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_33_MIPS - MIPS_IP - structural</ClosedNode>
          <ClosedNode>PROJECT</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>NoC_tb - NoC_tb (/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2/Arke/NoC_tb.vhd)</SelectedItem>
+         <SelectedItem>NoC_tb - NoC_tb (/home/ise/ISEworkspace/EmbarcadosWorkspace/MIPSpipe_NoC_V2/Arke/NoC_tb.vhd)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >2</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001de000000020000000000000000000000000200000064ffffffff000000810000000300000002000001de0000000100000003000000000000000100000003</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>NoC_tb - NoC_tb (/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2/Arke/NoC_tb.vhd)</CurrentItem>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001bb000000020000000000000000000000000200000064ffffffff000000810000000300000002000001bb0000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>NoC_tb - NoC_tb (/home/ise/ISEworkspace/EmbarcadosWorkspace/MIPSpipe_NoC_V2/Arke/NoC_tb.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -115,7 +133,7 @@
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001c7000000010000000100000000000000000000000064ffffffff000000810000000000000001000001c70000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000f4000000010000000100000000000000000000000064ffffffff000000810000000000000001000000f40000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem></CurrentItem>
    </ItemView>
@@ -124,14 +142,14 @@
          <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>Behavioral Check Syntax</SelectedItem>
+         <SelectedItem>ISim Simulator</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >1</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001c7000000010000000100000000000000000000000064ffffffff000000810000000000000001000001c70000000100000000</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000000e5000000010000000100000000000000000000000064ffffffff000000810000000000000001000000e50000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Behavioral Check Syntax</CurrentItem>
+      <CurrentItem>ISim Simulator</CurrentItem>
    </ItemView>
-   <SourceProcessView>000000ff0000000000000002000001510000012001000000060100000002</SourceProcessView>
-   <CurrentView>Implementation</CurrentView>
+   <SourceProcessView>000000ff0000000000000002000001d40000009101000000060100000002</SourceProcessView>
+   <CurrentView>Behavioral Simulation</CurrentView>
 </Project>

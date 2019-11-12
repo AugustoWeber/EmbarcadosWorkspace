@@ -27,12 +27,9 @@
 0x00400060  0x08100011  j 0x00400044          50       j       continue
 0x00400064  0x3c080800  lui $8,0x00000800     54       lui $t0, 0x0800
 0x00400068  0x3c091001  lui $9,0x00001001     56       lui $t1,0x1001
-0x0040006c  0x8d390004  lw $25,0x00000004($9) 58       lw $t9,4($t1)
-0x00400070  0x0019cc00  sll $25,$25,0x0000001059       sll $t9,$t9,16
-0x00400074  0x37390000  ori $25,$25,0x0000000061       ori $t9,$t9,0
-0x00400078  0xad390004  sw $25,0x00000004($9) 62       sw $t9,4($t1)
-0x0040007c  0xad090004  sw $9,0x00000004($8)  64       sw $t1,4($t0)     # grava no registrador TX o endereço da memoria que contem as informações
-0x00400080  0x240a0002  addiu $10,$0,0x000000065       addiu $t2,$zero,2
-0x00400084  0xad0a0000  sw $10,0x00000000($8) 66       sw $t2,0($t0)       # grava 2 no registrador STATUS indicando para iniciar a transmissão... té +
-0x00400088  0x08100000  j 0x00400000          72        j RECEBER
-0x0040008c  0x08100023  j 0x0040008c          74        j       end 
+0x0040006c  0xad200004  sw $0,0x00000004($9)  60       sw $zero, 4($t1)
+0x00400070  0xad090004  sw $9,0x00000004($8)  64       sw $t1,4($t0)     # grava no registrador TX o endereço da memoria que contem as informações
+0x00400074  0x240a0002  addiu $10,$0,0x000000065       addiu $t2,$zero,2
+0x00400078  0xad0a0000  sw $10,0x00000000($8) 66       sw $t2,0($t0)       # grava 2 no registrador STATUS indicando para iniciar a transmissão... té +
+0x0040007c  0x08100000  j 0x00400000          72        j RECEBER
+0x00400080  0x08100020  j 0x00400080          74        j       end 

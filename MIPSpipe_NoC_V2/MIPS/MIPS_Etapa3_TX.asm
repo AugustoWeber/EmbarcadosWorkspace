@@ -6,7 +6,7 @@
 .text
 main:
 	la $t9, ARRAY_1500
-	addiu $t9, $t9, 4	# ARRAY_1500 +1 word mem position 0x100101A8
+	#addiu $t9, $t9, 4	# ARRAY_1500 +1 word mem position 0x100101A8
 	la $t0, NUM_PROC
 	lw $t7, 0($t0)
 	addiu $t7, $t7, 1
@@ -56,6 +56,7 @@ LOOP2:						# Loop que recebe e envia arrays conforme os processadores retornam
 #--------------------------ENVIAR ARRAY-------------------------------------------------------------------------------------------------
 	
 	addiu $t1, $zero, NUM_ARRAYS
+	addiu $t1, $t1, 1
 	beq $t8, $t1, loop2_continue	# Caso tenha enviado todos os arrays, pula para loop2_continue
 
 		lw  $t6, 4($t4)		# Pega o ip recebido no buffer para enviar proximo array	
@@ -90,8 +91,8 @@ loop2_continue:
 	
 	la $t7, ARRAY_1500
         
-	la $t0, SEND_INDEX		# Guarda SEND_INDEX
-	sw $t8, 0($t0)
+	#la $t0, SEND_INDEX		# Guarda SEND_INDEX
+	#sw $t8, 0($t0)
 	addiu $t2, $t7, 6180	# Caso percorreu todo o array, sai do loop
 	
 	BUSCA:
@@ -124,8 +125,8 @@ loop2_continue:
 	
 	
 	addiu $t5,$t5,1  #arrays recebidos $t5++
-	la $t0, SEND_INDEX
-	lw $t8,0($t0) #CARREGA SEND_INDEX
+	#la $t0, SEND_INDEX
+	#lw $t8,0($t0) #CARREGA SEND_INDEX
 
 
 	j LOOP2

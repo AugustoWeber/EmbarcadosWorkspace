@@ -44,7 +44,7 @@ begin
                             AAND    when opcode = "000000" and funct = "100100" else
                             OOR     when opcode = "000000" and funct = "100101" else
                             SLT     when opcode = "000000" and funct = "101010" else
-                            SSRL    when opcode = "000010" and funct = "000000" else
+                            SSRL    when opcode = "000000" and funct = "000010" else
                             SW      when opcode = "101011" else
                             LW      when opcode = "100011" else
                             ADDIU   when opcode = "001001" else
@@ -67,6 +67,8 @@ begin
     uins.ALUSrc <=  "01" when decodedInstruction = ORI or decodedInstruction = SSLL or decodedInstruction = SSRL else
                     "00" when opcode = "000000" or decodedInstruction = BEQ else 
                     "10"; -- signExtended
+
+    
     
     uins.MemWrite <= '1' when decodedInstruction = SW else '0';
     

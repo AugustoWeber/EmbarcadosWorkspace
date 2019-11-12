@@ -95,6 +95,8 @@ architecture behavioral of DMA is
 begin
 
 
+    MIPS_data_o <= MEM_data_i;
+    
     MEM_data_o <= MIPS_data_i when halt = '0' else
                   recived when RX_FSM = S2 else
                   data_in;-- when RX0 = '1' or RX_FSM = S2 else
