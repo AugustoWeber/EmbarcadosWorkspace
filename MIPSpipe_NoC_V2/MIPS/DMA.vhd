@@ -120,8 +120,7 @@ begin
     RX_IP <= (others => '0');
 
     -- Process save MIPS to Regs
-    process (clk, rst)
-    begin
+    process (clk, rst) begin
         if rst = '1' then
             reg_TX_mem <= x"00000000";
             reg_RX_mem <= x"00000000";
@@ -137,8 +136,11 @@ begin
                 elsif MIPS_addr_i = reg_RX_addr then
                     reg_RX_mem <= MIPS_data_i;
                 elsif MIPS_addr_i = reg_STATUS then
-                    Start_RX <= MIPS_data_i(3);
-                    Start_TX <= MIPS_data_i(1);
+                    if MIPS_data_i(1) = '1' then
+                        Start_TX <= '1';
+                    elsif MIPS_data_i(1) = '1' then
+                        Start_RX <= MIPS_data_i(3);
+                    end if;
                 end if;
             end if;
             if TX_FSM = S0 and Start_TX = '1' then

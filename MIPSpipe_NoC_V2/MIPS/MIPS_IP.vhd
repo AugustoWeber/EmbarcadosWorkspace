@@ -57,6 +57,7 @@ architecture structural of MIPS_IP is
     signal MIPS_dataAddress     : std_logic_vector(31 downto 0);
     signal halt                 : std_logic;
     signal MIPS_instruction     : std_logic_vector(31 downto 0);
+
 begin
 
     MIPS_MONOCYCLE: entity work.MIPS_monocycle(structural) 
