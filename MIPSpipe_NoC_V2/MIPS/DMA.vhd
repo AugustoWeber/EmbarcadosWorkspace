@@ -30,7 +30,7 @@ entity DMA is
         -- MIPS interface
         MIPS_addr_i : in std_logic_vector(31 downto 0);
         MIPS_data_i : in std_logic_vector(31 downto 0);
-        MIPS_data_o : out std_logic_vector(31 downto 0);
+        -- MIPS_data_o : out std_logic_vector(31 downto 0);
         MemWrite_i  : in std_logic;
         halt_o      : out std_logic;
 
@@ -42,10 +42,12 @@ entity DMA is
 
         -- Arke Interface
         data_in     : in std_logic_vector(DATA_WIDTH-1 downto 0);
-        control_in  : in std_logic_vector(CONTROL_WIDTH-1 downto 0); --0 -> EOP_RX; 1 -> RX; 2 <- STALL_TX
+        -- control_in  : in std_logic_vector(CONTROL_WIDTH-1 downto 0); --0 -> EOP_RX; 1 -> RX; 2 <- STALL_TX
+        Send        : in std_logic;
         
         data_out    : out std_logic_vector(DATA_WIDTH-1 downto 0);
-        control_out : out std_logic_vector(CONTROL_WIDTH-1 downto 0) --0 -> EOP_TX; 1 -> TX; 2 <- STALL_RX
+        -- control_out : out std_logic_vector(CONTROL_WIDTH-1 downto 0) --0 -> EOP_TX; 1 -> TX; 2 <- STALL_RX
+        Recive      : in std_logic
     );
 end DMA;
 
@@ -57,9 +59,9 @@ architecture behavioral of DMA is
     alias Start_TX  : std_logic is STATUS(1);   -- MIPS WRITE
     alias Reciving  : std_logic is STATUS(2);   -- DMA WRITE
     alias Start_RX  : std_logic is STATUS(3);   -- MIPS WRITE
-    alias RX_waiting: std_logic is STATUS(4);   -- DMA WRITE
-    alias TX_IP     : std_logic_vector(12 downto 0) is STATUS(17 downto 5); -- MIPS WRITE
-    alias RX_IP     : std_logic_vector(12 downto 0) is STATUS(30 downto 18); -- MIPS WRITE
+    -- alias RX_waiting: std_logic is STATUS(4);   -- DMA WRITE
+    -- alias TX_IP     : std_logic_vector(12 downto 0) is STATUS(17 downto 5); -- MIPS WRITE
+    -- alias RX_IP     : std_logic_vector(12 downto 0) is STATUS(30 downto 18); -- MIPS WRITE
     alias halt      : std_logic is STATUS(31);  -- DMA WRITE
 
     signal MEM_addr : std_logic_vector(31 downto 0);
@@ -112,9 +114,9 @@ begin
                 MIPS_addr_i; -- when Sending = '0' and Reciving = '0' else
 
 
-    control_out(EOP) <= EOP_TX;
-    control_out(TX) <= T0X;
-    control_out(STALL_GO) <= STALL_RX;
+    -- control_out(EOP) <= EOP_TX;
+    -- control_out(TX) <= T0X;
+    -- control_out(STALL_GO) <= STALL_RX;
 
     TX_IP <= (others => '0');
     RX_IP <= (others => '0');
@@ -219,7 +221,7 @@ begin
                 when S0 =>      -- Wait for the Start_RX in the STATUS register
                         if Start_RX = '1' then
                             RX_FSM <= S1;
-                            recived <= x"00000002";
+                            recived <= x"00000000";
                             -- STALL_RX <= '1';
                             Reciving <= '1';
                         else
