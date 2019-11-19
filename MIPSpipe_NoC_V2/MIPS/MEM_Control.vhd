@@ -16,7 +16,7 @@ entity MEM_Control is
     generic(
         MEM_upperAddr   : std_logic_vector(11 downto 0) := x"100";
         NoC_upperAddr   : std_logic_vector(11 downto 0) := x"090";
-        DMA_upperAddr   : std_logic_vector(11 downto 0) := x"080";     -- Addr STATUS
+        DMA_upperAddr   : std_logic_vector(11 downto 0) := x"080"     -- Addr STATUS
         -- reg_TX_addr     : std_logic_vector(31 downto 0) := x"08000004";     -- Addr TX mem addr
         -- reg_RX_addr     : std_logic_vector(31 downto 0) := x"08000008";     -- Addr RX mem
     );

@@ -21,46 +21,8 @@
 
   <sourceproject xmlns="http://www.xilinx.com/XMLSchema" xil_pn:fileType="FILE_XISE" xil_pn:name="MIPSpipe_NoC_V2.xise"/>
 
-  <files xmlns="http://www.xilinx.com/XMLSchema">
-    <file xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="NoC_tb_stx_beh.prj"/>
-    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="isim"/>
-    <file xil_pn:fileType="FILE_INI" xil_pn:name="xilinxsim.ini"/>
-  </files>
+  <files xmlns="http://www.xilinx.com/XMLSchema"/>
 
-  <transforms xmlns="http://www.xilinx.com/XMLSchema">
-    <transform xil_pn:end_ts="1573765203" xil_pn:name="TRAN_copyInitialToAbstractSimulation" xil_pn:start_ts="1573765203">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-    </transform>
-    <transform xil_pn:end_ts="1573765233" xil_pn:in_ck="-6108821462826780774" xil_pn:name="TRAN_copyAbstractToPostAbstractSimulation" xil_pn:start_ts="1573765233">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="InputAdded"/>
-      <outfile xil_pn:name="Arke/Arke_pkg.vhd"/>
-      <outfile xil_pn:name="Arke/Crossbar.vhd"/>
-      <outfile xil_pn:name="Arke/DataManager.vhd"/>
-      <outfile xil_pn:name="Arke/InputBuffer.vhd"/>
-      <outfile xil_pn:name="Arke/NoC.vhd"/>
-      <outfile xil_pn:name="Arke/NoC_tb.vhd"/>
-      <outfile xil_pn:name="Arke/ProgramablePriorityEncoder.vhd"/>
-      <outfile xil_pn:name="Arke/Router.vhd"/>
-      <outfile xil_pn:name="Arke/SwitchControl.vhd"/>
-      <outfile xil_pn:name="Arke/Text_Package.vhd"/>
-      <outfile xil_pn:name="MIPS/ALU.vhd"/>
-      <outfile xil_pn:name="MIPS/ControlPath.vhd"/>
-      <outfile xil_pn:name="MIPS/DMA.vhd"/>
-      <outfile xil_pn:name="MIPS/DataPath.vhd"/>
-      <outfile xil_pn:name="MIPS/MIPS_IP.vhd"/>
-      <outfile xil_pn:name="MIPS/MIPS_monocycle.vhd"/>
-      <outfile xil_pn:name="MIPS/MIPS_monocycle_tb.vhd"/>
-      <outfile xil_pn:name="MIPS/MIPS_package.vhd"/>
-      <outfile xil_pn:name="MIPS/Memory.vhd"/>
-      <outfile xil_pn:name="MIPS/RegisterBit.vhd"/>
-      <outfile xil_pn:name="MIPS/RegisterFile.vhd"/>
-      <outfile xil_pn:name="MIPS/RegisterNbits.vhd"/>
-      <outfile xil_pn:name="MIPS/Util_package.vhd"/>
-    </transform>
-  </transforms>
+  <transforms xmlns="http://www.xilinx.com/XMLSchema"/>
 
 </generated_project>

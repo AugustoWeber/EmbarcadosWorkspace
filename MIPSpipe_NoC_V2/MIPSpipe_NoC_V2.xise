@@ -31,7 +31,7 @@
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="MIPS/DMA.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="15"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="16"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="MIPS/InsertionSort.txt" xil_pn:type="FILE_USERDOC"/>
@@ -67,11 +67,11 @@
     <file xil_pn:name="MIPS/MemData100.txt" xil_pn:type="FILE_USERDOC"/>
     <file xil_pn:name="MIPS/MemData102.txt" xil_pn:type="FILE_USERDOC"/>
     <file xil_pn:name="MIPS/Memory.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="14"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="15"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="MIPS/MIPS_IP.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="17"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="18"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="MIPS/MIPS_IP_RX.txt" xil_pn:type="FILE_USERDOC"/>
@@ -80,7 +80,7 @@
     <file xil_pn:name="MIPS/MIPS_IP2_TX.txt" xil_pn:type="FILE_USERDOC"/>
     <file xil_pn:name="MIPS/MIPS_IP2_TX_V2.txt" xil_pn:type="FILE_USERDOC"/>
     <file xil_pn:name="MIPS/MIPS_monocycle.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="13"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="14"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="MIPS/MIPS_monocycle_tb.vhd" xil_pn:type="FILE_VHDL">
@@ -133,11 +133,11 @@
       <association xil_pn:name="Implementation" xil_pn:seqID="4"/>
     </file>
     <file xil_pn:name="Arke/NoC.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="19"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="20"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="7"/>
     </file>
     <file xil_pn:name="Arke/NoC_tb.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="20"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="21"/>
       <association xil_pn:name="PostMapSimulation" xil_pn:seqID="66"/>
       <association xil_pn:name="PostRouteSimulation" xil_pn:seqID="66"/>
       <association xil_pn:name="PostTranslateSimulation" xil_pn:seqID="66"/>
@@ -147,7 +147,7 @@
       <association xil_pn:name="Implementation" xil_pn:seqID="2"/>
     </file>
     <file xil_pn:name="Arke/Router.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="16"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="17"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="6"/>
     </file>
     <file xil_pn:name="Arke/SwitchControl.vhd" xil_pn:type="FILE_VHDL">
@@ -155,11 +155,11 @@
       <association xil_pn:name="Implementation" xil_pn:seqID="3"/>
     </file>
     <file xil_pn:name="Arke/Text_Package.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="18"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="19"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="MIPS/MEM_Control.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="74"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="0"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="MIPS/MemData100-01.txt" xil_pn:type="FILE_USERDOC"/>
@@ -179,7 +179,7 @@
     <file xil_pn:name="MIPS/MIPS_Etapa3_RX.txt" xil_pn:type="FILE_USERDOC"/>
     <file xil_pn:name="MIPS/MIPS_Etapa3_TX.txt" xil_pn:type="FILE_USERDOC"/>
     <file xil_pn:name="MIPS/NoC_Interface.vhd" xil_pn:type="FILE_VHDL">
-      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="91"/>
+      <association xil_pn:name="BehavioralSimulation" xil_pn:seqID="13"/>
       <association xil_pn:name="Implementation" xil_pn:seqID="0"/>
     </file>
     <file xil_pn:name="MIPS/ShiftTest.txt" xil_pn:type="FILE_USERDOC"/>
@@ -197,7 +197,7 @@
     <property xil_pn:name="Analysis Effort Level" xil_pn:value="Standard" xil_pn:valueState="default"/>
     <property xil_pn:name="Asynchronous To Synchronous" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Auto Implementation Compile Order" xil_pn:value="true" xil_pn:valueState="default"/>
-    <property xil_pn:name="Auto Implementation Top" xil_pn:value="false" xil_pn:valueState="non-default"/>
+    <property xil_pn:name="Auto Implementation Top" xil_pn:value="true" xil_pn:valueState="default"/>
     <property xil_pn:name="Automatic BRAM Packing" xil_pn:value="false" xil_pn:valueState="default"/>
     <property xil_pn:name="Automatically Insert glbl Module in the Netlist" xil_pn:value="true" xil_pn:valueState="default"/>
     <property xil_pn:name="Automatically Run Generate Target PROM/ACE File" xil_pn:value="false" xil_pn:valueState="default"/>
