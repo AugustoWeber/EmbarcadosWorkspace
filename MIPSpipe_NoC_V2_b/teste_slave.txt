@@ -1,0 +1,52 @@
+ Address    Code        Basic                     Source
+
+0x00400000  0x3c080900  lui $8,2304           10   	lui $t0,0x0900
+0x00400004  0x8d190000  lw $25,0($8)          13   	lw $t9,0($t0)  #ler o status
+0x00400008  0x240b0020  addiu $11,$0,32       14   	addiu $t3,$zero,32
+0x0040000c  0x01796024  and $12,$11,$25       15   	and $t4,$t3,$t9
+0x00400010  0x118b0001  beq $12,$11,1         16   	beq $t4,$t3,LER_HEADER  #verifica se o status(5) é 1, se for 1 tenta ler
+0x00400014  0x08100001  j 0x00400004          17   	j RX_HEADER
+0x00400018  0x8d0e0000  lw $14,0($8)          19   	lw $t6,0($t0) #le o dado vindo da noc
+0x0040001c  0x3c011001  lui $1,4097           21   	la $t9,HEADER
+0x00400020  0x34390000  ori $25,$1,0               
+0x00400024  0xaf2e0000  sw $14,0($25)         22   	sw $t6,0($t9) #SALVA HEADER
+0x00400028  0x8d190000  lw $25,0($8)          27   	lw $t9,0($t0)  #ler o status
+0x0040002c  0x240b0020  addiu $11,$0,32       28   	addiu $t3,$zero,32 
+0x00400030  0x01796024  and $12,$11,$25       29   	and $t4,$t3,$t9
+0x00400034  0x118b0001  beq $12,$11,1         30   	beq $t4,$t3,LER_SIZE  #verifica se o STALL é 1, se for 0 tenta ler
+0x00400038  0x0810000a  j 0x00400028          31   	j RX_SIZE
+0x0040003c  0x8d0f0000  lw $15,0($8)          33   	lw $t7,0($t0) #le o dado vindo da noc
+0x00400040  0x3c011001  lui $1,4097           34   	la $t9,SIZE
+0x00400044  0x34390004  ori $25,$1,4               
+0x00400048  0xaf2f0000  sw $15,0($25)         35   	sw $t7,0($t9) #SALVA SIZE
+0x0040004c  0x3c080800  lui $8,2048           38   	lui $t0,0x0800
+0x00400050  0x3c011001  lui $1,4097           40   	la $t9,ARRAY
+0x00400054  0x34390008  ori $25,$1,8               
+0x00400058  0xad190014  sw $25,20($8)         44   	sw $t9, 20($t0)			# Grava no registrador RX o endereço da memoria que ira receber o array
+0x0040005c  0xad0f0018  sw $15,24($8)         45   	sw $t7, 24($t0)			# Grava no registrador RX o size
+0x00400060  0x240a0002  addiu $10,$0,2        46   	addiu $t2, $zero, 2
+0x00400064  0xad0a0000  sw $10,0($8)          47   	sw $t2, 0($t0)			# Grava 2 no registrador STATUS indicando para iniciar a transmissão... té +
+0x00400068  0x3c080900  lui $8,2304           61   	lui $t0,0x0900
+0x0040006c  0x3c011001  lui $1,4097           63   	la $t1,HEADER #CARREGAR O HEADER RECEBIDO
+0x00400070  0x34290000  ori $9,$1,0                
+0x00400074  0x8d290000  lw $9,0($9)           64   	lw $t1,0($t1)
+0x00400078  0x00095400  sll $10,$9,16         67   	sll $t2,$t1,16
+0x0040007c  0x00096c02  srl $13,$9,16         68   	srl $t5,$t1,16
+0x00400080  0x014d6825  or $13,$10,$13        69   	or $t5,$t2,$t5 
+0x00400084  0x8d0e0000  lw $14,0($8)          73   	lw $t6,0($t0) # carrega o status
+0x00400088  0x240f0020  addiu $15,$0,32       74   	addiu $t7,$zero,32 #ve se pode transmitir	
+0x0040008c  0x01cf7024  and $14,$14,$15       75   	and $t6,$t6,$t7
+0x00400090  0x11cf0001  beq $14,$15,1         77   	beq $t6,$t7, ENVIAR_HEADER
+0x00400094  0x08100021  J 0x00400084          78   	J LOOP_HEADER    #caso não consiga enviar retorna para LOOP_HEADER
+0x00400098  0xad0d0004  sw $13,4($8)          80   	sw	$t5,4($t0) 	#Enviar HEADER PELA NOC
+0x0040009c  0x3c011001  lui $1,4097           85   	la $t9, ARRAY
+0x004000a0  0x34390008  ori $25,$1,8               
+0x004000a4  0x3c011001  lui $1,4097           87   	la $t7,SIZE
+0x004000a8  0x342f0004  ori $15,$1,4               
+0x004000ac  0x8def0000  lw $15,0($15)         88   	lw $t7,0($t7)
+0x004000b0  0x24080800  addiu $8,$0,2048      89   	addiu $t0,$zero,0x0800    #carrega endereco do DMA
+0x004000b4  0xad190004  sw $25,4($8)          92   	sw $t9, 4($t0)			# Grava no registrador TX o endereço da memoria onde começa o ARRAY
+0x004000b8  0xad0f0008  sw $15,8($8)          93   	sw $t7, 8($t0)			# Grava no registrador TX o size
+0x004000bc  0x240a0002  addiu $10,$0,2        94   	addiu $t2, $zero, 2
+0x004000c0  0xad0a0000  sw $10,0($8)          95   	sw $t2, 0($t0)			# Grava 2 no registrador STATUS indicando para iniciar a transmissão... té +
+0x004000c4  0x08100031  j 0x004000c4          104  	j END

@@ -1,0 +1,7 @@
+work	"Arke/Arke_pkg.vhd"
+work	"Arke/Crossbar.vhd"
+work	"Arke/InputBuffer.vhd"
+work	"Arke/NoC.vhd"
+work	"Arke/ProgramablePriorityEncoder.vhd"
+work	"Arke/Router.vhd"
+work	"Arke/SwitchControl.vhd"

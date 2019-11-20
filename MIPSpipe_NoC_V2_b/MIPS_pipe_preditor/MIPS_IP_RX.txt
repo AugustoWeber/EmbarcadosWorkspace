@@ -1,0 +1,20 @@
+ Address    Code        Basic                     Source
+
+0x00400000  0x3c080800  lui $8,0x00000800     5    	lui $t0,0x0800
+0x00400004  0x3c091001  lui $9,0x00001001     12   	lui $t1,0x00001001 #endereco de onde vai guardar o array, primeiro elemento é o tamanho   	
+0x00400008  0x252a0004  addiu $10,$9,0x000000014   	addiu $t2,$t1,4 #adiciona 4 para começar a salvar o array a partir daqui
+0x0040000c  0x240d0000  addiu $13,$0,0x000000015   	addiu $t5,$zero,0 #size = 0
+0x00400010  0x8d190008  lw $25,0x00000008($8) 18   	lw $t9,8($t0)  #ler o status
+0x00400014  0x240b0020  addiu $11,$0,0x000000219   	addiu $t3,$zero,0x20 
+0x00400018  0x01796024  and $12,$11,$25       20   	and $t4,$t3,$t9
+0x0040001c  0x118bfffc  beq $12,$11,0xfffffffc21   	beq $t4,$t3,RECEBER_LOOP #verifica se o STALL é 1, se for 0 tenta ler
+0x00400020  0x8d180000  lw $24,0x00000000($8) 26   	lw $t8,0($t0) #le o dado vindo da noc
+0x00400024  0xad580000  sw $24,0x00000000($10)28   	sw $t8,0($t2)
+0x00400028  0x254a0004  addiu $10,$10,0x00000029   	addiu $t2,$t2,4   #endereco++4
+0x0040002c  0x25ad0001  addiu $13,$13,0x00000030   	addiu $t5,$t5,1  #SIZE++
+0x00400030  0x240b0008  addiu $11,$0,0x000000032   	addiu $t3,$zero,1 #verifica no status se é o ultimo flit
+0x00400034  0x01796024  and $12,$11,$25       33   	and $t4,$t3,$t9
+0x00400038  0x118b0001  beq $12,$11,0x0000000135   	beq $t4,$t3,SALVA_SIZE #verifica se o é o ultimo dado
+0x0040003c  0x08100004  j 0x00400010          36   	j RECEBER_LOOP
+0x00400040  0xad2d0000  sw $13,0x00000000($9) 39   	sw $t5,0($t1)
+0x00400044  0x08100011  j 0x00400044          42   	j END

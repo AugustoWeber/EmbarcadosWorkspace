@@ -1,0 +1,30 @@
+ Address    Code        Basic                     Source
+
+0x00400000  0x00000000  nop                   7        nop
+0x00400004  0x00000000  nop                   8        nop
+0x00400008  0x00000000  nop                   9        nop
+0x0040000c  0x3c011001  lui $1,0x00001001     10       lui $at, 0x00001001
+0x00400010  0x240d0001  addiu $13,$0,0x000000011       addiu   $t5, $zero, 1           # t5 = constant 1
+0x00400014  0x24180001  addiu $24,$0,0x000000012       addiu   $t8, $zero, 1           # t8 = 1: swap performed
+0x00400018  0x13000011  beq $24,$0,0x00000011 15       beq     $t8, $zero, end         # Verifies if a swap has ocurred
+0x0040001c  0x342e0000  ori $14,$1,0x00000000 17       ori     $t6,$at,0
+0x00400020  0x25c80004  addiu $8,$14,0x000000019       addiu   $t0,$t6,4
+0x00400024  0x00000000  nop                   21       nop
+0x00400028  0x8dce0000  lw $14,0x00000000($14)22       lw      $t6, 0($t6)             # t6 <- size    
+0x0040002c  0x24180000  addiu $24,$0,0x000000023       addiu   $t8, $zero, 0           # swap <- 0
+0x00400030  0x8d090000  lw $9,0x00000000($8)  27       lw      $t1, 0($t0)             # t1 <- array[i]
+0x00400034  0x8d0a0004  lw $10,0x00000004($8) 28       lw      $t2, 4($t0)             # t2 <- array[i+1]
+0x00400038  0x0149782a  slt $15,$10,$9        29       slt     $t7, $t2, $t1           # array[i+1] < array[i] ?
+0x0040003c  0x11ed0004  beq $15,$13,0x0000000430       beq     $t7, $t5, swap          # Branch if array[i+1] < array[i]
+0x00400040  0x25080004  addiu $8,$8,0x0000000434       addiu   $t0, $t0, 4             # t0 points the next element
+0x00400044  0x25ceffff  addiu $14,$14,0xffffff35       addiu   $t6, $t6, -1            # size--
+0x00400048  0x11cdfff3  beq $14,$13,0xfffffff336       beq     $t6, $t5, while         # Verifies if all elements were compared
+0x0040004c  0x0810000c  j 0x00400030          37       j       loop    
+0x00400050  0xad090004  sw $9,0x00000004($8)  42       sw      $t1, 4($t0)
+0x00400054  0xad0a0000  sw $10,0x00000000($8) 43       sw      $t2, 0($t0)
+0x00400058  0x24180001  addiu $24,$0,0x000000044       addiu   $t8, $zero, 1           # Indicates a swap
+0x0040005c  0x08100010  j 0x00400040          45       j       continue
+0x00400060  0x08100018  j 0x00400060          50       j       end
+0x00400064  0x00000000  nop                   51      nop
+0x00400068  0x00000000  nop                   52      nop
+0x0040006c  0x00000000  nop                   53      nop
