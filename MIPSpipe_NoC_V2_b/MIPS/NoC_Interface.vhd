@@ -30,9 +30,9 @@ entity NoC_Interface is
         data_out        : out std_logic_vector(31 downto 0);
         control_out     : out std_logic_vector(2 downto 0);    --0 -> EOP_TX; 1 -> TX; 2 <- STALL_RX
     -- MIPS IP
-        MIPS_data_i      : in  std_logic_vector(31 downto 0);    -- RX data to MIPS_IP
-        MIPS_data_o      : out std_logic_vector(31 downto 0);    -- TX data from MIPS_IP
-        MIPS_addr        : in  std_logic_vector(31 downto 0);    -- addr
+        MIPS_data_i      : in  std_logic_vector(31 downto 0);    
+        MIPS_data_o      : out std_logic_vector(31 downto 0);    
+        MIPS_addr        : in  std_logic_vector(31 downto 0);    
         MIPS_write       : in  std_logic;
     -- DMA
         DMA_write       : in  std_logic;
@@ -86,7 +86,14 @@ begin
     T0X <= '1' when Writable = '0' else '0';
     EOP_TX <= '1' when T0X = '1' and EOP = '1' else '0';
 
-    Data_out <= Reg_TX when T0X = '1' else (others => 'Z');
+    Data_out <= Reg_EOP when T0X = '1' and EOP = '1' else
+                Reg_TX when T0X = '1' else (others => 'Z');
+
+
+
+    MIPS_data_o <= Reg_RX;
+    DMA_data_o <= Reg_RX;
+
 
     process(clk, rst) begin
         if rst = '1' then
@@ -94,40 +101,39 @@ begin
             Reg_RX <= (others => '0');
             Readable <= '0';
             Writable <= '1';
-            EOP_TX <= '0';
             EOP <= '0';
-            MIPS_data_o <= (others => '0');
+            -- MIPS_data_o <= (others => '0');
         elsif rising_edge(clk) then
             -- Read and write from the In/Out register
-            if DMA_addr = reg_TXRX then
+            if DMA_addr = x"09000004" then --reg_TXRX then
                 if Writable = '1' and DMA_write = '1' then
-                    Reg_TX <= Data_in;
+                    Reg_TX <= DMA_data_i;
                     Writable <= '0';
                 elsif Readable = '1' then
-                    DMA_data_o <= Reg_RX;
+                    -- DMA_data_o <= Reg_RX;
                     Readable <= '0';
                 end if;
 
-            elsif MIPS_addr = reg_TXRX then
-                if Writable = '1' and MIPS_write = '1' then
+            elsif MIPS_addr = x"09000004" then --reg_TXRX then
+                if MIPS_write = '1' then --Writable = '1' and MIPS_write = '1' then
                     Reg_TX <= MIPS_data_i;
                     Writable <= '0';
-                elsif Readable = '1' then
-                    MIPS_data_o <= Reg_RX;
+                else --elsif Readable = '1' then
+                    -- MIPS_data_o <= Reg_RX;
                     Readable <= '0';
                 end if;
             
             -- End Of Package to be transmited
-            elsif MIPS_addr = reg_TX_EOP then
+            elsif MIPS_addr = x"09000008" then --reg_TX_EOP then
                 if Writable = '1' and MIPS_write = '1' then
                     Reg_EOP <= MIPS_data_i;
                     EOP <= '1';
                     Writable <= '0';
                 end if;
 
-            elsif DMA_addr = reg_TX_EOP then
+            elsif DMA_addr = x"09000008" then --reg_TX_EOP then
                 if Writable = '1' and DMA_write = '1' then
-                    Reg_EOP <= MIPS_data_i;
+                    Reg_EOP <= DMA_data_i;
                     EOP <= '1';
                     Writable <= '0';
                 end if;
@@ -143,7 +149,7 @@ begin
             end if;
 
             -- Reciving the Flit
-            if Readable = '0' and Stall_RX = '1' and R0X = '1' then
+            if Readable = '0' and R0X = '1' then --and Stall_RX = '1'
                 Reg_RX <= Data_in;
                 Readable <= '1';
             end if;

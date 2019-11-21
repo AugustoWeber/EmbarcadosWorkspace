@@ -1,6 +1,6 @@
 .eqv DMA_ADDR 0x0800
 .eqv NOC_ADDR 0x0900
-.eqv ROOT_NUM 5
+.eqv ROOT_NUM 0
 .text
 
 main:
@@ -43,7 +43,7 @@ LER_SIZE:
 	
 	sw $t9, 20($t0)			# Grava no registrador RX o endereço da memoria que ira receber o array
 	sw $t7, 24($t0)			# Grava no registrador RX o size
-	addiu $t2, $zero, 2
+	addiu $t2, $zero, 8
 	sw $t2, 0($t0)			# Grava 2 no registrador STATUS indicando para iniciar a transmissão... té +
 #FIM ROTINA
 
@@ -79,6 +79,25 @@ LOOP_HEADER:
 ENVIAR_HEADER:
 	sw	$t5,4($t0) 	#Enviar HEADER PELA NOC
 	
+	
+	
+LOOP_SIZE_2:
+	lw $t6,0($t0) # carrega o status
+	addiu $t7,$zero,16#ve se pode transmitir	
+	and $t6,$t6,$t7
+	
+	beq $t6,$t7, ENVIAR_SIZE_2
+	J LOOP_SIZE_2   #caso não consiga enviar retorna para LOOP_HEADER
+	
+ENVIAR_SIZE_2:
+	#Carregar SIZE
+	la $t7,SIZE
+	lw $t7,0($t7)
+	
+	sw	$t7,4($t0) 	#Enviar SIZE pela NOC, 
+
+
+
 
 #Configurar DMA para enviar o Array
 	#Carregar endereço do array
@@ -86,8 +105,7 @@ ENVIAR_HEADER:
 	#Carregar SIZE
 	la $t7,SIZE
 	lw $t7,0($t7)
-	addiu $t0,$zero,DMA_ADDR    #carrega endereco do DMA
-	
+	lui $t0,DMA_ADDR   #carrega endereco do DMA
 #ROTINA PARA ENVIAR VIA DMA
 	sw $t9, 4($t0)			# Grava no registrador TX o endereço da memoria onde começa o ARRAY
 	sw $t7, 8($t0)			# Grava no registrador TX o size

@@ -90,6 +90,8 @@ architecture behavioral of DMA is
     signal TX_pkg_size  : std_logic_vector (31 downto 0);   -- Size of package to be transmited
     signal transmited   : std_logic_vector (31 downto 0);   -- Total of flits transmited
 
+    signal teste: std_logic; -- Debug
+
 begin
 
     Reciving_o <=   Reciving;
@@ -102,9 +104,9 @@ begin
                     TX_pkg_size when MIPS_addr_i = reg_TX_size else
                     (others => 'Z');
 
-    NoC_addr_o <=   x"09000008" when Sending = '1' and Writable = '1' and EOP = '1' else
-                    x"09000004" when (Sending = '1' and Writable = '1') or (Reciving = '1' and Readable = '1') else
-                    (others => '0');
+    NoC_addr_o <=   x"09000008" when Sending = '1' and EOP = '1' else
+                    x"09000004" when (Sending = '1') or (Reciving = '1') else
+                    (others => 'Z');
 
     NoC_data_o <=   MEM_data_i when Sending = '1' else
                     (others => 'Z');
@@ -134,22 +136,23 @@ begin
             TX_pkg_size <= x"00000000";
         elsif rising_edge(clk) then
             if MemWrite_i = '1' then
-                if MIPS_addr_i = reg_TX_addr then
+                if MIPS_addr_i = x"08000004" then --reg_TX_addr then
                     reg_TX_mem <= MIPS_data_i;
-                end if;
-                if MIPS_addr_i = reg_TX_size then
-                    TX_pkg_size <= MEM_data_i;
-                end if;
-                if MIPS_addr_i = reg_RX_addr then
+                elsif MIPS_addr_i = x"08000008" then --reg_TX_size then
+                    TX_pkg_size <= MIPS_data_i;
+                elsif MIPS_addr_i = x"08000014" then --reg_RX_addr then
                     reg_RX_mem <= MIPS_data_i;
-                end if;
-                if MIPS_addr_i = reg_STATUS then
+                    teste <= '1';   -- Debug
+                elsif MIPS_addr_i = x"08000000" then --reg_STATUS then
                     if MIPS_data_i(1) = '1' then
                         Start_TX <= '1';
                     elsif MIPS_data_i(3) = '1' then
                         Start_RX <= '1';
                     end if;
                 end if;
+                -- teste <= '1';   -- Debug
+            else                -- Debug
+                teste <= '0';   -- Debug
             end if;
             if TX_FSM = S0 and Start_TX = '1' then
                 Start_TX <= '0';
@@ -170,37 +173,44 @@ begin
         if rst = '1' then
             TX_FSM <= S0;
             sending <= '0';
-            EOP <= '0';
+            -- EOP <= '0';
             transmited <= x"00000000";
+            -- reg_TX  <= x"00000000";
         elsif rising_edge(clk) then
             case TX_FSM is
                 when S0 =>      -- Wait for the Start_TX in the STATUS register
                         if Start_TX = '1' then
                             Sending <= '1';
                             TX_FSM <= S1;
-                            transmited <= x"00000001";
-                            NoC_addr_o <= x"09000004";
+                            -- transmited <= x"00000000";
+                            -- NoC_addr_o <= x"09000004";
                         else
                             Sending <= '0';
-                            EOP <= '0';
+                            -- EOP <= '0';
                         end if;
+                        transmited <= x"00000000";
                 when S1 =>      -- Start transmiting the PKG
                         if Writable = '1' then
-                            reg_TX <= reg_TX_mem + (transmited(29 downto 0) & "00");    -- Addr of the data in the DataMemory (base + offset)
-                            if transmited = TX_pkg_size then    -- Send the last flit and the EOP signal.
-                                EOP <= '1';
+                            -- reg_TX <= reg_TX_mem + (transmited(29 downto 0) & "00");    -- Addr of the data in the DataMemory (base + offset)
+                            if transmited = STD_LOGIC_VECTOR(unsigned(TX_pkg_size) - 0) then    -- Send the last flit and the EOP signal.                                EOP <= '1';
                                 TX_FSM <= S2;
-                            else
-                                EOP <= '0';
+                                -- EOP <= '1';
+                            -- else
+                                -- EOP <= '0';
                             end if;
                             transmited <= STD_LOGIC_VECTOR(unsigned(transmited) + 1);
                         end if;
                 when S2 =>      -- Restart the FSM
                         Sending <= '0';
                         TX_FSM <= S0;
+                        -- EOP <= '0';
             end case;
         end if;
     end process;
+
+    reg_TX <= reg_TX_mem + (transmited(29 downto 0) & "00");
+
+    EOP <= '1' when transmited = STD_LOGIC_VECTOR(unsigned(TX_pkg_size) - 0) else '0';
 
 
 --------------------------------------------------------------------------
@@ -221,11 +231,12 @@ begin
                         if Start_RX = '1' then
                             RX_FSM <= S1;
                             recived <= x"00000000";
-                            Reciving <= '1';
+                            -- Reciving <= '1';
                         else
                             Reciving <= '0';
                         end if;
                 when S1 =>      -- Start Reciving the flits
+                        Reciving <= '1';
                         if Readable = '1' then
                             reg_RX <= reg_RX_mem + (recived(29 downto 0) & "00"); -- Base(reg_RX_mem) + RX_pkg_size*4
                             if EOP_RX = '1' then

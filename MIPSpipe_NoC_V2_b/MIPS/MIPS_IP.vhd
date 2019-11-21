@@ -67,9 +67,11 @@ architecture structural of MIPS_IP is
     signal DMA_data_o           : std_logic_vector(31 downto 0);
     signal DMA_data_i           : std_logic_vector(31 downto 0);
     signal DMA_addr             : std_logic_vector(31 downto 0);
+    signal DMA_NoC_addr         : std_logic_vector(31 downto 0);
     signal DMA_MEM_addr         : std_logic_vector(31 downto 0);
     signal DMA_NoC_data_o       : std_logic_vector(31 downto 0);
     signal DMA_NoC_data_i       : std_logic_vector(31 downto 0);
+    signal DMA_NoC_Write        :std_logic;
     signal DMA_write            : std_logic;
     signal Sending              : std_logic;
     signal Reciving             : std_logic;
@@ -78,7 +80,7 @@ architecture structural of MIPS_IP is
     signal NoC_addr             : std_logic_vector(31 downto 0);
     -- signal NoC_data_i           : std_logic_vector(31 downto 0);
     signal NoC_data_o           : std_logic_vector(31 downto 0);
-    signal NoC_Write            : std_logic;
+    -- signal NoC_Write            : std_logic;
     signal RX_EOP               : std_logic;
     signal Readable             : std_logic;
     signal Writable             : std_logic;
@@ -162,15 +164,15 @@ begin
 
             -- MEM interface
             MEM_addr_o  => DMA_MEM_addr,
-            MEM_data_i  => DMA_data_o,
+            MEM_data_i  => MEM_data_o,
             MEM_data_o  => DMA_data_o,
             MEM_write_o => DMA_write,
 
             -- NoC Interface
-            NoC_addr_o  => NoC_addr,
+            NoC_addr_o  => DMA_NoC_addr,
             NoC_data_i  => DMA_NoC_data_i,
             NoC_data_o  => DMA_NoC_data_o,
-            NoC_Write   => NoC_Write,
+            NoC_Write   => DMA_NoC_Write,
             EOP_RX      => RX_EOP,
 
             -- Status
@@ -196,8 +198,8 @@ begin
             MIPS_addr       => MIPS_dataAddress,
             MIPS_write      => MIPS_MemWrite,
         -- DMA
-            DMA_write       => DMA_write,
-            DMA_addr        => DMA_addr,
+            DMA_write       => DMA_NoC_Write,
+            DMA_addr        => DMA_NoC_addr,
             DMA_data_i      => DMA_NoC_data_o,
             DMA_data_o      => DMA_NoC_data_i,
             halt_i          => halt,
@@ -214,14 +216,14 @@ begin
                     MEM_data_o;
 
     MEM_MemWrite <= MIPS_MemWrite when MIPS_dataAddress(31 downto 20) = MEM_UpperAddr and halt = '0' else
-                    DMA_write when DMA_addr(31 downto 20) = MEM_UpperAddr and halt = '1' else
+                    DMA_write when DMA_MEM_addr(31 downto 20) = MEM_UpperAddr and halt = '1' else
                     '0';
 
     MEM_addr <=     MIPS_dataAddress when halt = '0' else
                     DMA_MEM_addr;-- when halt = '1' else
 
     MEM_data_i <=   DMA_data_o when halt = '1' or MIPS_dataAddress(31 downto 20) = DMA_UpperAddr else
-                    NoC_data_o when MIPS_dataAddress(31 downto 20) = NoC_UpperAddr else
+                    --NoC_data_o when MIPS_dataAddress(31 downto 20) = NoC_UpperAddr else
                     MIPS_data_o;
 
     STATUS(31 downto 0) <= halt & x"00000" & "000" & RX_EOP & '0' & Readable & Writable & '0' & Reciving & '0' & Sending;

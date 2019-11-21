@@ -58,7 +58,7 @@ begin
         generic map(
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
-            MemDataSize         => 500,
+            MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
             MemInstFile         => "./MIPS/teste_slave.txt",
@@ -79,7 +79,7 @@ begin
         generic map(
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
-            MemDataSize         => 500,
+            MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
             MemInstFile         => "./MIPS/teste_slave.txt",
@@ -100,7 +100,7 @@ begin
         generic map(
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
-            MemDataSize         => 500,
+            MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
             MemInstFile         => "./MIPS/teste_slave.txt",
@@ -122,7 +122,7 @@ begin
         generic map(
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
-            MemDataSize         => 500,
+            MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
             MemInstFile         => "./MIPS/teste_slave.txt",
@@ -143,7 +143,7 @@ begin
         generic map(
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
-            MemDataSize         => 500,
+            MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
             MemInstFile         => "./MIPS/teste_slave.txt",
@@ -168,7 +168,7 @@ begin
         generic map(
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
-            MemDataSize         => 500,
+            MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
             MemInstFile         => "./MIPS/teste_slave.txt",
@@ -189,7 +189,7 @@ begin
         generic map(
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
-            MemDataSize         => 500,
+            MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
 				MemInstFile         => "./MIPS/teste_slave.txt",
@@ -211,7 +211,7 @@ begin
         generic map(
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
-            MemDataSize         => 500,
+            MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
 				MemInstFile         => "./MIPS/teste_slave.txt",
@@ -233,7 +233,7 @@ begin
         generic map(
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
-            MemDataSize         => 500,
+            MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
             MemInstFile         => "./MIPS/teste_slave.txt",
@@ -253,7 +253,7 @@ begin
         generic map(
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
-            MemDataSize         => 500,
+            MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
             MemInstFile         => "./MIPS/teste_slave.txt",
@@ -274,7 +274,7 @@ begin
         generic map(
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
-            MemDataSize         => 500,
+            MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
             MemInstFile         => "./MIPS/teste_slave.txt",
@@ -295,7 +295,7 @@ begin
         generic map(
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
-            MemDataSize         => 500,
+            MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
             MemInstFile         => "./MIPS/teste_slave.txt",
@@ -316,7 +316,7 @@ begin
         generic map(
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
-            MemDataSize         => 500,
+            MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
             MemInstFile         => "./MIPS/teste_slave.txt",
@@ -337,7 +337,7 @@ begin
         generic map(
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
-            MemDataSize         => 500,
+            MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
             MemInstFile         => "./MIPS/teste_slave.txt",
@@ -358,7 +358,7 @@ begin
         generic map(
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
-            MemDataSize         => 500,
+            MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
             MemInstFile         => "./MIPS/teste_slave.txt",

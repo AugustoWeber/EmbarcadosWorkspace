@@ -24,7 +24,7 @@
 0x00400054  0x34390008  ori $25,$1,0x00000008      
 0x00400058  0xad190014  sw $25,0x00000014($8) 44   	sw $t9, 20($t0)			# Grava no registrador RX o endereço da memoria que ira receber o array
 0x0040005c  0xad0f0018  sw $15,0x00000018($8) 45   	sw $t7, 24($t0)			# Grava no registrador RX o size
-0x00400060  0x240a0002  addiu $10,$0,0x000000046   	addiu $t2, $zero, 2
+0x00400060  0x240a0008  addiu $10,$0,0x000000046   	addiu $t2, $zero, 8
 0x00400064  0xad0a0000  sw $10,0x00000000($8) 47   	sw $t2, 0($t0)			# Grava 2 no registrador STATUS indicando para iniciar a transmissão... té +
 0x00400068  0x3c080900  lui $8,0x00000900     61   	lui $t0,0x0900
 0x0040006c  0x3c011001  lui $1,0x00001001     63   	la $t1,HEADER #CARREGAR O HEADER RECEBIDO
@@ -39,14 +39,23 @@
 0x00400090  0x11cf0001  beq $14,$15,0x0000000177   	beq $t6,$t7, ENVIAR_HEADER
 0x00400094  0x08100021  J 0x00400084          78   	J LOOP_HEADER    #caso não consiga enviar retorna para LOOP_HEADER
 0x00400098  0xad0d0004  sw $13,0x00000004($8) 80   	sw	$t5,4($t0) 	#Enviar HEADER PELA NOC
-0x0040009c  0x3c011001  lui $1,0x00001001     85   	la $t9, ARRAY
-0x004000a0  0x34390008  ori $25,$1,0x00000008      
-0x004000a4  0x3c011001  lui $1,0x00001001     87   	la $t7,SIZE
-0x004000a8  0x342f0004  ori $15,$1,0x00000004      
-0x004000ac  0x8def0000  lw $15,0x00000000($15)88   	lw $t7,0($t7)
-0x004000b0  0x24080800  addiu $8,$0,0x0000080089   	addiu $t0,$zero,0x0800    #carrega endereco do DMA
-0x004000b4  0xad190004  sw $25,0x00000004($8) 92   	sw $t9, 4($t0)			# Grava no registrador TX o endereço da memoria onde começa o ARRAY
-0x004000b8  0xad0f0008  sw $15,0x00000008($8) 93   	sw $t7, 8($t0)			# Grava no registrador TX o size
-0x004000bc  0x240a0002  addiu $10,$0,0x000000094   	addiu $t2, $zero, 2
-0x004000c0  0xad0a0000  sw $10,0x00000000($8) 95   	sw $t2, 0($t0)			# Grava 2 no registrador STATUS indicando para iniciar a transmissão... té +
-0x004000c4  0x08100031  j 0x004000c4          104  	j END
+0x0040009c  0x8d0e0000  lw $14,0x00000000($8) 85   	lw $t6,0($t0) # carrega o status
+0x004000a0  0x240f0010  addiu $15,$0,0x000000186   	addiu $t7,$zero,16#ve se pode transmitir	
+0x004000a4  0x01cf7024  and $14,$14,$15       87   	and $t6,$t6,$t7
+0x004000a8  0x11cf0001  beq $14,$15,0x0000000189   	beq $t6,$t7, ENVIAR_SIZE_2
+0x004000ac  0x08100027  J 0x0040009c          90   	J LOOP_SIZE_2   #caso não consiga enviar retorna para LOOP_HEADER
+0x004000b0  0x3c011001  lui $1,0x00001001     94   	la $t7,SIZE
+0x004000b4  0x342f0004  ori $15,$1,0x00000004      
+0x004000b8  0x8def0000  lw $15,0x00000000($15)95   	lw $t7,0($t7)
+0x004000bc  0xad0f0004  sw $15,0x00000004($8) 97   	sw	$t7,4($t0) 	#Enviar SIZE pela NOC, 
+0x004000c0  0x3c011001  lui $1,0x00001001     104  	la $t9, ARRAY
+0x004000c4  0x34390008  ori $25,$1,0x00000008      
+0x004000c8  0x3c011001  lui $1,0x00001001     106  	la $t7,SIZE
+0x004000cc  0x342f0004  ori $15,$1,0x00000004      
+0x004000d0  0x8def0000  lw $15,0x00000000($15)107  	lw $t7,0($t7)
+0x004000d4  0x3c080800  lui $8,0x00000800     108  	lui $t0,0x0800   #carrega endereco do DMA
+0x004000d8  0xad190004  sw $25,0x00000004($8) 110  	sw $t9, 4($t0)			# Grava no registrador TX o endereço da memoria onde começa o ARRAY
+0x004000dc  0xad0f0008  sw $15,0x00000008($8) 111  	sw $t7, 8($t0)			# Grava no registrador TX o size
+0x004000e0  0x240a0002  addiu $10,$0,0x0000000112  	addiu $t2, $zero, 2
+0x004000e4  0xad0a0000  sw $10,0x00000000($8) 113  	sw $t2, 0($t0)			# Grava 2 no registrador STATUS indicando para iniciar a transmissão... té +
+0x004000e8  0x0810003a  j 0x004000e8          122  	j END
