@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2019-11-20T16:26:43</DateModified>
+  <DateModified>2019-11-21T05:21:25</DateModified>
   <ModuleName>NoC</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
-  <SavedFilePath>/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2_b/iseconfig/NoC.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2_b/</ImplementationReportsDirectory>
+  <SavedFilePath>/home/ise/ISEworkspace/EmbarcadosWorkspace/MIPSpipe_NoC_V2_b/iseconfig/NoC.xreport</SavedFilePath>
+  <ImplementationReportsDirectory>/home/ise/ISEworkspace/EmbarcadosWorkspace/MIPSpipe_NoC_V2_b/</ImplementationReportsDirectory>
   <DateInitialized>2019-11-12T02:07:50</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

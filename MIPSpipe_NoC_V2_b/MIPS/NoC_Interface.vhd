@@ -96,6 +96,7 @@ begin
             Writable <= '1';
             EOP_TX <= '0';
             EOP <= '0';
+            MIPS_data_o <= (others => '0');
         elsif rising_edge(clk) then
             -- Read and write from the In/Out register
             if DMA_addr = reg_TXRX then

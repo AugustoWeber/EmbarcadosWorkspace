@@ -68,13 +68,15 @@ architecture structural of MIPS_IP is
     signal DMA_data_i           : std_logic_vector(31 downto 0);
     signal DMA_addr             : std_logic_vector(31 downto 0);
     signal DMA_MEM_addr         : std_logic_vector(31 downto 0);
+    signal DMA_NoC_data_o       : std_logic_vector(31 downto 0);
+    signal DMA_NoC_data_i       : std_logic_vector(31 downto 0);
     signal DMA_write            : std_logic;
     signal Sending              : std_logic;
     signal Reciving             : std_logic;
 
     -- NoC
     signal NoC_addr             : std_logic_vector(31 downto 0);
-    signal NoC_data_i           : std_logic_vector(31 downto 0);
+    -- signal NoC_data_i           : std_logic_vector(31 downto 0);
     signal NoC_data_o           : std_logic_vector(31 downto 0);
     signal NoC_Write            : std_logic;
     signal RX_EOP               : std_logic;
@@ -166,8 +168,8 @@ begin
 
             -- NoC Interface
             NoC_addr_o  => NoC_addr,
-            NoC_data_i  => NoC_data_i,
-            NoC_data_o  => NoC_data_o,
+            NoC_data_i  => DMA_NoC_data_i,
+            NoC_data_o  => DMA_NoC_data_o,
             NoC_Write   => NoC_Write,
             EOP_RX      => RX_EOP,
 
@@ -196,8 +198,8 @@ begin
         -- DMA
             DMA_write       => DMA_write,
             DMA_addr        => DMA_addr,
-            DMA_data_i      => DMA_data_o,
-            DMA_data_o      => DMA_data_i,
+            DMA_data_i      => DMA_NoC_data_o,
+            DMA_data_o      => DMA_NoC_data_i,
             halt_i          => halt,
         -- Status
             Writable_o      => Writable,

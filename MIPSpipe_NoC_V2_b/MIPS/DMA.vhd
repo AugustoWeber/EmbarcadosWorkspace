@@ -100,14 +100,14 @@ begin
 
     MIPS_data_o <=  RX_pkg_size when MIPS_addr_i = reg_RX_size else
                     TX_pkg_size when MIPS_addr_i = reg_TX_size else
-                    (others => '0');
+                    (others => 'Z');
 
     NoC_addr_o <=   x"09000008" when Sending = '1' and Writable = '1' and EOP = '1' else
                     x"09000004" when (Sending = '1' and Writable = '1') or (Reciving = '1' and Readable = '1') else
                     (others => '0');
 
     NoC_data_o <=   MEM_data_i when Sending = '1' else
-                    (others => '0');
+                    (others => 'Z');
 
     NoC_Write <=    '1' when Sending = '1' and Writable = '1' else
                     '0';
@@ -117,9 +117,9 @@ begin
     MEM_Write_o <=  '1' when (Reciving = '1' and Readable = '1') else
                     '0';
 
-    MEM_addr_o <=   reg_RX when (Reciving = '1' and Readable = '1') else
-                    reg_TX when (Sending = '1' and Writable = '1') else
-                    (others => '0');
+    MEM_addr_o <=   reg_RX when Reciving = '1' else
+                    reg_TX when Sending = '1' else
+                    (others => 'Z');
 
 
     -- Process save MIPS to Regs
@@ -136,11 +136,14 @@ begin
             if MemWrite_i = '1' then
                 if MIPS_addr_i = reg_TX_addr then
                     reg_TX_mem <= MIPS_data_i;
-                elsif MIPS_addr_i = reg_TX_size then
+                end if;
+                if MIPS_addr_i = reg_TX_size then
                     TX_pkg_size <= MEM_data_i;
-                elsif MIPS_addr_i = reg_RX_addr then
+                end if;
+                if MIPS_addr_i = reg_RX_addr then
                     reg_RX_mem <= MIPS_data_i;
-                elsif MIPS_addr_i = reg_STATUS then
+                end if;
+                if MIPS_addr_i = reg_STATUS then
                     if MIPS_data_i(1) = '1' then
                         Start_TX <= '1';
                     elsif MIPS_data_i(3) = '1' then
@@ -177,7 +180,6 @@ begin
                             TX_FSM <= S1;
                             transmited <= x"00000001";
                             NoC_addr_o <= x"09000004";
-                            MEM_addr_o <= reg_TX_mem;
                         else
                             Sending <= '0';
                             EOP <= '0';

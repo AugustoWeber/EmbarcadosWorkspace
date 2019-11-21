@@ -30,7 +30,7 @@ RX_SIZE:
 	beq $t4,$t3,LER_SIZE  #verifica se o STALL é 1, se for 0 tenta ler
 	j RX_SIZE
 LER_SIZE:
-	lw $t7,0($t0) #le o dado vindo da noc
+	lw $t7,4($t0) #le o dado vindo da noc
 	la $t9,SIZE
 	sw $t7,0($t9) #SALVA SIZE
 	

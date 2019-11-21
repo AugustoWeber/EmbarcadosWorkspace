@@ -15,7 +15,7 @@
 0x00400030  0x01796024  and $12,$11,$25       29   	and $t4,$t3,$t9
 0x00400034  0x118b0001  beq $12,$11,0x0000000130   	beq $t4,$t3,LER_SIZE  #verifica se o STALL é 1, se for 0 tenta ler
 0x00400038  0x0810000a  j 0x00400028          31   	j RX_SIZE
-0x0040003c  0x8d0f0000  lw $15,0x00000000($8) 33   	lw $t7,0($t0) #le o dado vindo da noc
+0x0040003c  0x8d0f0004  lw $15,0x00000004($8) 33   	lw $t7,4($t0) #le o dado vindo da noc
 0x00400040  0x3c011001  lui $1,0x00001001     34   	la $t9,SIZE
 0x00400044  0x34390004  ori $25,$1,0x00000004      
 0x00400048  0xaf2f0000  sw $15,0x00000000($25)35   	sw $t7,0($t9) #SALVA SIZE
