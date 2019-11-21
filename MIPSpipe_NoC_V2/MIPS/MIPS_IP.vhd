@@ -22,6 +22,9 @@ entity MIPS_IP is
         MemDataFile         : string;-- := "./MIPS/BubbleSort_data.txt"
         MemInstSize         : integer;-- := 50;
         MemInstFile         : string;-- := "./MIPS/BubbleSort_code.txt"
+        NoC_UpperAddr       : std_logic_vector(11 downto 0) := x"090";
+        DMA_UpperAddr       : std_logic_vector(11 downto 0) := x"080";
+        MEM_UpperAddr       : std_logic_vector(11 downto 0) := x"100";
         IP_Addr             : std_logic_vector(11 downto 0)
     );
     port ( 
@@ -57,6 +60,26 @@ architecture structural of MIPS_IP is
     signal MIPS_dataAddress     : std_logic_vector(31 downto 0);
     signal halt                 : std_logic;
     signal MIPS_instruction     : std_logic_vector(31 downto 0);
+
+    signal STATUS               : std_logic_vector(31 downto 0);
+
+    -- DMA
+    signal DMA_data_o           : std_logic_vector(31 downto 0);
+    signal DMA_data_i           : std_logic_vector(31 downto 0);
+    signal DMA_addr             : std_logic_vector(31 downto 0);
+    signal DMA_MEM_addr         : std_logic_vector(31 downto 0);
+    signal DMA_write            : std_logic;
+    signal Sending              : std_logic;
+    signal Reciving             : std_logic;
+
+    -- NoC
+    signal NoC_addr             : std_logic_vector(31 downto 0);
+    signal NoC_data_i           : std_logic_vector(31 downto 0);
+    signal NoC_data_o           : std_logic_vector(31 downto 0);
+    signal NoC_Write            : std_logic;
+    signal RX_EOP               : std_logic;
+    signal Readable             : std_logic;
+    signal Writable             : std_logic;
 begin
 
     MIPS_MONOCYCLE: entity work.MIPS_monocycle(structural) 
@@ -131,21 +154,82 @@ begin
             -- MIPS interface
             MIPS_addr_i => MIPS_dataAddress,
             MIPS_data_i => MIPS_data_o,
-            MIPS_data_o => MIPS_data_i,
+            MIPS_data_o => DMA_data_o,--MIPS_data_i,
             MemWrite_i  => MIPS_MemWrite,
             halt_o      => halt,
 
             -- MEM interface
-            MEM_addr_o  => MEM_addr,
-            MEM_data_i  => MEM_data_o,
-            MEM_data_o  => MEM_data_i,
-            MEM_write_o => MEM_MemWrite,
+            MEM_addr_o  => DMA_MEM_addr,
+            MEM_data_i  => DMA_data_o,
+            MEM_data_o  => DMA_data_o,
+            MEM_write_o => DMA_write,
 
-            -- Arke Interface
-            data_in     => data_in,         -- NoC_data_i
-            control_in  => control_in,      -- NoC_control_i,   -- 0 -> EOP_RX; 1 -> RX; 2 <- STALL_TX
-            data_out    => data_out,        -- NoC_data_o,
-            control_out => control_out      -- NoC_control_o    -- 0 -> EOP_TX; 1 -> TX; 2 <- STALL_RX
+            -- NoC Interface
+            NoC_addr_o  => NoC_addr,
+            NoC_data_i  => NoC_data_i,
+            NoC_data_o  => NoC_data_o,
+            NoC_Write   => NoC_Write,
+            EOP_RX      => RX_EOP,
+
+            -- Status
+            Sending_o   => Sending,
+            Reciving_o  => Reciving,
+            Readable    => Readable,
+            Writable    => Writable
         );
 
+    NoCinterface: entity work.NoC_Interface(behavioral)
+        generic map(IP_Addr => IP_Addr)
+        port map(
+            clk             => clk,
+            rst             => rst,
+        -- NoC Interface
+            data_in         => data_in,
+            control_in      => control_in,
+            data_out        => data_out,
+            control_out     => control_out,
+        -- MIPS IP
+            MIPS_data_i     => MIPS_data_o,
+            MIPS_data_o     => NoC_data_o,--MIPS_data_i,
+            MIPS_addr       => MIPS_addr,
+            MIPS_write      => MIPS_MemWrite,
+        -- DMA
+            DMA_write       => DMA_write,
+            DMA_addr        => DMA_addr,
+            DMA_data_i      => DMA_data_o,
+            DMA_data_o      => DMA_data_i,
+            halt_i          => halt,
+        -- Status
+            Writable_o      => Writable,
+            Readable_o      => Readable,
+        -- To All
+            EOP_RX_o        => RX_EOP
+        );
+
+    MIPS_data_i <=  STATUS when MIPS_dataAddress = x"09000000" or MIPS_dataAddress = x"08000000" else
+                    DMA_data_o when MIPS_dataAddress(31 downto 20) = DMA_UpperAddr else
+                    NoC_data_o when MIPS_dataAddress(31 downto 20) = NoC_UpperAddr else
+                    MEM_data_o;
+
+    MEM_MemWrite <= MIPS_MemWrite when MIPS_dataAddress(31 downto 20) = MEM_UpperAddr and halt = '0' else
+                    DMA_write when DMA_addr(31 downto 20) = MEM_UpperAddr and halt = '1' else
+                    '0';
+
+    MEM_addr <=     MIPS_dataAddress when halt = '0' else
+                    DMA_MEM_addr;-- when halt = '1' else
+
+    MEM_data_i <=   DMA_data_o when halt = '1' or MIPS_dataAddress(31 downto 20) = DMA_UpperAddr else
+                    NoC_data_o when MIPS_dataAddress(31 downto 20) = NoC_UpperAddr else
+                    MIPS_data_o;
+
+    STATUS(31 downto 0) <= halt & x"00000" & "000" & RX_EOP & '0' & Readable & Writable & '0' & Reciving & '0' & Sending;
+    -- STATUS(30 downto 8) <= x"00000" & "000";
+    -- STATUS(07) <= RX_EOP;
+    -- STATUS(06) <= '0'; -- EOP_TX;
+    -- STATUS(05) <= Readable;
+    -- STATUS(04) <= Writable;
+    -- STATUS(03) <= '0'; -- DMA.Start_RX
+    -- STATUS(02) <= Reciving;
+    -- STATUS(01) <= '0'; -- DMA.Start_TX
+    -- STATUS(00) <=  Sending;
 end structural;

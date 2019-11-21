@@ -1,0 +1,35 @@
+ Address    Code        Basic                     Source
+
+0x00400000  0x3c080800  lui $8,0x00000800     7    	lui $t0, 0x0800
+0x00400004  0x3c091001  lui $9,0x00001001     9    	lui $t1,0x1001
+0x00400008  0xad090008  sw $9,0x00000008($8)  12   	sw $t1,8($t0)     # grava no registrador RX o endereço da memoria que contem as informações
+0x0040000c  0x240a0008  addiu $10,$0,0x000000013   	addiu $t2,$zero,8
+0x00400010  0xad0a0000  sw $10,0x00000000($8) 14   	sw $t2,0($t0)       # grava 8 no registrador STATUS indicando para iniciar a transmissão... té +
+0x00400014  0x240d0001  addiu $13,$0,0x000000018       addiu   $t5, $zero, 1           # t5 = constant 1
+0x00400018  0x24180001  addiu $24,$0,0x000000019       addiu   $t8, $zero, 1           # t8 = 1: swap performed
+0x0040001c  0x13000011  beq $24,$0,0x00000011 22       beq     $t8, $zero, end_ordenar         # Verifies if a swap has ocurred
+0x00400020  0x3c011001  lui $1,0x00001001     23       la      $t0, array              # t0 points the first array element
+0x00400024  0x34280000  ori $8,$1,0x00000000       
+0x00400028  0x2508000c  addiu $8,$8,0x0000000c25      addiu    $t0,$t0,12
+0x0040002c  0x240e0064  addiu $14,$0,0x000000628       addiu   $t6,$zero,100	    #t6 <- size
+0x00400030  0x24180000  addiu $24,$0,0x000000031       addiu   $t8, $zero, 0           # swap <- 0
+0x00400034  0x8d090000  lw $9,0x00000000($8)  34       lw      $t1, 0($t0)             # t1 <- array[i]
+0x00400038  0x8d0a0004  lw $10,0x00000004($8) 35       lw      $t2, 4($t0)             # t2 <- array[i+1]
+0x0040003c  0x0149782a  slt $15,$10,$9        36       slt     $t7, $t2, $t1           # array[i+1] < array[i] ?
+0x00400040  0x11ed0004  beq $15,$13,0x0000000437       beq     $t7, $t5, swap          # Branch if array[i+1] < array[i]
+0x00400044  0x25080004  addiu $8,$8,0x0000000440       addiu   $t0, $t0, 4             # t0 points the next element
+0x00400048  0x25ceffff  addiu $14,$14,0xffffff41       addiu   $t6, $t6, -1            # size--
+0x0040004c  0x11cdfff3  beq $14,$13,0xfffffff342       beq     $t6, $t5, while         # Verifies if all elements were compared
+0x00400050  0x0810000d  j 0x00400034          43       j       loop    
+0x00400054  0xad090004  sw $9,0x00000004($8)  47       sw      $t1, 4($t0)
+0x00400058  0xad0a0000  sw $10,0x00000000($8) 48       sw      $t2, 0($t0)
+0x0040005c  0x24180001  addiu $24,$0,0x000000049       addiu   $t8, $zero, 1           # Indicates a swap
+0x00400060  0x08100011  j 0x00400044          50       j       continue
+0x00400064  0x3c080800  lui $8,0x00000800     54       lui $t0, 0x0800
+0x00400068  0x3c091001  lui $9,0x00001001     56       lui $t1,0x1001
+0x0040006c  0xad200004  sw $0,0x00000004($9)  60       sw $zero, 4($t1)
+0x00400070  0xad090004  sw $9,0x00000004($8)  64       sw $t1,4($t0)     # grava no registrador TX o endereço da memoria que contem as informações
+0x00400074  0x240a0002  addiu $10,$0,0x000000065       addiu $t2,$zero,2
+0x00400078  0xad0a0000  sw $10,0x00000000($8) 66       sw $t2,0($t0)       # grava 2 no registrador STATUS indicando para iniciar a transmissão... té +
+0x0040007c  0x08100000  j 0x00400000          72        j RECEBER
+0x00400080  0x08100020  j 0x00400080          74        j       end 

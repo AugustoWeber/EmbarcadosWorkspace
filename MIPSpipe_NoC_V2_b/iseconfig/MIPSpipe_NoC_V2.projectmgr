@@ -1,0 +1,189 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--This is an ISE project configuration file.-->
+<!--It holds project specific layout data for the projectmgr plugin.-->
+<!--Copyright (c) 1995-2009 Xilinx, Inc.  All rights reserved.-->
+<Project version="2" owner="projectmgr" name="MIPSpipe_NoC_V2" >
+   <!--This is an ISE project configuration file.-->
+   <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/MIPS_IP - structural |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|MIPS|MIPS_IP.vhd</ClosedNode>
+         <ClosedNode>/NoC - structural |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC.vhd/ROUTER_XYZ - Router - Router</ClosedNode>
+         <ClosedNode>/NoC - structural |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC.vhd/gROUT - Router - Router</ClosedNode>
+         <ClosedNode>PROJECT</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>NoC - structural (/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2_b/Arke/NoC.vhd)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >3</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000002ae000000020000000000000000000000000200000064ffffffff000000810000000300000002000002ae0000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>NoC - structural (/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2_b/Arke/NoC.vhd)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" />
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView guiview="File" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000000000000001000000000000000000000000000000000000074c000000040101000100000000000000000000000064ffffffff0000008100000000000000040000005100000001000000000000002900000001000000000000008400000001000000000000064e0000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Arke/Arke_pkg.vhd</CurrentItem>
+   </ItemView>
+   <ItemView guiview="Library" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>work</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems/>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000000000000010000000000000000000000000000000000000126000000010001000100000000000000000000000064ffffffff000000810000000000000001000001260000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>work</CurrentItem>
+   </ItemView>
+   <ItemView engineview="SynthesisOnly" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Configure Target Device</ClosedNode>
+         <ClosedNode>Implement Design</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001b7000000010000000100000000000000000000000064ffffffff000000810000000000000001000001b70000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/MIPS_monocycle_tb - structural |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|MIPS|MIPS_monocycle_tb.vhd</ClosedNode>
+         <ClosedNode>/MIPS_monocycle_tb - structural |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|MIPS|MIPS_monocycle_tb.vhd</ClosedNode>
+         <ClosedNode>/MIPS_monocycle_tb - structural |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2_b|MIPS|MIPS_monocycle_tb.vhd</ClosedNode>
+         <ClosedNode>/MIPS_monocycle_tb - structural |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|MIPS|MIPS_monocycle_tb.vhd</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|Arke|NoC_tb.vhd</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|Arke|NoC_tb.vhd/ARKE - NoC - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|Arke|NoC_tb.vhd/IP_00_MIPS - MIPS_IP - structural/MIPS_MONOCYCLE - MIPS_monocycle - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|Arke|NoC_tb.vhd/IP_01_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|Arke|NoC_tb.vhd/IP_02_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|Arke|NoC_tb.vhd/IP_03_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|Arke|NoC_tb.vhd/IP_10_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|Arke|NoC_tb.vhd/IP_11_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|Arke|NoC_tb.vhd/IP_12_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|Arke|NoC_tb.vhd/IP_13_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|Arke|NoC_tb.vhd/IP_20_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|Arke|NoC_tb.vhd/IP_21_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|Arke|NoC_tb.vhd/IP_22_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|Arke|NoC_tb.vhd/IP_23_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|Arke|NoC_tb.vhd/IP_30_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|Arke|NoC_tb.vhd/IP_31_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|Arke|NoC_tb.vhd/IP_32_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|Arke|NoC_tb.vhd/IP_33_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/ARKE - NoC - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_00_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_01_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_02_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_03_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_10_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_11_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_12_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_13_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_20_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_21_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_22_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_23_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_30_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_31_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_32_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_33_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2_b|Arke|NoC_tb.vhd</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/ARKE - NoC - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_00_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_01_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_02_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_03_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_10_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_11_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_12_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_13_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_20_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_21_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_22_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_23_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_30_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_31_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_32_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_33_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>PROJECT</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>NoC_tb - NoC_tb (/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2_b/Arke/NoC_tb.vhd)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000001de000000020000000000000000000000000200000064ffffffff000000810000000300000002000001de0000000100000003000000000000000100000003</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
+      <CurrentItem>NoC_tb - NoC_tb (/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2_b/Arke/NoC_tb.vhd)</CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+         <ClosedNode>Design Utilities</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem></SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001c7000000010000000100000000000000000000000064ffffffff000000810000000000000001000001c70000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>ISim Simulator</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001c7000000010000000100000000000000000000000064ffffffff000000810000000000000001000001c70000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>ISim Simulator</CurrentItem>
+   </ItemView>
+   <SourceProcessView>000000ff0000000000000002000001e20000007a01000000060100000002</SourceProcessView>
+   <CurrentView>Behavioral Simulation</CurrentView>
+   <ItemView engineview="BehavioralSim" guiview="Source" compilemode="ManualCompile" >
+      <ClosedNodes>
+         <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>PROJECT</ClosedNode>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Arke/ProgramablePriorityEncoder.vhd (/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2/Arke/ProgramablePriorityEncoder.vhd)</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >6</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000000000000000001dc000000020000000000000000000000000000000064ffffffff0000008100000000000000020000014a0000000100000000000000920000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Arke/ProgramablePriorityEncoder.vhd (/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2/Arke/ProgramablePriorityEncoder.vhd)</CurrentItem>
+   </ItemView>
+</Project>
