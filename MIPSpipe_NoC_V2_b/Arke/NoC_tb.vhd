@@ -40,7 +40,7 @@ begin
             MemDataSize         => 1700,
             MemDataFile         => "./MIPS/MemData1500-00.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/Ordenar_Master.txt",
+            MemInstFile         => "./MIPS/Ordenar_Solito.txt",
             IP_addr             => x"000"
         )
         port map(

@@ -192,7 +192,7 @@ begin
                 when S1 =>      -- Start transmiting the PKG
                         if Writable = '1' then
                             -- reg_TX <= reg_TX_mem + (transmited(29 downto 0) & "00");    -- Addr of the data in the DataMemory (base + offset)
-                            if transmited = STD_LOGIC_VECTOR(unsigned(TX_pkg_size) - 2) then    -- Send the last flit and the EOP signal.                                EOP <= '1';
+                            if transmited = STD_LOGIC_VECTOR(unsigned(TX_pkg_size) - 1) then    -- Send the last flit and the EOP signal.                                EOP <= '1';
                                 TX_FSM <= S2;
                                 -- EOP <= '1';
                             -- else
@@ -210,7 +210,7 @@ begin
 
     reg_TX <= reg_TX_mem + (transmited(29 downto 0) & "00");
 
-    EOP <= '1' when transmited = STD_LOGIC_VECTOR(unsigned(TX_pkg_size) - 2) else '0';
+    EOP <= '1' when transmited = STD_LOGIC_VECTOR(unsigned(TX_pkg_size) - 1) else '0';
 
 
 --------------------------------------------------------------------------

@@ -90,7 +90,7 @@ END_INSERTION:
 	sw $t2,0($t1)
 	
 	lui $t0,0x0800
-	addiu $t3,$zero,103	
+	addiu $t3,$zero,102	
 	
 	sw $t1, 4($t0)			# Grava no registrador TX o endereço da memoria que deseja enviar
 	sw $t3, 8($t0)			# Grava no registrador TX o size

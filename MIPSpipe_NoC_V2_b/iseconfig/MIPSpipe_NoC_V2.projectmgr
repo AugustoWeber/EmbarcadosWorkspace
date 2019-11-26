@@ -7,7 +7,9 @@
    <ItemView engineview="SynthesisOnly" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
          <ClosedNodesVersion>2</ClosedNodesVersion>
+         <ClosedNode>/MIPS_IP - structural |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|MIPS|MIPS_IP.vhd</ClosedNode>
          <ClosedNode>/MIPS_IP - structural |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|MIPS|MIPS_IP.vhd</ClosedNode>
+         <ClosedNode>/NoC - structural |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|Arke|NoC.vhd</ClosedNode>
          <ClosedNode>/NoC - structural |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC.vhd/ROUTER_XYZ - Router - Router</ClosedNode>
          <ClosedNode>/NoC - structural |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2|Arke|NoC.vhd/gROUT - Router - Router</ClosedNode>
          <ClosedNode>PROJECT</ClosedNode>
@@ -15,9 +17,9 @@
       <SelectedItems>
          <SelectedItem>NoC - structural (/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2_b/Arke/NoC.vhd)</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >3</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff0000000000000001000000010000000000000000000000000000000002020000000100000001000000640000048f000000020000000000000000000000000200000064ffffffff0000008100000003000000020000048f0000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000382000000020000000000000000000000000200000064ffffffff000000810000000300000002000003820000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
       <CurrentItem>NoC - structural (/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2_b/Arke/NoC.vhd)</CurrentItem>
    </ItemView>
@@ -63,13 +65,13 @@
          <ClosedNode>Implement Design</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem></SelectedItem>
+         <SelectedItem>Create Schematic Symbol</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >1</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000302000000010000000100000000000000000000000064ffffffff000000810000000000000001000003020000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem></CurrentItem>
+      <CurrentItem>Create Schematic Symbol</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="AutoCompile" >
       <ClosedNodes>
@@ -149,6 +151,19 @@
          <ClosedNode>Design Utilities</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
+         <SelectedItem/>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000312000000010000000100000000000000000000000064ffffffff000000810000000000000001000003120000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem/>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
          <SelectedItem></SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
@@ -157,20 +172,7 @@
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem></CurrentItem>
    </ItemView>
-   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
-      <ClosedNodes>
-         <ClosedNodesVersion>1</ClosedNodesVersion>
-      </ClosedNodes>
-      <SelectedItems>
-         <SelectedItem>Simulate Behavioral Model</SelectedItem>
-      </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
-      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000312000000010000000100000000000000000000000064ffffffff000000810000000000000001000003120000000100000000</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem>Simulate Behavioral Model</CurrentItem>
-   </ItemView>
-   <SourceProcessView>000000ff0000000000000002000001e20000007a01000000060100000002</SourceProcessView>
+   <SourceProcessView>000000ff00000000000000020000012e0000018401000000060100000002</SourceProcessView>
    <CurrentView>Behavioral Simulation</CurrentView>
    <ItemView engineview="BehavioralSim" guiview="Source" compilemode="ManualCompile" >
       <ClosedNodes>

@@ -39,7 +39,7 @@
 0x00400090  0x3c011001  lui $1,0x00001001     82   	la $t7, ARRAY_1500
 0x00400094  0x342f0010  ori $15,$1,0x00000010      
 0x00400098  0x25ea17e8  addiu $10,$15,0x00001783   	addiu $t2, $t7, 6120 	# Caso percorreu todo o array, sai do loop
-0x0040009c  0x11ea0025  beq $15,$10,0x0000002586   	beq $t7, $t2, END			# Caso chegar no fim, deu erro
+0x0040009c  0x11ea0026  beq $15,$10,0x0000002686   	beq $t7, $t2, END			# Caso chegar no fim, deu erro
 0x004000a0  0x8de80004  lw $8,0x00000004($15) 87   	lw $t0, 4($t7)				# CARREGA NUM_ARRAY do array
 0x004000a4  0x110c0002  beq $8,$12,0x00000002 89   	beq $t0, $t4, DMA_CONFIG		# Caso forem iguais vai para CONFIGURACAO DMA
 0x004000a8  0x25ef0198  addiu $15,$15,0x00000190   	addiu $t7,$t7,  408
@@ -62,19 +62,20 @@
 0x004000ec  0x8d090000  lw $9,0x00000000($8)  123  	lw $t1,0($t0)
 0x004000f0  0x2408000f  addiu $8,$0,0x0000000f124  	addiu $t0,$zero,15
 0x004000f4  0x1128ffd8  beq $9,$8,0xffffffd8  125  	beq $t1,$t0,LOOP_RECEBER_HEADER #caso tenha enviado todos os arrays, pula para o LOOP_RECEBER_HEADER
-0x004000f8  0xaf2e0000  sw $14,0x00000000($25)131  	sw $t6, 0($t9)			# Grava o num do IP para enviar o array
-0x004000fc  0x3c080800  lui $8,0x00000800     133  	lui $t0,0x0800
-0x00400100  0x24180066  addiu $24,$0,0x0000006134  	addiu $t8,$zero,102   #SIZE
-0x00400104  0xad190004  sw $25,0x00000004($8) 137  	sw $t9, 4($t0)			# Grava no registrador TX o endereço da memoria que contem as informações
-0x00400108  0xad180008  sw $24,0x00000008($8) 138  	sw $t8, 8($t0)			# Grava no registrador TX o size
-0x0040010c  0x240a0002  addiu $10,$0,0x0000000139  	addiu $t2, $zero, 2
-0x00400110  0xad0a0000  sw $10,0x00000000($8) 140  	sw $t2, 0($t0)			# Grava 2 no registrador STATUS indicando para iniciar a transmissão... té +
-0x00400114  0x27390198  addiu $25,$25,0x000001143  	addiu $t9, $t9, 408  # Array[i++]
-0x00400118  0x25ce0001  addiu $14,$14,0x000000144  	addiu $t6, $t6, 1          	 #Slave_enviar -> t6++
-0x0040011c  0x3c011001  lui $1,0x00001001     146  	la $t0,NUM_ENVIADOS
-0x00400120  0x34280000  ori $8,$1,0x00000000       
-0x00400124  0x8d090000  lw $9,0x00000000($8)  147  	lw $t1,0($t0)
-0x00400128  0x25290001  addiu $9,$9,0x00000001148  	addiu $t1,$t1,1 #ARRAYS_RECEBIDOS++     vai ate 15
-0x0040012c  0xad090000  sw $9,0x00000000($8)  149  	sw $t1,0($t0) 
-0x00400130  0x08100016  j 0x00400058          151  	j LOOP_RECEBER_HEADER
-0x00400134  0x0810004d  j 0x00400134          155  	j END
+0x004000f8  0x000d7402  srl $14,$13,0x00000010133  	srl $t6,$t5,16	
+0x004000fc  0xaf2e0000  sw $14,0x00000000($25)134  	sw $t6,0($t9)
+0x00400100  0x3c080800  lui $8,0x00000800     136  	lui $t0,0x0800
+0x00400104  0x24180066  addiu $24,$0,0x0000006137  	addiu $t8,$zero,102   #SIZE
+0x00400108  0xad190004  sw $25,0x00000004($8) 140  	sw $t9, 4($t0)			# Grava no registrador TX o endereço da memoria que contem as informações
+0x0040010c  0xad180008  sw $24,0x00000008($8) 141  	sw $t8, 8($t0)			# Grava no registrador TX o size
+0x00400110  0x240a0002  addiu $10,$0,0x0000000142  	addiu $t2, $zero, 2
+0x00400114  0xad0a0000  sw $10,0x00000000($8) 143  	sw $t2, 0($t0)			# Grava 2 no registrador STATUS indicando para iniciar a transmissão... té +
+0x00400118  0x27390198  addiu $25,$25,0x000001146  	addiu $t9, $t9, 408  # Array[i++]
+0x0040011c  0x25ce0001  addiu $14,$14,0x000000147  	addiu $t6, $t6, 1          	 #Slave_enviar -> t6++
+0x00400120  0x3c011001  lui $1,0x00001001     149  	la $t0,NUM_ENVIADOS
+0x00400124  0x34280000  ori $8,$1,0x00000000       
+0x00400128  0x8d090000  lw $9,0x00000000($8)  150  	lw $t1,0($t0)
+0x0040012c  0x25290001  addiu $9,$9,0x00000001151  	addiu $t1,$t1,1 #ARRAYS_RECEBIDOS++     vai ate 15
+0x00400130  0xad090000  sw $9,0x00000000($8)  152  	sw $t1,0($t0) 
+0x00400134  0x08100016  j 0x00400058          154  	j LOOP_RECEBER_HEADER
+0x00400138  0x0810004e  j 0x00400138          158  	j END

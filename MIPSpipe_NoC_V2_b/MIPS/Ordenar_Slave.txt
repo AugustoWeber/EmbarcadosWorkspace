@@ -50,7 +50,7 @@
 0x004000bc  0x000a5400  sll $10,$10,0x0000001089   	sll $t2,$t2,16
 0x004000c0  0xad2a0000  sw $10,0x00000000($9) 90   	sw $t2,0($t1)
 0x004000c4  0x3c080800  lui $8,0x00000800     92   	lui $t0,0x0800
-0x004000c8  0x240b0067  addiu $11,$0,0x000000693   	addiu $t3,$zero,103	
+0x004000c8  0x240b0066  addiu $11,$0,0x000000693   	addiu $t3,$zero,102	
 0x004000cc  0xad090004  sw $9,0x00000004($8)  95   	sw $t1, 4($t0)			# Grava no registrador TX o endereço da memoria que deseja enviar
 0x004000d0  0xad0b0008  sw $11,0x00000008($8) 96   	sw $t3, 8($t0)			# Grava no registrador TX o size
 0x004000d4  0x240a0002  addiu $10,$0,0x000000097   	addiu $t2, $zero, 2

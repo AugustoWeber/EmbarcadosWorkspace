@@ -21,6 +21,18 @@
    <WVObjectSize size="33" />
    <wave_markers>
       <marker time="563375000000" label="" />
+      <marker time="1132235000000" label="" />
+      <marker time="1136985000000" label="" />
+      <marker time="1141865000000" label="" />
+      <marker time="1146845000000" label="" />
+      <marker time="1151715000000" label="" />
+      <marker time="1156715000000" label="" />
+      <marker time="1691095000000" label="" />
+      <marker time="1127435000000" label="" />
+      <marker time="1701175000000" label="" />
+      <marker time="1711265000000" label="" />
+      <marker time="2828815000000" label="" />
+      <marker time="4509505000000" label="" />
    </wave_markers>
    <wvobject fp_name="/noc_tb/clk" type="logic" db_ref_id="1">
       <obj_property name="ElementShortName">clk</obj_property>
@@ -2097,7 +2109,7 @@
       <wvobject fp_name="/noc_tb/IP_00_MIPS/DATA_MEMORY/memoryarray[412]" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">[412]</obj_property>
          <obj_property name="ObjectShortName">memoryarray[412]</obj_property>
-         <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
+         <obj_property name="Radix">HEXRADIX</obj_property>
       </wvobject>
       <wvobject fp_name="/noc_tb/IP_00_MIPS/DATA_MEMORY/memoryarray[413]" type="array" db_ref_id="1">
          <obj_property name="ElementShortName">[413]</obj_property>
@@ -12958,7 +12970,7 @@
    <wvobject fp_name="/noc_tb/IP_10_MIPS/MIPS_MONOCYCLE/DATA_PATH/REGISTER_FILE/reg" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">reg[0:31]</obj_property>
       <obj_property name="ObjectShortName">reg[0:31]</obj_property>
-      <obj_property name="Radix">HEXRADIX</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
    <wvobject fp_name="/noc_tb/IP_10_MIPS/MIPS_MONOCYCLE/DATA_PATH/instructionaddress" type="array" db_ref_id="1">
       <obj_property name="ElementShortName">instructionaddress[31:0]</obj_property>

@@ -23,7 +23,7 @@ LOOP_PRIMEIRO_ENVIO:
 	sw $t6, 0($t9)			# Grava o num do IP para enviar o array
 	
 	lui $t0,ENDERECO_DMA
-	addiu $t8,$zero,103   #SIZE
+	addiu $t8,$zero,102   #SIZE
 	
 #ROTINA PARA ENVIAR VIA DMA
 	sw $t9, 4($t0)			# Grava no registrador TX o endereço da memoria que contem as informações
@@ -120,15 +120,18 @@ DMA_CONFIG:
 	#verifica se precisa enviar arrays para ordenar
 	
 	la $t0,NUM_ENVIADOS
-	lw $t1,0($t0)	# t1 <- NUM_ENVIADOS
+	lw $t1,0($t0)
 	addiu $t0,$zero,15
 	beq $t1,$t0,LOOP_RECEBER_HEADER #caso tenha enviado todos os arrays, pula para o LOOP_RECEBER_HEADER
 	
 	
 	#COMANDOS PARA ENVIAR ARRAY
 	#enviar para IP NUM_ENVIADOS+1
-	
-	sw $t6, 0($t9)			# Grava o num do IP para enviar o array
+	#sw $t6, 0($t9)			# Grava o num do IP para enviar o array
+
+	#ENVIAR PARA O IP RECEBIDO NOVO ARRAY
+	srl $t6,$t5,16	
+	sw $t6,0($t9)
 	
 	lui $t0,ENDERECO_DMA
 	addiu $t8,$zero,102   #SIZE
@@ -153,9 +156,6 @@ DMA_CONFIG:
 
 END:
 	j END
-
-	# if NUM_ENVIADOS = send SEND_INDEX
-	# 	t6 = 1;
 
 .data 
 	NUM_ENVIADOS:		.word 0
