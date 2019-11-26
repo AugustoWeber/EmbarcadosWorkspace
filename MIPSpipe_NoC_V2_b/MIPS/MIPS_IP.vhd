@@ -202,6 +202,7 @@ begin
             DMA_addr        => DMA_NoC_addr,
             DMA_data_i      => DMA_NoC_data_o,
             DMA_data_o      => DMA_NoC_data_i,
+            DMA_Reciving    => Reciving,
             halt_i          => halt,
         -- Status
             Writable_o      => Writable,

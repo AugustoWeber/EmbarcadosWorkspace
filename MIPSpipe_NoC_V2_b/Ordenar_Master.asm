@@ -1,10 +1,10 @@
 .eqv ELEMENTOS_ARRAY 100 
 .eqv ARRAY_NODE_SIZE 408
-.eqv NUM_SLAVES 4
+.eqv NUM_SLAVES 15
 .eqv NUM_ARRAYS 15
 .eqv ARRAY_1500_SIZE 6120
-.eqv ENDERECO_DMA 0x08000000
-.eqv ENDERECO_NOC 0x09000000
+.eqv ENDERECO_DMA 0x0800
+.eqv ENDERECO_NOC 0x0900
 .text
 
 
@@ -20,10 +20,10 @@ main:
 	addiu $t6, $zero, 1 #NUMERO DO SLAVE QUE VAI RECEBER O ARRAY, COMEÇA EM 1 E VAI ATÉ 15
 LOOP_PRIMEIRO_ENVIO:
 	beq $t7,$t6,FIM_PRIMEIRO_ENVIO 
-	sw $t6, 4($t9)			# Grava o num do IP para enviar o array
+	sw $t6, 0($t9)			# Grava o num do IP para enviar o array
 	
 	lui $t0,ENDERECO_DMA
-	addiu $t8,$zero,102   #SIZE
+	addiu $t8,$zero,103   #SIZE
 	
 #ROTINA PARA ENVIAR VIA DMA
 	sw $t9, 4($t0)			# Grava no registrador TX o endereço da memoria que contem as informações
@@ -57,21 +57,23 @@ LOOP_RECEBER_HEADER: #FICA NO LOOP ATE RECEBER ALGUM DADO
 	#carrega endereco do NoC
 	lui $t0,ENDERECO_NOC	
 	lw $t2,0($t0)  #ler o status
-	addiu $t3,$zero,0x20 
+	addiu $t3,$zero,32
 	and $t2,$t3,$t2
-	beq $t2,$t3,LOOP_RECEBER_HEADER #verifica se o STALL é 1, se for 0 tenta ler
-
+	beq $t2,$t3,LER_HEADER #verifica se o recived é 1, se for 1 tenta ler
+	j LOOP_RECEBER_HEADER
+LER_HEADER:
 	lw $t5,4($t0) #le o dado vindo da noc
-	srl $t5,$t5,16 # faz um shift no header para saber qual slave vai enviar o array
+	#srl $t5,$t5,16 # faz um shift no header para saber qual slave vai enviar o array
 	
 LOOP_RECEBER_NUM_ARRAY:
 	
 	lui $t0,ENDERECO_NOC	
 	lw $t2,0($t0)  #ler o status
-	addiu $t3,$zero,0x20 
+	addiu $t3,$zero,32 
 	and $t2,$t3,$t2
-	beq $t2,$t3,LOOP_RECEBER_NUM_ARRAY #verifica se o STATUS(RECIVED) é 1, se for 0 tenta ler
-
+	beq $t2,$t3,LER_NUM_ARRAY #verifica se o STATUS(RECIVED) é 1, se for 0 tenta ler
+	j LOOP_RECEBER_NUM_ARRAY
+LER_NUM_ARRAY:
 	lw $t4,4($t0) #le o dado vindo da noc
 	
 	
@@ -88,7 +90,7 @@ BUSCA_ARRAY: #percorrer o array para achar o endereço NUM_ARRAY para acionar o 
 	addiu $t7,$t7,  ARRAY_NODE_SIZE
 	j BUSCA_ARRAY
 	
-	DMA_CONFIG:
+DMA_CONFIG:
 	
 	#salvar header no array
 	sw $t5,0($t7)
@@ -97,10 +99,10 @@ BUSCA_ARRAY: #percorrer o array para achar o endereço NUM_ARRAY para acionar o 
 	addiu $t7,$t7,8
 	addiu $t8,$zero, 100	 # Alteracao Augusto
 #ROTINA PARA RECEBER VIA DMA
-	
+	lui $t0,0x0800
 	sw $t7, 20($t0)			# Grava no registrador RX o endereço da memoria que ira receber o array
 	sw $t8, 24($t0)			# Grava no registrador RX o size
-	addiu $t2, $zero, 2
+	addiu $t2, $zero, 8
 	sw $t2, 0($t0)			# Grava 2 no registrador STATUS indicando para iniciar a transmissão... té +
 #FIM ROTINA
 		
@@ -118,7 +120,7 @@ BUSCA_ARRAY: #percorrer o array para achar o endereço NUM_ARRAY para acionar o 
 	#verifica se precisa enviar arrays para ordenar
 	
 	la $t0,NUM_ENVIADOS
-	lw $t1,0($t0)
+	lw $t1,0($t0)	# t1 <- NUM_ENVIADOS
 	addiu $t0,$zero,15
 	beq $t1,$t0,LOOP_RECEBER_HEADER #caso tenha enviado todos os arrays, pula para o LOOP_RECEBER_HEADER
 	
@@ -126,7 +128,7 @@ BUSCA_ARRAY: #percorrer o array para achar o endereço NUM_ARRAY para acionar o 
 	#COMANDOS PARA ENVIAR ARRAY
 	#enviar para IP NUM_ENVIADOS+1
 	
-	sw $t6, 4($t9)			# Grava o num do IP para enviar o array
+	sw $t6, 0($t9)			# Grava o num do IP para enviar o array
 	
 	lui $t0,ENDERECO_DMA
 	addiu $t8,$zero,102   #SIZE
@@ -152,12 +154,16 @@ BUSCA_ARRAY: #percorrer o array para achar o endereço NUM_ARRAY para acionar o 
 END:
 	j END
 
+	# if NUM_ENVIADOS = send SEND_INDEX
+	# 	t6 = 1;
+
 .data 
 	NUM_ENVIADOS:		.word 0
 	ARRAYS_RECEBIDOS:	.word 0
 	SEND_INDEX:		.word 0
-	SLAVES: 		.word 4
-	ARRAY_1500:		.space 6000 #1500*4     1500 inteiros
+	SLAVES: 		.word 15
+	ARRAY_1500:		.word 0
+				
 	#HEADER		4
 	#NUM_ARRAY 	4
 	#array_elements	400
@@ -166,4 +172,3 @@ END:
 #Pooling, Receber Header e NUM_ARRAY
 #Configurar DMA
 #Ativar DMA
-

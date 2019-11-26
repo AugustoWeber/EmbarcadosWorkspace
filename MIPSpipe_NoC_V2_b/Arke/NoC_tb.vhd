@@ -38,9 +38,9 @@ begin
             PC_START_ADDRESS    => x"00400000",
             MEM_START_ADDRESS   => x"10010000",
             MemDataSize         => 1700,
-            MemDataFile         => "./MIPS/teste_master_data.txt",
+            MemDataFile         => "./MIPS/MemData1500-00.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/teste_master.txt",
+            MemInstFile         => "./MIPS/Ordenar_Master.txt",
             IP_addr             => x"000"
         )
         port map(
@@ -61,7 +61,7 @@ begin
             MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/teste_slave.txt",
+            MemInstFile         => "./MIPS/Ordenar_Slave.txt",
             IP_addr             => x"001"
         )
         port map(
@@ -82,7 +82,7 @@ begin
             MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/teste_slave.txt",
+            MemInstFile         => "./MIPS/Ordenar_Slave.txt",
             IP_addr             => x"002"
         )
         port map(
@@ -103,7 +103,7 @@ begin
             MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/teste_slave.txt",
+            MemInstFile         => "./MIPS/Ordenar_Slave.txt",
             IP_addr             => x"003"
         )
         port map(
@@ -125,7 +125,7 @@ begin
             MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/teste_slave.txt",
+            MemInstFile         => "./MIPS/Ordenar_Slave.txt",
             IP_addr             => x"004"
         )
         port map(
@@ -146,7 +146,7 @@ begin
             MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/teste_slave.txt",
+            MemInstFile         => "./MIPS/Ordenar_Slave.txt",
             IP_Addr             => x"005"
         )
         port map(
@@ -171,7 +171,7 @@ begin
             MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/teste_slave.txt",
+            MemInstFile         => "./MIPS/Ordenar_Slave.txt",
             IP_addr             => x"006"
         )
         port map(
@@ -192,7 +192,7 @@ begin
             MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
-				MemInstFile         => "./MIPS/teste_slave.txt",
+				MemInstFile         => "./MIPS/Ordenar_Slave.txt",
             IP_addr             => x"007"
         )
         port map(
@@ -214,7 +214,7 @@ begin
             MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
-				MemInstFile         => "./MIPS/teste_slave.txt",
+				MemInstFile         => "./MIPS/Ordenar_Slave.txt",
             IP_addr             => x"008"
         )
         port map(
@@ -236,7 +236,7 @@ begin
             MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/teste_slave.txt",
+            MemInstFile         => "./MIPS/Ordenar_Slave.txt",
             IP_addr             => x"009"
         )
         port map(
@@ -256,7 +256,7 @@ begin
             MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/teste_slave.txt",
+            MemInstFile         => "./MIPS/Ordenar_Slave.txt",
             IP_addr             => x"00A"
         )
         port map(
@@ -277,7 +277,7 @@ begin
             MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/teste_slave.txt",
+            MemInstFile         => "./MIPS/Ordenar_Slave.txt",
             IP_addr             => x"00B"
         )
         port map(
@@ -298,7 +298,7 @@ begin
             MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/teste_slave.txt",
+            MemInstFile         => "./MIPS/Ordenar_Slave.txt",
             IP_addr             => x"00C"
         )
         port map(
@@ -319,7 +319,7 @@ begin
             MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/teste_slave.txt",
+            MemInstFile         => "./MIPS/Ordenar_Slave.txt",
             IP_addr             => x"00D"
         )
         port map(
@@ -340,7 +340,7 @@ begin
             MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/teste_slave.txt",
+            MemInstFile         => "./MIPS/Ordenar_Slave.txt",
             IP_addr             => x"00E"
         )
         port map(
@@ -361,7 +361,7 @@ begin
             MemDataSize         => 120,
             MemDataFile         => "./MIPS/MemData100-01.txt",
             MemInstSize         => 100,
-            MemInstFile         => "./MIPS/teste_slave.txt",
+            MemInstFile         => "./MIPS/Ordenar_Slave.txt",
             IP_addr             => x"00F"
         )
         port map(

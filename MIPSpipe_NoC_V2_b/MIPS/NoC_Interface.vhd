@@ -39,6 +39,7 @@ entity NoC_Interface is
         DMA_addr        : in  std_logic_vector(31 downto 0);
         DMA_data_i      : in  std_logic_vector(31 downto 0);
         DMA_data_o      : out std_logic_vector(31 downto 0);
+        DMA_Reciving    : in  std_logic;
         halt_i          : in  std_logic;
     -- Status
         Writable_o      : out std_logic;
@@ -109,7 +110,7 @@ begin
                 if Writable = '1' and DMA_write = '1' then
                     Reg_TX <= DMA_data_i;
                     Writable <= '0';
-                elsif Readable = '1' then
+                elsif Readable = '1' and DMA_reciving = '1' then
                     -- DMA_data_o <= Reg_RX;
                     Readable <= '0';
                 end if;

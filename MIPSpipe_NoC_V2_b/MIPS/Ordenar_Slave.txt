@@ -1,0 +1,59 @@
+ Address    Code        Basic                     Source
+
+0x00400000  0x3c011001  lui $1,0x00001001     5    	la $t2,array
+0x00400004  0x342a0000  ori $10,$1,0x00000000      
+0x00400008  0x3c080900  lui $8,0x00000900     8    	lui $t0,0x0900
+0x0040000c  0x8d190000  lw $25,0x00000000($8) 11   	lw $t9,0($t0)  #ler o status
+0x00400010  0x240b0020  addiu $11,$0,0x000000212   	addiu $t3,$zero,32
+0x00400014  0x01796024  and $12,$11,$25       13   	and $t4,$t3,$t9
+0x00400018  0x118b0001  beq $12,$11,0x0000000114   	beq $t4,$t3,LER_HEADER  #verifica se o status(5) é 1, se for 1 tenta ler
+0x0040001c  0x08100003  j 0x0040000c          15   	j RX_HEADER
+0x00400020  0x8d0e0004  lw $14,0x00000004($8) 17   	lw $t6,4($t0) #le o dado vindo da noc
+0x00400024  0xad4e0000  sw $14,0x00000000($10)19   	sw $t6,0($t2) #SALVA HEADER
+0x00400028  0x3c080800  lui $8,0x00000800     26   	lui $t0,0x0800
+0x0040002c  0x254a0004  addiu $10,$10,0x00000027   	addiu $t2,$t2,4
+0x00400030  0x24090065  addiu $9,$0,0x0000006529   	addiu $t1,$zero,101	
+0x00400034  0xad0a0014  sw $10,0x00000014($8) 33   	sw $t2, 20($t0)			# Grava no registrador RX o endereço da memoria que ira receber o array
+0x00400038  0xad090018  sw $9,0x00000018($8)  34   	sw $t1, 24($t0)			# Grava no registrador RX o size
+0x0040003c  0x240a0008  addiu $10,$0,0x000000035   	addiu $t2, $zero, 8
+0x00400040  0xad0a0000  sw $10,0x00000000($8) 36   	sw $t2, 0($t0)			# Grava 8 no registrador STATUS indicando para iniciar a recepcao... té +
+0x00400044  0x24190063  addiu $25,$0,0x000000647   	addiu      $t9, $zero,99              # t9 = size
+0x00400048  0x3c011001  lui $1,0x00001001     49      	la $t8,array			#t8 = endereco array
+0x0040004c  0x34380000  ori $24,$1,0x00000000      
+0x00400050  0x27180008  addiu $24,$24,0x00000050      	addiu $t8,$t8,8
+0x00400054  0x270f0004  addiu $15,$24,0x00000054      	addiu $t7,$t8,4			#t7 = eleito array[1]
+0x00400058  0x13200015  beq $25,$0,0x00000015 57   	beq $t9,$zero,END_INSERTION	
+0x0040005c  0x3c010000  lui $1,0x00000000     58   	subiu $t9,$t9,1
+0x00400060  0x34210001  ori $1,$1,0x00000001       
+0x00400064  0x0321c823  subu $25,$25,$1            
+0x00400068  0x3c010000  lui $1,0x00000000     60   	subiu $t6,$t7,4
+0x0040006c  0x34210004  ori $1,$1,0x00000004       
+0x00400070  0x01e17023  subu $14,$15,$1            
+0x00400074  0x8ded0000  lw $13,0x00000000($15)61   	lw $t5,0($t7) #eleito
+0x00400078  0x01d8402a  slt $8,$14,$24        63   	slt $t0,$t6,$t8
+0x0040007c  0x24090001  addiu $9,$0,0x0000000164   	addiu $t1,$zero,1
+0x00400080  0x11090008  beq $8,$9,0x00000008  65   	beq $t0,$t1,end_while
+0x00400084  0x8dc90000  lw $9,0x00000000($14) 67   	lw $t1,0($t6) #array[j]
+0x00400088  0x01a9402a  slt $8,$13,$9         68   	slt $t0,$t5,$t1
+0x0040008c  0x11000005  beq $8,$0,0x00000005  69   	beq $t0,$zero,end_while
+0x00400090  0xadc90004  sw $9,0x00000004($14) 71   	sw $t1,4($t6)
+0x00400094  0x3c010000  lui $1,0x00000000     72   	subiu $t6,$t6,4
+0x00400098  0x34210004  ori $1,$1,0x00000004       
+0x0040009c  0x01c17023  subu $14,$14,$1            
+0x004000a0  0x0810001e  j 0x00400078          73   	j while_loop
+0x004000a4  0xadcd0004  sw $13,0x00000004($14)78   	sw $t5,4($t6)
+0x004000a8  0x25ef0004  addiu $15,$15,0x00000079   	addiu $t7,$t7,4
+0x004000ac  0x08100016  j 0x00400058          80   	j for_loop
+0x004000b0  0x3c011001  lui $1,0x00001001     87   	la $t1,array
+0x004000b4  0x34290000  ori $9,$1,0x00000000       
+0x004000b8  0x8d2a0000  lw $10,0x00000000($9) 88   	lw $t2,0($t1)
+0x004000bc  0x000a5400  sll $10,$10,0x0000001089   	sll $t2,$t2,16
+0x004000c0  0xad2a0000  sw $10,0x00000000($9) 90   	sw $t2,0($t1)
+0x004000c4  0x3c080800  lui $8,0x00000800     92   	lui $t0,0x0800
+0x004000c8  0x240b0067  addiu $11,$0,0x000000693   	addiu $t3,$zero,103	
+0x004000cc  0xad090004  sw $9,0x00000004($8)  95   	sw $t1, 4($t0)			# Grava no registrador TX o endereço da memoria que deseja enviar
+0x004000d0  0xad0b0008  sw $11,0x00000008($8) 96   	sw $t3, 8($t0)			# Grava no registrador TX o size
+0x004000d4  0x240a0002  addiu $10,$0,0x000000097   	addiu $t2, $zero, 2
+0x004000d8  0xad0a0000  sw $10,0x00000000($8) 98   	sw $t2, 0($t0)			# Grava 2 no registrador STATUS indicando para iniciar a transmissão... té +
+0x004000dc  0x08100000  j 0x00400000          100  	j main
+0x004000e0  0x08100038  j 0x004000e0          103  	j end 
