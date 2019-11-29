@@ -1,0 +1,81 @@
+ Address    Code        Basic                     Source
+
+0x00400000  0x3c080900  lui $8,0x00000900     9    	lui $t0,0x0900
+0x00400004  0x8d190000  lw $25,0x00000000($8) 15   	lw $t9,0($t0)  #ler o status
+0x00400008  0x240b0020  addiu $11,$0,0x000000216   	addiu $t3,$zero,32
+0x0040000c  0x01796024  and $12,$11,$25       17   	and $t4,$t3,$t9
+0x00400010  0x118b0001  beq $12,$11,0x0000000118   	beq $t4,$t3,RECEBER_HEADER  #verifica se o STALL é 1, se for 0 tenta ler
+0x00400014  0x08100001  j 0x00400004          19   	j RX_HEADER
+0x00400018  0x8d0e0004  lw $14,0x00000004($8) 21   	lw $t6,4($t0) #le o dado vindo da noc
+0x0040001c  0x3c011001  lui $1,0x00001001     23   	la $t9,HEADER
+0x00400020  0x34390000  ori $25,$1,0x00000000      
+0x00400024  0xaf2e0000  sw $14,0x00000000($25)24   	sw $t6,0($t9) #SALVA HEADER
+0x00400028  0x8d190000  lw $25,0x00000000($8) 29   	lw $t9,0($t0)  #ler o status
+0x0040002c  0x240b0020  addiu $11,$0,0x000000230   	addiu $t3,$zero,32 
+0x00400030  0x01796024  and $12,$11,$25       31   	and $t4,$t3,$t9
+0x00400034  0x118b0001  beq $12,$11,0x0000000132   	beq $t4,$t3,RECEBER_SIZE  #verifica se o STALL é 1, se for 0 tenta ler
+0x00400038  0x0810000a  j 0x00400028          33   	j RX_SIZE
+0x0040003c  0x8d0f0004  lw $15,0x00000004($8) 35   	lw $t7,4($t0) #le o dado vindo da noc
+0x00400040  0x3c011001  lui $1,0x00001001     36   	la $t9,SIZE
+0x00400044  0x34390004  ori $25,$1,0x00000004      
+0x00400048  0xaf2f0000  sw $15,0x00000000($25)37   	sw $t7,0($t9) #SALVA SIZE
+0x0040004c  0x3c080800  lui $8,0x00000800     40   	lui $t0,0x0800
+0x00400050  0x3c011001  lui $1,0x00001001     42   	la $t9,ARRAY
+0x00400054  0x34390008  ori $25,$1,0x00000008      
+0x00400058  0xad190014  sw $25,0x00000014($8) 46   	sw $t9, 20($t0)			# Grava no registrador RX o endereço da memoria que ira receber o array
+0x0040005c  0xad0f0018  sw $15,0x00000018($8) 47   	sw $t7, 24($t0)			# Grava no registrador RX o size
+0x00400060  0x240a0008  addiu $10,$0,0x000000048   	addiu $t2, $zero, 8
+0x00400064  0xad0a0000  sw $10,0x00000000($8) 49   	sw $t2, 0($t0)			# Grava 2 no registrador STATUS indicando para iniciar a transmissão... té +
+0x00400068  0x3c011001  lui $1,0x00001001     61   	la $t0,SIZE
+0x0040006c  0x34280004  ori $8,$1,0x00000004       
+0x00400070  0x8d190000  lw $25,0x00000000($8) 62   	lw $t9,0($t0)   	#CARREGAR SIZE
+0x00400074  0x2739ffff  addiu $25,$25,0xffffff63   	addiu $t9,$t9,-1
+0x00400078  0x3c011001  lui $1,0x00001001     65      	la $t8,ARRAY			#t8 = endereco array
+0x0040007c  0x34380008  ori $24,$1,0x00000008      
+0x00400080  0x270f0004  addiu $15,$24,0x00000070      	addiu $t7,$t8,4			#t7 = eleito array[1]
+0x00400084  0x13200015  beq $25,$0,0x00000015 73   	beq $t9,$zero,FIM_INSERTION	
+0x00400088  0x3c010000  lui $1,0x00000000     74   	subiu $t9,$t9,1
+0x0040008c  0x34210001  ori $1,$1,0x00000001       
+0x00400090  0x0321c823  subu $25,$25,$1            
+0x00400094  0x3c010000  lui $1,0x00000000     76   	subiu $t6,$t7,4
+0x00400098  0x34210004  ori $1,$1,0x00000004       
+0x0040009c  0x01e17023  subu $14,$15,$1            
+0x004000a0  0x8ded0000  lw $13,0x00000000($15)77   	lw $t5,0($t7) #eleito
+0x004000a4  0x01d8402a  slt $8,$14,$24        79   	slt $t0,$t6,$t8
+0x004000a8  0x24090001  addiu $9,$0,0x0000000180   	addiu $t1,$zero,1
+0x004000ac  0x11090008  beq $8,$9,0x00000008  81   	beq $t0,$t1,end_while
+0x004000b0  0x8dc90000  lw $9,0x00000000($14) 83   	lw $t1,0($t6) #array[j]
+0x004000b4  0x01a9402a  slt $8,$13,$9         84   	slt $t0,$t5,$t1
+0x004000b8  0x11000005  beq $8,$0,0x00000005  85   	beq $t0,$zero,end_while
+0x004000bc  0xadc90004  sw $9,0x00000004($14) 87   	sw $t1,4($t6)
+0x004000c0  0x3c010000  lui $1,0x00000000     88   	subiu $t6,$t6,4
+0x004000c4  0x34210004  ori $1,$1,0x00000004       
+0x004000c8  0x01c17023  subu $14,$14,$1            
+0x004000cc  0x08100029  j 0x004000a4          89   	j while_loop
+0x004000d0  0xadcd0004  sw $13,0x00000004($14)94   	sw $t5,4($t6)
+0x004000d4  0x25ef0004  addiu $15,$15,0x00000095   	addiu $t7,$t7,4
+0x004000d8  0x08100021  j 0x00400084          96   	j for_loop
+0x004000dc  0x3c080900  lui $8,0x00000900     106  	lui $t0,0x0900
+0x004000e0  0x3c011001  lui $1,0x00001001     108  	la $t1,HEADER #CARREGAR O HEADER RECEBIDO
+0x004000e4  0x34290000  ori $9,$1,0x00000000       
+0x004000e8  0x8d290000  lw $9,0x00000000($9)  109  	lw $t1,0($t1)
+0x004000ec  0x00095400  sll $10,$9,0x00000010 112  	sll $t2,$t1,16
+0x004000f0  0x00096c02  srl $13,$9,0x00000010 113  	srl $t5,$t1,16
+0x004000f4  0x014d6825  or $13,$10,$13        114  	or $t5,$t2,$t5 
+0x004000f8  0x8d0e0000  lw $14,0x00000000($8) 118  	lw $t6,0($t0) # carrega o status
+0x004000fc  0x240f0010  addiu $15,$0,0x0000001119  	addiu $t7,$zero,16 #ve se pode transmitir	
+0x00400100  0x01cf7024  and $14,$14,$15       120  	and $t6,$t6,$t7
+0x00400104  0x11cf0001  beq $14,$15,0x00000001122  	beq $t6,$t7, ENVIAR_HEADER
+0x00400108  0x0810003e  J 0x004000f8          123  	J LOOP_HEADER    #caso não consiga enviar retorna para LOOP_HEADER
+0x0040010c  0xad0d0004  sw $13,0x00000004($8) 125  	sw	$t5,4($t0) 	#Enviar HEADER PELA NOC
+0x00400110  0x3c011001  lui $1,0x00001001     130  	la $t9, ARRAY
+0x00400114  0x34390008  ori $25,$1,0x00000008      
+0x00400118  0x3c011001  lui $1,0x00001001     132  	la $t7,SIZE
+0x0040011c  0x342f0004  ori $15,$1,0x00000004      
+0x00400120  0x8def0000  lw $15,0x00000000($15)133  	lw $t7,0($t7)
+0x00400124  0x3c080800  lui $8,0x00000800     134  	lui $t0,0x0800    #carrega endereco do DMA
+0x00400128  0xad190004  sw $25,0x00000004($8) 137  	sw $t9, 4($t0)			# Grava no registrador TX o endereço da memoria onde começa o ARRAY
+0x0040012c  0xad0f0008  sw $15,0x00000008($8) 138  	sw $t7, 8($t0)			# Grava no registrador TX o size
+0x00400130  0x240a0002  addiu $10,$0,0x0000000139  	addiu $t2, $zero, 2
+0x00400134  0xad0a0000  sw $10,0x00000000($8) 140  	sw $t2, 0($t0)			# Grava 2 no registrador STATUS indicando para iniciar a transmissão... té +
+0x00400138  0x0810004e  j 0x00400138          145  	j end 

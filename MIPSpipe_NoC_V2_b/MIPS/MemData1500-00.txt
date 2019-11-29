@@ -1,7 +1,7 @@
 0x10010000  0x00000000  Num Enviados
 0x10010004  0x00000000  Arrays Recebidos
 0x10010008  0x00000000  Send Index
-0x1001000C  0x00000002  Slaves - Para quantos IP serão distribuidos os serviços de ordenação
+0x1001000C  0x0000000F  Slaves - Para quantos IP serão distribuidos os serviços de ordenação
 0x10010010  0x00000001  HEADER Array 1
 0x10010014  0x00000001  Num Array
 0x10010018  0x00000064	

@@ -15,13 +15,13 @@
          <ClosedNode>PROJECT</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>NoC - structural (/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2_b/Arke/NoC.vhd)</SelectedItem>
+         <SelectedItem>NoC_tb - NoC_tb_tree (/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2_b/Arke/NoC_tb_Tree.vhd)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000020200000001000000010000006400000382000000020000000000000000000000000200000064ffffffff000000810000000300000002000003820000000100000003000000000000000100000003</ViewHeaderState>
+      <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000004a3000000020000000000000000000000000200000064ffffffff000000810000000300000002000004a30000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>NoC - structural (/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2_b/Arke/NoC.vhd)</CurrentItem>
+      <CurrentItem>NoC_tb - NoC_tb_tree (/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2_b/Arke/NoC_tb_Tree.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="SynthesisOnly" sourcetype="" guiview="Process" >
       <ClosedNodes>
@@ -67,7 +67,7 @@
       <SelectedItems>
          <SelectedItem>Create Schematic Symbol</SelectedItem>
       </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >1</ScrollbarPosition>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000302000000010000000100000000000000000000000064ffffffff000000810000000000000001000003020000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
@@ -134,34 +134,23 @@
          <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_31_MIPS - MIPS_IP - structural</ClosedNode>
          <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_32_MIPS - MIPS_IP - structural</ClosedNode>
          <ClosedNode>/NoC_tb - NoC_tb |home|ise|ISEworkspace|EmbarcadosWorkspace|MIPSpipe_NoC_V2|Arke|NoC_tb.vhd/IP_33_MIPS - MIPS_IP - structural</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb_tree |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|Arke|NoC_tb.vhd</ClosedNode>
+         <ClosedNode>/NoC_tb - NoC_tb_tree |home|augusto|Desktop|Embarcados|ISE_Workspace|MIPSpipe_NoC_V2_b|Arke|NoC_tb_Tree.vhd</ClosedNode>
          <ClosedNode>PROJECT</ClosedNode>
       </ClosedNodes>
       <SelectedItems>
-         <SelectedItem>NoC_tb - NoC_tb (/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2_b/Arke/NoC_tb.vhd)</SelectedItem>
+         <SelectedItem>NoC_tb - NoC_tb_tree (/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2_b/Arke/NoC_tb.vhd)</SelectedItem>
       </SelectedItems>
       <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
       <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
       <ViewHeaderState orientation="horizontal" >000000ff000000000000000100000001000000000000000000000000000000000202000000010000000100000064000003bf000000020000000000000000000000000200000064ffffffff000000810000000300000002000003bf0000000100000003000000000000000100000003</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >true</UserChangedColumnWidths>
-      <CurrentItem>NoC_tb - NoC_tb (/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2_b/Arke/NoC_tb.vhd)</CurrentItem>
+      <CurrentItem>NoC_tb - NoC_tb_tree (/home/augusto/Desktop/Embarcados/ISE_Workspace/MIPSpipe_NoC_V2_b/Arke/NoC_tb.vhd)</CurrentItem>
    </ItemView>
    <ItemView engineview="BehavioralSim" sourcetype="" guiview="Process" >
       <ClosedNodes>
          <ClosedNodesVersion>1</ClosedNodesVersion>
          <ClosedNode>Design Utilities</ClosedNode>
-      </ClosedNodes>
-      <SelectedItems>
-         <SelectedItem/>
-      </SelectedItems>
-      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
-      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
-      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000312000000010000000100000000000000000000000064ffffffff000000810000000000000001000003120000000100000000</ViewHeaderState>
-      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
-      <CurrentItem/>
-   </ItemView>
-   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
-      <ClosedNodes>
-         <ClosedNodesVersion>1</ClosedNodesVersion>
       </ClosedNodes>
       <SelectedItems>
          <SelectedItem></SelectedItem>
@@ -171,6 +160,19 @@
       <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000312000000010000000100000000000000000000000064ffffffff000000810000000000000001000003120000000100000000</ViewHeaderState>
       <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
       <CurrentItem></CurrentItem>
+   </ItemView>
+   <ItemView engineview="BehavioralSim" sourcetype="DESUT_VHDL_ARCHITECTURE" guiview="Process" >
+      <ClosedNodes>
+         <ClosedNodesVersion>1</ClosedNodesVersion>
+      </ClosedNodes>
+      <SelectedItems>
+         <SelectedItem>Simulate Behavioral Model</SelectedItem>
+      </SelectedItems>
+      <ScrollbarPosition orientation="vertical" >0</ScrollbarPosition>
+      <ScrollbarPosition orientation="horizontal" >0</ScrollbarPosition>
+      <ViewHeaderState orientation="horizontal" >000000ff00000000000000010000000100000000000000000000000000000000000000000000000312000000010000000100000000000000000000000064ffffffff000000810000000000000001000003120000000100000000</ViewHeaderState>
+      <UserChangedColumnWidths orientation="horizontal" >false</UserChangedColumnWidths>
+      <CurrentItem>Simulate Behavioral Model</CurrentItem>
    </ItemView>
    <SourceProcessView>000000ff00000000000000020000012e0000018401000000060100000002</SourceProcessView>
    <CurrentView>Behavioral Simulation</CurrentView>

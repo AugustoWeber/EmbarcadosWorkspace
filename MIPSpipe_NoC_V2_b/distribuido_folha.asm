@@ -13,11 +13,12 @@ main:
 #Receber HEADER
 RX_HEADER:
 	lw $t9,0($t0)  #ler o status
-	addiu $t3,$zero,0x20 
+	addiu $t3,$zero,32
 	and $t4,$t3,$t9
-	beq $t4,$t3,RX_HEADER  #verifica se o STALL é 1, se for 0 tenta ler
-	
-	lw $t6,0($t0) #le o dado vindo da noc
+	beq $t4,$t3,RECEBER_HEADER  #verifica se o STALL é 1, se for 0 tenta ler
+	j RX_HEADER
+RECEBER_HEADER:
+	lw $t6,4($t0) #le o dado vindo da noc
 	
 	la $t9,HEADER
 	sw $t6,0($t9) #SALVA HEADER
@@ -26,11 +27,12 @@ RX_HEADER:
 RX_SIZE:
 
 	lw $t9,0($t0)  #ler o status
-	addiu $t3,$zero,0x20 
+	addiu $t3,$zero,32 
 	and $t4,$t3,$t9
-	beq $t4,$t3,RX_SIZE  #verifica se o STALL é 1, se for 0 tenta ler
-	
-	lw $t7,0($t0) #le o dado vindo da noc
+	beq $t4,$t3,RECEBER_SIZE  #verifica se o STALL é 1, se for 0 tenta ler
+	j RX_SIZE
+RECEBER_SIZE:
+	lw $t7,4($t0) #le o dado vindo da noc
 	la $t9,SIZE
 	sw $t7,0($t9) #SALVA SIZE
 	
@@ -43,7 +45,7 @@ RX_SIZE:
 	
 	sw $t9, 20($t0)			# Grava no registrador RX o endereço da memoria que ira receber o array
 	sw $t7, 24($t0)			# Grava no registrador RX o size
-	addiu $t2, $zero, 2
+	addiu $t2, $zero, 8
 	sw $t2, 0($t0)			# Grava 2 no registrador STATUS indicando para iniciar a transmissão... té +
 #FIM ROTINA
 
@@ -58,16 +60,17 @@ RX_SIZE:
 	#addiu      $t9, $zero,100              # t9 = size
 	la $t0,SIZE
 	lw $t9,0($t0)   	#CARREGAR SIZE
+	addiu $t9,$t9,-1
 	
    	la $t8,ARRAY			#t8 = endereco array
-   	addiu $t8,$t8,8
+ 
    	
    	
    	
    	addiu $t7,$t8,4			#t7 = eleito array[1]
    	
 for_loop:				#for size--
-	beq $t9,$zero,end	
+	beq $t9,$zero,FIM_INSERTION	
 	subiu $t9,$t9,1
 	
 	subiu $t6,$t7,4
@@ -97,6 +100,7 @@ end_while:
 
 #ENVIAR DE VOLTA VIA DMA MASTER
 	
+FIM_INSERTION:
 
 #Enviar para o MASTER
 	lui $t0,NOC_ADDR
@@ -112,7 +116,7 @@ end_while:
 #enviar o Header  |ORIGEM|DESTINO| 32 bits
 LOOP_HEADER:
 	lw $t6,0($t0) # carrega o status
-	addiu $t7,$zero,0x40 #ve se pode transmitir	
+	addiu $t7,$zero,16 #ve se pode transmitir	
 	and $t6,$t6,$t7
 	
 	beq $t6,$t7, ENVIAR_HEADER
@@ -127,7 +131,7 @@ ENVIAR_HEADER:
 	#Carregar SIZE
 	la $t7,SIZE
 	lw $t7,0($t7)
-	addiu $t0,$zero,DMA_ADDR    #carrega endereco do DMA
+	lui $t0,DMA_ADDR    #carrega endereco do DMA
 	
 #ROTINA PARA ENVIAR VIA DMA
 	sw $t9, 4($t0)			# Grava no registrador TX o endereço da memoria onde começa o ARRAY
@@ -144,3 +148,4 @@ end:
     	HEADER:  .word 0
     	SIZE:	.word 0
     	ARRAY:      .space 40 
+
